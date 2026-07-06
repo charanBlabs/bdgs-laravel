@@ -1,0 +1,38 @@
+---
+description: SEO + AI-agent readiness gate for BD Growth Suite public pages. Every public page must pass the seo-page-audit skill before it is done. Applies when editing Blade views.
+globs: "**/*.{blade.php,html}"
+alwaysApply: false
+---
+
+# SEO Standards (page build gate)
+
+Every public page must pass `seo-page-audit` **twice** before it is "done".
+
+## Read first (do not re-guess)
+
+- `data/seo-pages.json` — this page's row: primary keyword, funnel, schema types, status.
+- `docs/seo-keyword-map.md` — use only the phrases mapped to this page. Do not invent keywords per page.
+
+## Definition of done (every public page)
+
+1. In `data/seo-pages.json` (status `live`), `public/sitemap.xml`, and `public/llms.txt`.
+2. Unique title, meta description (<=160 chars, includes the main phrase), canonical URL, Open Graph + Twitter tags, favicon — in `resources/views/pages/{slug}/index.blade.php` `@section('meta')`.
+3. Exactly one `<h1>`; primary phrase in the H1 and first paragraph — in `content.blade.php`.
+4. `<h2>`s written as real search questions; the first sentence under each is a direct, quotable answer (AEO).
+5. JSON-LD via `@push('page-schema')` + `partials/bdgs/schema-{slug}.blade.php`: Organization + WebPage + Breadcrumb minimum; FAQPage if FAQ exists.
+6. **.md mirror:** handled by `App\Http\Middleware\ProvideMarkdownResponse` on the route group. No manual `index.md` files. Test: `/{slug}.md` returns markdown (e.g. `/services.md`).
+7. **CopyPageButton (FAB):** included via `layouts/bdgs.blade.php` → `partials/bdgs/copy-page-fab` (homepage sets `$showFab = false`).
+8. Meaningful alt text on every image; `loading="lazy"` below the fold.
+9. 3–5 internal links to other key pages.
+10. Fast on mobile; returns HTTP 200 with no console errors.
+11. Agent-ready: every interactive element has an accessible name; media has `width`/`height`; forms have labeled fields and stable URLs.
+
+After a page flips to `status: live` in `data/seo-pages.json`, run `python scripts/build_seo_files.py` to regenerate `public/sitemap.xml` + `public/llms.txt`.
+
+## Utility pages (login, admin, thank-you)
+
+`noindex`, not in sitemap/llms.txt, no `.md` mirror, no FAB.
+
+## Skills
+
+Ask the SEO agent team when building or optimizing: `seo-guru` (manager) -> `seo-keyword-research`, `seo-page-audit`, `seo-pagespeed`, `seo-copywriter`, `seo-content-topics`.

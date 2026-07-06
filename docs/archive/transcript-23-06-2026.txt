@@ -1,0 +1,367 @@
+BDGS v2.0 - June 23
+VIEW RECORDING - 58 mins (No highlights): 
+
+---
+
+2:32 - Yakin Shah (yakinjshah@gmail.com)
+  Vikas, join. Hello, Charan. Not yet, sir. Thank you. Yeah, he's not in No sir. What is No sir.
+
+4:16 - Charan Tej Vattikuti
+  What is the phone call?
+
+4:19 - Yakin Shah (yakinjshah@gmail.com)
+  When the message be sent?
+
+4:56 - Charan Tej Vattikuti
+  Thank you. And I thought we were in Texas, which I said today, I think I'm going to put out.
+
+7:03 - Yakin Shah (yakinjshah@gmail.com)
+  Hello. Hello.
+
+7:09 - Vikash Kumar
+  Okay.
+
+7:10 - Yakin Shah (yakinjshah@gmail.com)
+  So why I included you, Vikash, we started two sections per day, two sections per day, two sections per day, so yesterday was our day one and it failed.  Today we not So maybe somewhere, we have to ensure that today we want to discuss another two sections for today.  Yesterday is pending backlog. Charan, yesterday all completed? Backend needs to be completed. So what will our backlog increase? Problem is this.  So many slide.
+
+7:59 - Charan Tej Vattikuti
+  Thank you. the video, there's
+
+8:02 - Yakin Shah (yakinjshah@gmail.com)
+  If you give me 3-4 hours, then I'll in the cursor. We just stopped points after two sections, correct? Curser is there, Charan.  So today we will continue. So today we will continue. Please share your screen, Charan. So on the services menu.  So number one item was github me v8 ke anzar me number one thing was yeh joh page tumhara local meh.  This has to be in v8 in github of my given repo. Woh ho gya kya? Actually, That was what I was waiting for from you, so actually I am making it the local group.  But if I have to contribute to it, if I get chance free, then I can't do it, so after this meeting, every 20 minutes I have completed this.  So every 20 minutes, one thing should move forward.
+
+9:37 - Charan Tej Vattikuti
+  Understood, right?
+
+9:38 - Yakin Shah (yakinjshah@gmail.com)
+  In one hour, three things should move forward. But not in one hour, three things should move forward. Exactly at every 20 minutes, one thing should move forward.  Because every 19th minute, please make a strong follow-up. If today has eight hours, eight hours, 24 items should move forward.
+
+10:00 - Vikash Kumar
+  Okay? So first thing first, we should to the GitHub repo.
+
+10:05 - Yakin Shah (yakinjshah@gmail.com)
+  If this has not gone, we should not have moved forward at all. It means, are you able to understand Charan?  Yes. We shouldn't thing, so we shouldn't have done it. So what will happen if that thing will be Now, how do access to Tell me little bit.  Why you don't have access?
+
+10:30 - Charan Tej Vattikuti
+  Actually, I'm not collabed in this, so I can't be able to push. It is a public repo, Bhaiya.
+
+10:39 - Yakin Shah (yakinjshah@gmail.com)
+  Why you collab? Open repo. Not repo open.
+
+11:00 - Charan Tej Vattikuti
+  This is it, right?
+
+11:01 - Yakin Shah (yakinjshah@gmail.com)
+  Is it public or private? Public.
+
+11:05 - Charan Tej Vattikuti
+  In public, can you add code?
+
+11:07 - Yakin Shah (yakinjshah@gmail.com)
+  Can you just click on add file? Can you upload folder? Yeah, uploads are disabled. Okay, go back. Add file, create new file.  You need to fork this registry. Okay, hold it. So then, what need to Collaborators and teams, use password, password, done.  you have business labs in the repo? Business labs?
+
+11:49 - Charan Tej Vattikuti
+  Yes, yes, but there is a new contributor to identify this one. Hold it.
+
+11:57 - Yakin Shah (yakinjshah@gmail.com)
+  No, Shrikant is there. your I'm host, I'm next third one. The In which team he is? BD Projects team.  So, BD Projects team hai? Okay. It's Shrikhand hai, Charan hai. Rukh, Rukh, Rukh, Rukh, Rukh, Rukh. Rai Shrikhand, Charan hai, hai.  Rukh. Maintain. Can you check once please again? Refresh and do that something?
+
+12:34 - Charan Tej Vattikuti
+  I can. You can do, right?
+
+12:36 - Yakin Shah (yakinjshah@gmail.com)
+  Okay. So, first task. Can you please open your team? you have written a transcript in the writing. The very first thing.  What was it?
+
+12:57 - Charan Tej Vattikuti
+  Revert repository to the original.
+
+13:03 - Yakin Shah (yakinjshah@gmail.com)
+  So when are you talking about that, today I am getting to know that you are facing some issues, right?  When asked.
+
+13:19 - Charan Tej Vattikuti
+  I have done this but I haven't pushed the V8 and V7 to Github. So these rules are actually I haven't set in the question.  Yesterday we discussed right or not?
+
+13:33 - Yakin Shah (yakinjshah@gmail.com)
+  If in Github I should need that. Okay, what is next?
+
+13:53 - Charan Tej Vattikuti
+  So we need to check down the columns and width before sending that fairly. Okay, next. Need to create a V8 and V9, and need to create the menu using this one.  Okay.
+
+14:06 - Yakin Shah (yakinjshah@gmail.com)
+  And the second one, it's a standard golden rule of any project you do, even if it is BD or non-BD, you have to it GitHub before EOD.  If in EOD your GitHub is not updated, what happens if your computer goes lost, your work gets lost? If your computer has a hard drive crash, what will happen?
+
+14:30 - Charan Tej Vattikuti
+  Understood, right?
+
+14:32 - Yakin Shah (yakinjshah@gmail.com)
+  That is the thumb rule of any project. Okay.
+
+14:36 - Vikash Kumar
+  Like, if work in you daily backup and backup.
+
+14:41 - Charan Tej Vattikuti
+  Actually, I am pushing it by depository.
+
+14:43 - Vikash Kumar
+  Get push and pull the other, in the morning and in evening.
+
+14:48 - Charan Tej Vattikuti
+  I have actually created this one, so this I am pushing. Correct.
+
+14:52 - Yakin Shah (yakinjshah@gmail.com)
+  So you delete your personal repository. Because for the same project, if there are different repositories, I am following one thing.  We following one thing. What will happen? put a message to you. Last section, content I have revised. Please check.  You will hard and I will hard. My pull and push will happen in the wrong place. Your pull and push will happen in the wrong place.  Correct? Yes. Then menu update. Menu is updated in V8? Yes, sir. Okay.
+
+15:21 - Charan Tej Vattikuti
+  Zoom clinics, front and back end?
+
+15:24 - Yakin Shah (yakinjshah@gmail.com)
+  Back end, we actually need to add this one.
+
+15:26 - Charan Tej Vattikuti
+  Clinics topics need to be added. Okay.
+
+15:29 - Yakin Shah (yakinjshah@gmail.com)
+  you group. And two to five bullet points per topic. I mean, an idea will And some topic can be 15 minutes.  Some topic can be 25 minutes. Some topic can even be 10 minutes. No problem. But nothing should be more than 25 minutes.  Do you Yes. So to get the topic, you use Claude. Claude, Sonate, Opus, and what should do? Go to blog.  I. I'm sorry, go to Google Chrome, open BrilliantDirectors.com, not Marketplace, BrilliantDirectors.com, upar mein free resources, is mein live training webinars, scroll down, scroll down, upar mein search for Butler, search topic mein Butler likhna, single T, you get some topics.  From here. Don't scroll down. There are a few more MCPs. Similarly, Facebook group is there. Facebook group may ascending or descending by post, not by recent activity.  You know it, right? How to do it? Yeah. Yeah. That's So they sent new post. Right-hand side of the search.  Here's a JSON. Enter. See, you can see more, read more, this way. Okay, recent post filter. View profile, Jason Hallowsan.  Okay, View profile.
+
+18:19 - Charan Tej Vattikuti
+  Scroll down.
+
+18:20 - Yakin Shah (yakinjshah@gmail.com)
+  No, this is not. Back. Scroll down. This post is Jason Hallowsan's photo. It's called name, name. Okay. So this is the group post.  See in the URL, profile is there, but group URL is also there in the URL. Group forward slash, user forward slash.  So yeah, now you keep scrolling down here. Keep scrolling down here. See, one genuine post went off. Correct. So from here, you have to properly document everything, and you have to give AIK, we have to have genuine value addition to our Zoom Clinic.  BD already does that, and if BD is doing, let's say it's solving 10-20%, if that is 10-20% of what actual BD site owner will want, we should be 50, we should be 50.  At least 4 times better our content, our topics and the content in that topic, whatever we will teach in, anywhere between 10 minutes to maximum 25 minutes, that one thing we teach, two things we teach, or three things we teach in that 10-20-30 minutes, everything should be that valuable, that should actually help, in a very good manner it should help.  So you can give all this content, you can give content from MCP filter and also from there, that all this content recently BD team has been doing.  Understood, right? Thank you. Okay. Go back to your teams. Okay. So please, this lunch. Now coming to the reviews page.  I mean, you will submit first draft of your eight topics with two to five bullet points in each topic.  It might get rejected.
+
+20:47 - Charan Tej Vattikuti
+  It might be not fully rejected, may be fully rejected. You will redo it.
+
+20:51 - Yakin Shah (yakinjshah@gmail.com)
+  So we to So first 20 minutes, give it up. Next 20 minutes, next 20-30 minutes, have eight topics. Share it in the group, within an hour, all together.  For one hour or two hours, we may fine-tune it further. Before lunch, the end result has to be achieved before lunch.  Up to your Zoom clinics. In Zoom clinics, yesterday we discussed what happen front-end and all that. That is done?
+
+21:27 - Charan Tej Vattikuti
+  Yes sir, but currently it is starting.
+
+21:34 - Yakin Shah (yakinjshah@gmail.com)
+  No, we didn't. Hold a minute, hold a minute, hold a minute. What happened? Let's improve the UI. You have dropped down, correct?
+
+21:54 - Charan Tej Vattikuti
+  That drop-down doesn't explain to the people.
+
+21:58 - Yakin Shah (yakinjshah@gmail.com)
+  Vikash, your calendar... Do Yes, I have. I am using UI-UX, Charan. This UI-UX, beforehand only I have done it.  You have just added a drop-down, but that drop-down is not making sense there. way. Charan, Vikash, is there a link?  I am using the chat.
+
+22:24 - Vikash Kumar
+  Please open that link.
+
+22:35 - Yakin Shah (yakinjshah@gmail.com)
+  Now, let's say this is a scheduling calendar. Scroll down. Look. There is calendar link, Vikash. It calendar link. calendar link.  a calendar is not calendar link. Are you able to understand Charan? Yes. Where is that provided? Where is the drop-down provided?  Outside the UI or inside the UI? Inside the UI. Where the timing are provided, you see, where the timing is provided.  Oh my god, can you please keep sharing your screen? Can you please bring your mouse at 12.30pm? So those are time slots.  Right above the time slot means Asmara time, 12.30pm. Asmara time, 1pm. So you understood where it was provided in the UI?  It's inside the UI it has been provided. Outside the UI means, can you bring your mouse below? Below, not above.  Below, below, below, below, below, below, Little more below. Yeah, that is outside the UI. You came outside of the white box.  Understood, na? That's okay. So time is not provided outside the UI. It was provided inside the UI in the very appropriate place.  So people can clearly understand that ASMR time is 12.30pm. Understood, right? Yes.
+
+24:12 - Charan Tej Vattikuti
+  Okay.
+
+24:13 - Yakin Shah (yakinjshah@gmail.com)
+  In our design, where it has been provided? Is it inside the UI or outside the UI?
+
+24:24 - Charan Tej Vattikuti
+  Absolutely.
+
+24:25 - Yakin Shah (yakinjshah@gmail.com)
+  Why have you done like that? So please brainstorm. And I will give you one more example of another example of link.  Can you please open this link provided in Vikash? can put your link in Because if the meeting will finished, your link will removed.  Okay, cool. Can you please open this link which I shared in group? So over here you see time zone.  Time zone is of course outside the UI as of now because it is below the time, time is coming.  But now click on the dates. So they brought dates like that. So 24th time zone, if it is outside the UI, it is not exactly above the time and exactly that time is not able to with so they have word used time zone.  Understood? That gives a clarity. So do something with that UI, please. Okay. Okay. So yeah, please, UI, we will close by 3330 today.  close. So please, after lunch, these 20-20 minutes, so that It can get closed, okay. Next is scheduled session. Scheduled session, what is wrong?  What should we write? What are the buttons? It's an event.
+
+27:18 - Charan Tej Vattikuti
+  Actually, I have asked a question to take it. Actually, after this one, it will show a book. So once we click on this, form will be opened.  So here it is confirmed. Because it gave me, it's actually at some session, so it gave like this.
+
+27:47 - Yakin Shah (yakinjshah@gmail.com)
+  But the Zoom session is not one-to-one. It is kind of webinar only. So please, Brainstorm with AI for the right copy.  The button name is not great. Schedule session is great, then you should there, means your language didn't go the same with the place.  Understood, right?
+
+28:14 - Charan Tej Vattikuti
+  Yes.
+
+28:16 - Yakin Shah (yakinjshah@gmail.com)
+  And see full schedule. Now, what's schedule session on? So schedule session means see full schedule. You're the session above.  you understand? On Mayah means on June 25th, 7am to 8am, MDT, there is one meeting going to happen. In that one hour, what exactly going to happen every 10 minutes, it's full schedule.  Is that true? Because the schedule session is that word, and the full schedule, it means that...
+
+29:09 - Charan Tej Vattikuti
+  5. 10. 4. 3. 5. 10. 7.
+
+29:21 - Yakin Shah (yakinjshah@gmail.com)
+  10. 11. 11. 12. When the task will be in 2 or 3, you will to brainstorm, final, and add a group Don't give EOD updates in the group.  If there are 7 things to be done, 7 updates at right intervals. So, when it is free, you will help and close.  And next, what was So we will close the So we will see results page and the details page. What is next?
+
+30:15 - Charan Tej Vattikuti
+  explore services, start page.
+
+30:21 - Yakin Shah (yakinjshah@gmail.com)
+  Up page.
+
+30:23 - Charan Tej Vattikuti
+  This category. One minute.
+
+31:50 - Yakin Shah (yakinjshah@gmail.com)
+  How many other people does about the events? Ruko. Binar ka brilliant directories se bhi email jatay rata na?
+
+32:06 - Vikash Kumar
+  Aata na?
+
+32:07 - Yakin Shah (yakinjshah@gmail.com)
+  Hhmm The email me landing page ko lake jatay o log.. Correct? They take us to a landing page. In their emails, correct?  Hmm, my bhi dhek rahu.
+
+32:25 - Charan Tej Vattikuti
+  Weepnirir ka eek landing page hai o log ka.
+
+32:28 - Yakin Shah (yakinjshah@gmail.com)
+  Hai na? Kuch hai, language waahanse mil jay ga aapne ko. O, kaun sa hai bhaayi wo? Page, that page..?  you know million look forward slash stream ball game brilliant director is dot com forward slash s p r e a m  Charan? Yes. And I have two emails followed you. One time you can check your please. Scroll down. See, cpn connect link click.  See, for all webinars. This page is under design. Test basis. But register for all webinars click. See, they use the word register now.
+
+33:54 - Charan Tej Vattikuti
+  So register now is good, language.
+
+33:57 - Yakin Shah (yakinjshah@gmail.com)
+  Go to email. Scroll down. See, register now is a good e-mail. Back jau, or a mail forward kia. Scroll down.  Wohh three dots kohin phe rah tha, usko click karna padega tumko. Naya hai? Hold, hold, hold, hold, sorry. That takes a bit of a look.  Okay, yeh thodi dar mein a jae ga. You open your teams, we will talk one more point, then we will go to the webinar.  Because it will take 60 seconds. So, zoom clinics you will solve. Zoom clinics honne ke baad uska results page or uska detail page bhi clean karo ge, jis meh sidebar humko nahi chahiye.  Or sidebar humga abhi to just participants wala sidebar humga. Instead of posted. to buy, it will be participants and nothing else, right?  And topic, we will cover, etc. No sharing, no filters, nothing. Then reviews page. Reviews page, what is the progress?
+
+35:12 - Charan Tej Vattikuti
+  So database scripted, which made a scrapper made by Python. So I have also checked the schema 1.1. So on explore more clicker, it be loaded.  It won't here. You have to probably go back here, right? Yes. So what did it to you?
+
+35:37 - Yakin Shah (yakinjshah@gmail.com)
+  A scrapper.
+
+35:38 - Charan Tej Vattikuti
+  Actually for every review, you need to scrap this one, exact value, and update in the database.
+
+35:48 - Yakin Shah (yakinjshah@gmail.com)
+  Scrapper? No, yet.
+
+35:53 - Charan Tej Vattikuti
+  Okay. Okay.
+
+35:54 - Yakin Shah (yakinjshah@gmail.com)
+  So the rest of the UI and UX has become a plugin, whatever we need to do, or not? That's true.
+
+36:01 - Charan Tej Vattikuti
+  That's not true.
+
+36:42 - Yakin Shah (yakinjshah@gmail.com)
+  okay next general pages link static page for explore services okay now wrong Charan, this design is wrong. We can't have this set up and launch, you are writing what's included, correct?  Why it is the accelerator? So actually taken from the conversation that from the cloud, so cloud conversation, brainstorming session, MD file, so it may say for A.O.O.S.  check it, because the accelerator set up was wrong. It was a different thing. So over here, when we talk about setup, our upcoming setup are going to be two setups.  One is Express Setup, one is Founder Concierge. So this setup which one you see right now, this is final.  So now you provide to your same AI, that this the first home page set up card, this was a logged item.  This is not fully logged, but tentatively logged. Understood, right? Maybe small little content will updated, but one will be express set up and one will be founder concierge.  So, these are two things. This will come in and Zoom Clinics. Do you understand? And why I said the page didn't come, please go to that page.  See, your first value proposition, you are on a desktop computer, correct? Please click Ctrl++ for two times. much. back.  Okay, over here our important call to action should have been there, if it launched, there should buying here without requirement of a scroll.  Are you able to understand what I am saying? Yes.
+
+40:29 - Charan Tej Vattikuti
+  People should have been able to purchase from here.
+
+40:32 - Yakin Shah (yakinjshah@gmail.com)
+  Now please do the same thing, go to home again, just click back button. It is the same expanded zoom, correct?
+
+40:46 - Charan Tej Vattikuti
+  No, sir. Correct, 125%?
+
+40:49 - Yakin Shah (yakinjshah@gmail.com)
+  Yes. Without scrolling the page, we want our users to understand what we do fully. Click on explore services or click join free zoom.  One of the two, without requirement of a scroll. This logic has to be applied everywhere. Now you understood what I am saying.  Your first hero service.
+
+41:17 - Charan Tej Vattikuti
+  So actually, in one section, you can this thing. Actually, how can you You think about it.
+
+41:27 - Yakin Shah (yakinjshah@gmail.com)
+  That's what you have to give options. That's what it is required. Yesterday also I told you, please keep sending screenshots in group.  So, and when you proceed with one's item, then you brainstorm. Instead of an EOD or next day update. If you can come out with two, four options, or if you can come out with some then come out with some ideas.  Understood, right? So, basically, if I have to actually think at... I will think in my free time, my best free time is somewhere around 2 am, when I am at very much relaxed mood, so that time I can do with Karsap, so then I will it, if you are not able to come up with very good options by today, then I will get into tomorrow, no problem.  But, Kamsiqam, you please try to get into it today, okay? So please open the themes, after explore services, check out all webinars, and link it to video post type.
+
+42:41 - Charan Tej Vattikuti
+  Where is check out all webinars?
+
+42:45 - Yakin Shah (yakinjshah@gmail.com)
+  Yes, is.
+
+42:49 - Charan Tej Vattikuti
+  It is not done? No, post type is done, but not linked yet. Okay.
+
+43:02 - Yakin Shah (yakinjshah@gmail.com)
+  Okay, this was yesterday. Okay, now for today's one more section, have two more sections we have to take, scroll down, start your setup.  So now what will happen? We have to create one Spock page. Hub page means where we will have multiple lists.  Spock page means ultimate landing page. So we have to create ultimate landing page for these six items. One is start your setup.  And again, you have to come up with the idea. Right now, you've got the idea. There three setups, correct?  We have an express setup, a founder and a Zoom clinic. Understood, right?
+
+43:57 - Charan Tej Vattikuti
+  Yes. So,
+
+44:00 - Yakin Shah (yakinjshah@gmail.com)
+  So we will show it on the setup page, okay? Yes.
+
+44:04 - Charan Tej Vattikuti
+  Get a dedicated developer.
+
+44:06 - Yakin Shah (yakinjshah@gmail.com)
+  Now, please can you scroll down this page to that chipping cards, scroll down that page, okay, scroll down. Next is dedicated developers.  In dedicated developers further, we have to say that Zoom Clinics has all come. You see, you understand? You see, you see over here, can you see over here the content?  Long Term Commitment, AI CV, 2X Faster with AI, Friday Idea, Monday Prototype, dedicated developer, and AI Dev Fleet, a team of AI agents plus supervisor working on your directory, pay for one, get the The of many, multiple agents working in parallel, human supervisor.  Reviewing, every output, 3x of velocity, at lower cost. Now we fleet branch-thrump page. Do you understand? Yes.
+
+45:11 - Charan Tej Vattikuti
+  So, what will happen?
+
+45:13 - Yakin Shah (yakinjshah@gmail.com)
+  In a dedicated developer, you will again have these 3 sections. You can small section for Zoom clinics. If you have small problems, which can be solved in, let's say, 1 hour.  You never have to pay for developers anywhere. Unlimited free help is provided here. Correct? So, dedicated developer or AI dev fleet.  be dedicated here, but it AI development fleet. Now, scroll up. So, over here, you will create a dedicated developer page.  But what dedicated developer page... there a dev fleet? So dedicated developer page, it will known Zoom Clinics, and the call to action, the growth with AI, it be known as non-AI, meaning BD Developers, and in Zoom Clinics, it will be known as something.  Okay, mid the team, it probably consultation page. So left hand side, higher for the long term, again we will do two things.  Dedicated developer is BD, and we will link these pages. So basically, did you understand it or not?
+
+47:01 - Charan Tej Vattikuti
+  Say, Hey, I'm to to the link.
+
+47:11 - Yakin Shah (yakinjshah@gmail.com)
+  Then, Founder Dedicated Biddy AI Split.
+
+47:46 - Charan Tej Vattikuti
+  Next page.
+
+48:00 - Yakin Shah (yakinjshah@gmail.com)
+  This is my ideology. I have put it on teams. One second to hold it. If someone is me, let me check.  Hello, I am in meeting. I will call you Thank you. Hello. Yes. This is just my idea. But what do Do you have the whole chat history?  You have yourself read it or you have yourself read it?
+
+48:44 - Charan Tej Vattikuti
+  I also go through on it and also gave it to you. Actually, it's all about how the home page is.  So please read past conversations.
+
+48:58 - Yakin Shah (yakinjshah@gmail.com)
+  You read it. Very nicely. And get back to me, so instead of me telling you, okay, I have removed that page.  So instead of me sharing what should we do with that six boxes, you have to come up with a plan tonight, that again we should do this, this, this exactly.  And whatever exactly you advise, it should not be just submitted. If you have fine-tuning or a correction, we will also close the decision.  Of course, we will execution, but we will close the So what with six boxes? That six boxes will six pages.
+
+49:56 - Charan Tej Vattikuti
+  Clear?
+
+49:57 - Yakin Shah (yakinjshah@gmail.com)
+  In that six pages, just in five pages, bullet points for each page. We have to fine-tune, finalize it. These six are six pages.  Do you me? Yes. So now, go the menu, go to services, set up and launch. Okay, come out, start your setup.  These two are going page actually.
+
+50:24 - Charan Tej Vattikuti
+  Right? What else is dedicated developer.
+
+50:27 - Yakin Shah (yakinjshah@gmail.com)
+  Open services, dedicated developer. And on the menu, hire a developer. He, or he, get a dedicated developer. He's place.  Correct? Yes.
+
+50:42 - Charan Tej Vattikuti
+  Right? Yes.
+
+50:48 - Yakin Shah (yakinjshah@gmail.com)
+  Or it's going to I also don't know. So Chum, because I know, I'm not willing to share what I know.  I want you to research it properly from that chat history. you will take plan of action, that these six boxes will go six pages, and for each page, two to ten bullet points, some pages can end up in four bullet points, some pages might take seven bullet points, very small-small sentences.  This page's idea is what links to where, how, and which linkages are going the So you will solution, this idea.  So today, one section is not for execution. Today, this section is for planning locking. Aaj ka a section ho gya.  Aaj ka dousra section. Can you please scroll down? Okay, yahaan pere, humko, humko, humare, achy-achy clients ke logos lanay hain.  Okay, which is really good to see projects. Successful projects also. So the client's logos should come here. If in two columns it is very small, you come up with design options that how it will scroll to the left or to the right, all those options, if you have five separate options, if you have five options, then implement all the five And show me all the five options.  How do implement five options? You know, Charan? Yes, Vikash?
+
+52:44 - Vikash Kumar
+  May I live?
+
+52:51 - Yakin Shah (yakinjshah@gmail.com)
+  Your importance is required for a reason that this project already doables fail.
+
+53:00 - Vikash Kumar
+  I thought that eye change.
+
+53:06 - Yakin Shah (yakinjshah@gmail.com)
+  I understood. Vikash, Vikash, Vikash, VINKがぁ- so this is the second section, is Alyeshow?
+
+53:31 - Vikash Kumar
+  Okay.
+
+53:35 - Yakin Shah (yakinjshah@gmail.com)
+  Charan, do you know how to, if you get for the exact same thing, if you have five different ideas to present, how you will present five ideas in one go, Charan?
+
+53:48 - Charan Tej Vattikuti
+  So, section, you can do that. Yeah, same section, you can type five times.
+
+54:26 - Yakin Shah (yakinjshah@gmail.com)
+  We made this direct list, very obvious content, all thing is good. Should we keep logo just like this? Okay, this is one option.  Is there any other better options? You have to let me know. If there are better options than this, you have to let me know, which logos should be fine-tune.  you. have to also make sure to discuss with Priyanka and Pranita and Priyanka whenever you get time. logo will finalize which 10, 15, 20 logos can come here.  You have to finalize. Right now there are 16 logos. So if you have keep it, you can keep it like Just like this.  But there are other versions. Without slider also there are versions. Right now the version is grayed out. When you mouse over, it becomes colorful.  Right now that is the version. So this version can give another effect. If you can logos in slide, what are 2, 4, 5, 6 options will be there.  Please bring in and think of it. reviews the the below the below the This review should be readable right from here.  It's that small. So by default, Right now, horizontally and vertically we have to expand probably.
+
+56:12 - Charan Tej Vattikuti
+  We have to do something.
+
+56:14 - Yakin Shah (yakinjshah@gmail.com)
+  Right now, two rows have eight reviews, correct? Maybe two rows we have to four reviews and sliding. Something we have to do.  For that also, bring two to three options of what we to do. You advise. Okay.
+
+56:52 - Charan Tej Vattikuti
+  Charan, okay? Yes, sir. Okay.
+
+56:55 - Yakin Shah (yakinjshah@gmail.com)
+  And see all 169 reviews. So see all 169 reviews. Again. And we will, you are going to show that page, correct?
+
+57:07 - Charan Tej Vattikuti
+  Okay, done.
+
+57:08 - Yakin Shah (yakinjshah@gmail.com)
+  So, see, today also we are closing with two sections only, yesterday backlog is first two sections, and today's these two sections we have added to it.  Charan, please don't go to the backlog, we will go to the next week, it be stressful for you.
+
+57:29 - Charan Tej Vattikuti
+  Okay, done, bye.

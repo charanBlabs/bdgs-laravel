@@ -1,0 +1,15 @@
+# BD Growth Suite
+
+> Brilliant Directories developers. A dedicated developer team for setup, customization, AI automation, and growth.
+
+Clean markdown copies of each page live at the same URL with `.md` appended (e.g. `/services/` -> `/services.md`). Served by Laravel middleware (ProvideMarkdownResponse). Google ignores this file for ranking; it exists to help ChatGPT, Claude, and Perplexity read the site.
+
+## Pages
+- [Brilliant Directories Developers — BD Growth Suite](https://bdgrowthsuite.com/index.md): brilliant directories developers
+- [Brilliant Directories Services — BD Growth Suite](https://bdgrowthsuite.com/services.md): brilliant directories services
+- [Brilliant Directories Customization — Custom Projects](https://bdgrowthsuite.com/customization.md): brilliant directories customization
+- [176 Verified Client Reviews — BD Growth Suite](https://bdgrowthsuite.com/blabs-review.md): bd growth suite reviews
+- [Brilliant Directories CEO Webinars](https://bdgrowthsuite.com/webinars.md): brilliant directories webinar
+
+## Optional
+- [Full site (HTML)](https://bdgrowthsuite.com/): human-facing pages

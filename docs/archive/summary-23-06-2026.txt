@@ -1,0 +1,77 @@
+BDGS v2.0 - June 23
+VIEW RECORDING: 
+Meeting Purpose
+
+Review project progress and define next steps for BDGS v2.0.
+
+Key Takeaways
+
+  - New Cadence: Adopt a 20-minute task cadence to accelerate progress and ensure daily completion of two sections.
+  - GitHub Mandate: All work must be pushed to the central repo daily to prevent data loss and maintain a single source of truth.
+  - UI/UX Overhaul: Redesign the Zoom Clinics time zone selector for clarity and ensure all hero sections place the primary CTA above the fold.
+  - Strategic Planning: Charan will research Teams chat history to plan the new "Explore Services" pages and design multiple UI options for the client logos and reviews sections.
+
+Topics
+
+Process & Cadence
+
+  - Problem: The project is behind schedule, with yesterday's two sections incomplete.
+  - Solution: A new cadence of 20-minute tasks will be implemented to accelerate progress.
+      - Goal: 24 items moved forward per 8-hour day.
+      - Action: Strong follow-ups will occur at the 19-minute mark of each task.
+
+GitHub Workflow
+
+  - Problem: Charan's local work was not pushed to the central repo, creating a risk of data loss and potential version conflicts.
+  - Mandate: All work must be pushed to the central GitHub repo daily.
+      - Rationale: This is a non-negotiable "golden rule" to prevent data loss from hardware failure and ensure a single source of truth for all collaborators.
+      - Action: Delete any personal repositories for this project to eliminate confusion.
+
+Zoom Clinics
+
+  - Content Generation:
+      - Task: Generate 8 Zoom Clinic topics with 2–5 bullet points each.
+      - Constraints: Each topic must be 10–25 minutes long.
+      - Sources: Use AI (Claude Sonnet/Opus) with content from BrilliantDirectors.com (webinars, MCPs) and the Facebook group (filtered by top posts).
+      - Timeline: First draft due within 1 hour; final version due before lunch.
+  - UI/UX Redesign:
+      - Problem: The current time zone selector is outside the main UI, causing confusion.
+      - Solution: Move the selector inside the calendar UI, directly above the time slots, for clear association.
+      - Problem: Button copy is unclear for a webinar-style event.
+      - Solution: Brainstorm with AI for better copy (e.g., "Register Now," inspired by brilliantdirectors.com/stream).
+  - Page Structure:
+      - Results Page: Remove the sidebar; replace "Posted by" with "Participants."
+      - Details Page: Simplify to show only the topic and participants; remove filters.
+
+Homepage & Service Pages
+
+  - Hero Section CTA:
+      - Problem: The primary CTA is below the fold, requiring a scroll to see it.
+      - Solution: Redesign all hero sections to place the primary CTA above the fold, ensuring immediate user action.
+  - "Explore Services" Section:
+      - Problem: The current design and content are incorrect.
+      - Solution: This section will become a "Hub Page" linking to six dedicated "Spoke Pages."
+      - Task: Charan will research past Teams chat history to define the plan for these six pages, including their content and inter-linkages.
+  - Client Logos Section:
+      - Task: Design 5+ UI options for displaying client logos.
+      - Options: Include sliders, static grids, and interactive effects (e.g., grayscale to color on hover).
+      - Action: Charan will coordinate with Priyanka and Pranita to select the final 10–20 logos.
+  - Reviews Section:
+      - Problem: Review text is too small to read.
+      - Solution: Redesign the section to improve readability.
+      - Task: Present 2–3 design options (e.g., fewer reviews per row, larger text, sliding carousel).
+      - Action: Link the "See all 169 reviews" button to the dedicated reviews page.
+
+Next Steps
+
+  - Charan:
+      - Push all local work to the central GitHub repo immediately.
+      - Generate 8 Zoom Clinic topics and submit the first draft within 1 hour.
+      - Redesign the Zoom Clinics UI (time zone selector, button copy) for completion by 3:30 PM today.
+      - Research Teams chat history to plan the six "Explore Services" pages.
+      - Design 5+ UI options for the client logos section.
+      - Design 2–3 UI options for the reviews section.
+      - Coordinate with Priyanka and Pranita to select final client logos.
+      - Link the "See all reviews" button to the reviews page.
+  - All:
+      - Adopt the 20-minute task cadence and provide real-time updates in the group chat.

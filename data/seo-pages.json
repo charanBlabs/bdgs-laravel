@@ -1,0 +1,65 @@
+{
+  "$comment": "SINGLE SOURCE OF TRUTH for the BD Growth Suite SEO + AI-agents system. Every other file (sitemap.xml, llms.txt, audits, SEO Guru plans) reads from this. When a page changes status, edit it HERE first, then run 'python scripts/build_seo_files.py' to regenerate sitemap.xml + llms.txt.",
+  "site": {
+    "name": "BD Growth Suite",
+    "production_url": "https://bdgrowthsuite.com",
+    "description": "Brilliant Directories developers. A dedicated developer team for setup, customization, AI automation, and growth.",
+    "north_star": "Qualified leads (inquiry submissions + Zoom Clinic signups). Confirm the final north-star metric with Yakin before locking the keyword map.",
+    "default_og_image": "https://bdgrowthsuite.com/og/default.png"
+  },
+  "status_legend": {
+    "live": "Built and intended to deploy — include in sitemap.xml, llms.txt, middleware serves .md mirror + passing audit.",
+    "planned": "Not built yet — excluded from sitemap.xml and llms.txt until status flips to live.",
+    "noindex": "Utility page (login/admin/thank-you) — never in sitemap/llms.txt, add noindex meta, no .md mirror."
+  },
+  "pages": [
+    { "url": "/", "title": "Brilliant Directories Developers — BD Growth Suite", "primary_keyword": "brilliant directories developers", "funnel": "awareness", "schema": ["Organization", "WebSite", "FAQPage"], "status": "live", "sprint": 1, "md_mirror": "/index.md" },
+
+    { "url": "/about", "title": "About BD Growth Suite — Brilliant Directories Experts", "primary_keyword": "brilliant directories experts", "funnel": "trust", "schema": ["Organization", "Person"], "status": "planned", "sprint": 1 },
+    { "url": "/contact", "title": "Contact BD Growth Suite", "primary_keyword": "contact brilliant directories developers", "funnel": "conversion", "schema": ["Organization"], "status": "planned", "sprint": 1 },
+    { "url": "/login", "title": "Client Login", "primary_keyword": "", "funnel": "utility", "schema": [], "status": "noindex", "sprint": 1 },
+
+    { "url": "/services", "title": "Brilliant Directories Services — BD Growth Suite", "primary_keyword": "brilliant directories services", "funnel": "consideration", "schema": ["WebPage", "ItemList", "BreadcrumbList"], "status": "live", "sprint": 1, "md_mirror": "/services.md" },
+    { "url": "/setup", "title": "Brilliant Directories Setup & Launch — Express Setup", "primary_keyword": "brilliant directories setup", "funnel": "consideration", "schema": ["Service"], "status": "planned", "sprint": 1 },
+    { "url": "/hire-developer", "title": "Hire a Dedicated Brilliant Directories Developer", "primary_keyword": "dedicated bd developer", "funnel": "conversion", "schema": ["Service"], "status": "planned", "sprint": 1 },
+    { "url": "/customization", "title": "Brilliant Directories Customization — Custom Projects", "primary_keyword": "brilliant directories customization", "funnel": "consideration", "schema": ["Service", "WebPage", "BreadcrumbList", "FAQPage"], "status": "live", "sprint": 2, "md_mirror": "/customization.md" },
+    { "url": "/maintenance", "title": "Brilliant Directories Maintenance Plans", "primary_keyword": "brilliant directories maintenance", "funnel": "consideration", "schema": ["Service"], "status": "planned", "sprint": 3 },
+    { "url": "/consultation", "title": "Brilliant Directories Consultation", "primary_keyword": "brilliant directories consultant", "funnel": "consideration", "schema": ["Service"], "status": "planned", "sprint": 2 },
+    { "url": "/founders-track", "title": "Founder's Track — BD Growth Suite", "primary_keyword": "brilliant directories growth partner", "funnel": "conversion", "schema": ["Service"], "status": "planned", "sprint": 2 },
+    { "url": "/zoom-clinics", "title": "Free Brilliant Directories Zoom Clinics", "primary_keyword": "brilliant directories help", "funnel": "awareness", "schema": ["Event"], "status": "planned", "sprint": 1 },
+
+    { "url": "/grow-with-ai", "title": "Grow Your Brilliant Directories Site with AI", "primary_keyword": "brilliant directories ai", "funnel": "consideration", "schema": ["Service"], "status": "planned", "sprint": 2 },
+    { "url": "/ai-development", "title": "AI-Powered Brilliant Directories Development", "primary_keyword": "ai brilliant directories development", "funnel": "consideration", "schema": ["Service"], "status": "planned", "sprint": 2 },
+    { "url": "/ai-for-your-site", "title": "AI for Your Directory — Chatbots, Smart Search", "primary_keyword": "ai for directory website", "funnel": "consideration", "schema": ["Service"], "status": "planned", "sprint": 2 },
+    { "url": "/ai-dev-fleet", "title": "AI Dev Fleet — A Team of AI for One Developer's Price", "primary_keyword": "ai development fleet", "funnel": "consideration", "schema": ["Service"], "status": "planned", "sprint": 2 },
+    { "url": "/bd-automation", "title": "Brilliant Directories Automation", "primary_keyword": "bd automation", "funnel": "consideration", "schema": ["Service"], "status": "planned", "sprint": 2 },
+    { "url": "/seo-growth", "title": "SEO & Growth for Brilliant Directories Sites", "primary_keyword": "brilliant directories seo", "funnel": "consideration", "schema": ["Service"], "status": "planned", "sprint": 2 },
+
+    { "url": "/solutions", "title": "61+ Brilliant Directories Solutions (Done-For-You)", "primary_keyword": "brilliant directories solutions", "funnel": "consideration", "schema": ["Service", "ItemList"], "status": "planned", "sprint": 2 },
+    { "url": "/solutions/seo", "title": "SEO & Schema Solutions for Brilliant Directories", "primary_keyword": "brilliant directories schema", "funnel": "consideration", "schema": ["Service", "ItemList"], "status": "planned", "sprint": 2 },
+    { "url": "/solutions/lead-gen", "title": "Lead Generation & Conversion Solutions", "primary_keyword": "directory lead generation", "funnel": "consideration", "schema": ["Service", "ItemList"], "status": "planned", "sprint": 2 },
+    { "url": "/solutions/member-profiles", "title": "Member Profile Enhancement Solutions", "primary_keyword": "directory member profiles", "funnel": "consideration", "schema": ["Service", "ItemList"], "status": "planned", "sprint": 2 },
+    { "url": "/solutions/search", "title": "Search & Discovery Solutions", "primary_keyword": "directory search filters", "funnel": "consideration", "schema": ["Service", "ItemList"], "status": "planned", "sprint": 2 },
+    { "url": "/solutions/page-design", "title": "Page Design & Development Solutions", "primary_keyword": "directory page design", "funnel": "consideration", "schema": ["Service", "ItemList"], "status": "planned", "sprint": 2 },
+    { "url": "/solutions/content", "title": "Content & Engagement Solutions", "primary_keyword": "directory content solutions", "funnel": "consideration", "schema": ["Service", "ItemList"], "status": "planned", "sprint": 2 },
+    { "url": "/solutions/integrations", "title": "Integrations for Brilliant Directories", "primary_keyword": "brilliant directories integrations", "funnel": "consideration", "schema": ["Service", "ItemList"], "status": "planned", "sprint": 2 },
+    { "url": "/solutions/member-management", "title": "Member Management & Automation Solutions", "primary_keyword": "directory member management", "funnel": "consideration", "schema": ["Service", "ItemList"], "status": "planned", "sprint": 2 },
+
+    { "url": "/tools", "title": "Brilliant Directories Tools & Themes", "primary_keyword": "brilliant directories tools", "funnel": "consideration", "schema": ["ItemList"], "status": "planned", "sprint": 2 },
+    { "url": "/tools/brilliantchat", "title": "BrilliantChat — AI Chatbot for Directory Sites", "primary_keyword": "directory ai chatbot", "funnel": "consideration", "schema": ["SoftwareApplication"], "status": "planned", "sprint": 2 },
+    { "url": "/themes", "title": "Brilliant Directories Themes", "primary_keyword": "brilliant directories themes", "funnel": "consideration", "schema": ["ItemList"], "status": "planned", "sprint": 2 },
+
+    { "url": "/blog", "title": "BD Growth Suite Blog", "primary_keyword": "brilliant directories blog", "funnel": "awareness", "schema": ["Blog", "ItemList"], "status": "planned", "sprint": 2 },
+    { "url": "/blabs-review", "title": "176 Verified Client Reviews — BD Growth Suite", "primary_keyword": "bd growth suite reviews", "funnel": "trust", "schema": ["Organization"], "status": "live", "sprint": 1, "md_mirror": "/blabs-review.md" },
+    { "url": "/case-studies", "title": "Brilliant Directories Case Studies", "primary_keyword": "brilliant directories case studies", "funnel": "trust", "schema": ["Article"], "status": "planned", "sprint": 3 },
+    { "url": "/webinars", "title": "Brilliant Directories CEO Webinars", "primary_keyword": "brilliant directories webinar", "funnel": "trust", "schema": ["VideoObject"], "status": "live", "sprint": 1, "md_mirror": "/webinars.md" },
+
+    { "url": "/terms", "title": "Terms of Service", "primary_keyword": "", "funnel": "legal", "schema": ["WebPage"], "status": "planned", "sprint": 1 },
+    { "url": "/privacy", "title": "Privacy Policy", "primary_keyword": "", "funnel": "legal", "schema": ["WebPage"], "status": "planned", "sprint": 1 }
+  ],
+  "templated_page_groups": [
+    { "pattern": "/solutions/[slug]", "count": 61, "schema": ["Service"], "status": "planned", "note": "Individual solution pages — migrate/redesign from live site (Sprint 4)." },
+    { "pattern": "/themes/[slug]", "count": 6, "schema": ["Product"], "status": "planned", "note": "Individual theme pages (Sprint 4)." },
+    { "pattern": "/blog/[slug]", "count": "30-50", "schema": ["BlogPosting"], "status": "planned", "note": "Blog posts — each must pass seo-page-audit before live (Sprint 4)." }
+  ]
+}

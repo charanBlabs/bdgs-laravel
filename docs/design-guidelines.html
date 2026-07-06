@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BDGS Design System — Visual Guidelines</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  /* Brand — Core */
+  --bdgs-coral:          #E74D56;
+  --bdgs-coral-dark:     #C93A44;
+  --bdgs-coral-light:    #FDF0F0;
+  --bdgs-purple:         #95256E;
+  --bdgs-purple-dark:    #7A1D5A;
+  --bdgs-purple-light:   #F8EDF5;
+  --bdgs-dark:           #1A1A2E;
+  --bdgs-dark-mid:       #2D2D44;
+  --bdgs-text:           #2C2C3A;
+  --bdgs-text-muted:     #6B6B80;
+  --bdgs-bg:             #FAFAFA;
+  --bdgs-white:          #FFFFFF;
+  --bdgs-border:         #E8E8EE;
+  --bdgs-gradient:       linear-gradient(135deg, #E74D56 0%, #95256E 100%);
+  --bdgs-gradient-subtle:linear-gradient(135deg, #FDF0F0 0%, #F8EDF5 100%);
+
+  /* Semantic */
+  --bdgs-success:     #22C55E;
+  --bdgs-success-bg:  #ECFDF5;
+  --bdgs-success-dark:#16A34A;
+  --bdgs-error:       #DC2626;
+  --bdgs-error-bg:    #FEF2F2;
+  --bdgs-warning:     #D97706;
+  --bdgs-warning-bg:  #FFFBEB;
+  --bdgs-info:        #6366F1;
+  --bdgs-info-bg:     #EEF2FF;
+
+  /* Premium gold (registered) */
+  --prm-gold-bright: #f0d98c;
+  --prm-gold:        #c89a3c;
+  --prm-gold-deep:   #a88632;
+
+  /* Typography */
+  --bdgs-font-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --bdgs-font-mono: 'DM Mono', 'Fira Code', ui-monospace, monospace;
+  --fs-h1:   clamp(28px, 20px + 2.2vw, 46px);
+  --fs-h2:   clamp(24px, 20px + 1.2vw, 34px);
+  --fs-h3:   clamp(18px, 16px + 0.6vw, 22px);
+  --fs-lead: clamp(16px, 14px + 0.6vw, 19px);
+  --fs-body: 16px;
+  --fs-small:13px;
+  --fs-code: 13px;
+  --fs-code-sm: 12px;
+
+  /* Rhythm */
+  --section-y: clamp(48px, 7vw, 96px);
+  --content-measure: 68ch;
+  --gutter: clamp(16px, 4vw, 48px);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--bdgs-font-sans);
+  background: var(--bdgs-bg);
+  color: var(--bdgs-text);
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+/* NAV */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--bdgs-dark);
+  padding: 0 48px;
+  display: flex; align-items: center; gap: 0;
+  border-bottom: 2px solid var(--bdgs-dark-mid);
+}
+.nav-logo {
+  display: flex; align-items: center; gap: 10px;
+  padding: 14px 0; margin-right: 40px;
+  text-decoration: none;
+}
+.nav-logo-mark {
+  width: 32px; height: 32px;
+  background: var(--bdgs-gradient);
+  border-radius: 8px; display: flex; align-items: center;
+  justify-content: center; font-size: 11px; font-weight: 700; color: #fff;
+  letter-spacing: -0.5px;
+}
+.nav-logo span { color: #E8E8EE; font-size: 14px; font-weight: 500; }
+.nav-links { display: flex; gap: 2px; }
+.nav-links a {
+  color: var(--bdgs-text-muted); font-size: 13px; font-weight: 400;
+  text-decoration: none; padding: 18px 14px;
+  border-bottom: 2px solid transparent; margin-bottom: -2px;
+  transition: color 0.15s, border-color 0.15s;
+}
+.nav-links a:hover { color: #fff; border-bottom-color: var(--bdgs-coral); }
+
+/* HERO */
+.hero {
+  background: var(--bdgs-dark);
+  padding: 72px 48px 60px;
+  margin-bottom: 48px;
+}
+.hero-inner { max-width: 960px; margin: 0 auto; }
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(231,77,86,0.15); border: 1px solid rgba(231,77,86,0.3);
+  color: var(--bdgs-coral); font-size: 12px; font-weight: 500;
+  padding: 5px 12px; border-radius: 20px; margin-bottom: 20px;
+  letter-spacing: 0.04em; text-transform: uppercase;
+}
+.hero h1 {
+  font-size: 40px; font-weight: 700; color: #E8E8EE;
+  line-height: 1.15; margin-bottom: 14px; letter-spacing: -0.5px;
+}
+.hero h1 span { color: var(--bdgs-coral); }
+.hero p { color: var(--bdgs-text-muted); font-size: 16px; max-width: 540px; }
+.hero-meta { margin-top: 32px; display: flex; gap: 32px; }
+.hero-meta-item .label { font-size: 11px; color: #5A5A70; text-transform: uppercase; letter-spacing: 0.06em; }
+.hero-meta-item .value { font-size: 13px; color: var(--bdgs-coral); font-weight: 500; }
+
+/* LAYOUT */
+.page { max-width: 960px; margin: 0 auto; padding: 0 32px 80px; }
+section { margin-bottom: 56px; }
+.section-header {
+  display: flex; align-items: center; gap: 14px;
+  margin-bottom: 24px; padding-bottom: 14px;
+  border-bottom: 1px solid var(--bdgs-border);
+}
+.section-number {
+  width: 28px; height: 28px; background: var(--bdgs-dark);
+  border-radius: 6px; display: flex; align-items: center; justify-content: center;
+  font-size: 12px; font-weight: 600; color: var(--bdgs-coral); flex-shrink: 0;
+}
+h2.sec-title { font-size: 20px; font-weight: 700; color: var(--bdgs-dark); margin: 0; }
+h3.sub { font-size: 14px; font-weight: 600; color: var(--bdgs-text-muted); text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 12px; }
+
+/* CARDS */
+.card {
+  background: var(--bdgs-white); border-radius: 12px;
+  border: 1px solid var(--bdgs-border); padding: 24px;
+}
+.card + .card { margin-top: 16px; }
+
+/* GRIDS */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.grid-5 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+
+/* SWATCHES */
+.swatch-block { border-radius: 10px; overflow: hidden; border: 1px solid var(--bdgs-border); transition: transform .2s; cursor: default; }
+.swatch-block:hover { transform: translateY(-3px); }
+.swatch-color { height: 80px; }
+.swatch-info { background: var(--bdgs-white); padding: 10px 12px; }
+.swatch-name { font-size: 13px; font-weight: 600; color: var(--bdgs-text); }
+.swatch-hex { font-size: 11px; font-family: var(--bdgs-font-mono); color: var(--bdgs-text-muted); }
+.swatch-use { font-size: 11px; color: var(--bdgs-text-muted); margin-top: 2px; }
+
+/* TYPE SPECIMENS */
+.type-specimen { border-left: 3px solid var(--bdgs-coral); padding: 16px 20px; background: var(--bdgs-coral-light); border-radius: 0 8px 8px 0; margin-bottom: 12px; }
+.type-label { font-size: 11px; font-family: var(--bdgs-font-mono); color: var(--bdgs-coral); margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.06em; }
+
+/* SPACING */
+.spacing-row { display: flex; align-items: flex-end; gap: 20px; flex-wrap: wrap; margin-bottom: 8px; }
+.spacing-item { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; }
+.spacing-block { background: var(--bdgs-coral); border-radius: 3px; opacity: 0.7; }
+.spacing-caption { font-size: 11px; font-family: var(--bdgs-font-mono); color: var(--bdgs-text-muted); }
+
+/* BUTTONS */
+.btn-demo { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; margin-bottom: 12px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: var(--bdgs-font-sans); font-size: 14px; font-weight: 600;
+  padding: 10px 20px; border-radius: 10px; cursor: pointer;
+  text-decoration: none; border: none; transition: all 0.2s;
+}
+.btn-primary { background: var(--bdgs-coral); color: #fff; }
+.btn-primary:hover { background: var(--bdgs-coral-dark); }
+.btn-gradient { background: var(--bdgs-gradient); color: #fff; }
+.btn-gradient:hover { opacity: 0.9; }
+.btn-secondary { background: transparent; color: var(--bdgs-coral); border: 1.5px solid var(--bdgs-coral); }
+.btn-secondary:hover { background: var(--bdgs-coral-light); }
+.btn-ghost { background: var(--bdgs-coral-light); color: var(--bdgs-coral); }
+.btn-ghost:hover { background: #fce3e4; }
+.btn-danger { background: var(--bdgs-error); color: #fff; }
+.btn-danger:hover { background: #b91c1c; }
+.btn-sm { font-size: 12px; padding: 6px 14px; border-radius: 8px; }
+.btn-lg { font-size: 16px; padding: 14px 28px; border-radius: 12px; }
+
+/* INPUTS */
+.field-group { display: flex; flex-direction: column; gap: 5px; }
+.field-label { font-size: 13px; font-weight: 500; color: var(--bdgs-text); }
+.field-input {
+  font-family: var(--bdgs-font-sans); font-size: 14px;
+  border: 1.5px solid var(--bdgs-border); border-radius: 8px;
+  padding: 10px 14px; color: var(--bdgs-text); background: var(--bdgs-white);
+  outline: none; transition: border-color 0.15s; width: 100%;
+}
+.field-input:focus { border-color: var(--bdgs-coral); box-shadow: 0 0 0 3px rgba(231,77,86,0.12); }
+.field-hint { font-size: 12px; color: var(--bdgs-text-muted); }
+.field-input.fi-error { border-color: var(--bdgs-error); }
+.field-input.fi-success { border-color: var(--bdgs-success); }
+.field-input.fi-disabled { background: #f5f5f5; color: #999; cursor: not-allowed; }
+
+/* BADGES */
+.badge { display: inline-block; font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 20px; }
+.badge-coral { background: var(--bdgs-coral-light); color: var(--bdgs-coral); }
+.badge-purple { background: var(--bdgs-purple-light); color: var(--bdgs-purple); }
+.badge-success { background: var(--bdgs-success-bg); color: var(--bdgs-success-dark); }
+.badge-warning { background: var(--bdgs-warning-bg); color: var(--bdgs-warning); }
+.badge-error { background: var(--bdgs-error-bg); color: var(--bdgs-error); }
+.badge-muted { background: #F0F0F4; color: var(--bdgs-text-muted); }
+
+/* DO / DON'T */
+.do-dont { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.do-box, .dont-box { border-radius: 10px; overflow: hidden; border: 1px solid var(--bdgs-border); }
+.do-label { background: var(--bdgs-success-dark); color: #fff; font-size: 12px; font-weight: 600; padding: 7px 14px; letter-spacing: 0.04em; font-family: var(--bdgs-font-mono); }
+.dont-label { background: var(--bdgs-error); color: #fff; font-size: 12px; font-weight: 600; padding: 7px 14px; letter-spacing: 0.04em; font-family: var(--bdgs-font-mono); }
+.do-content, .dont-content { background: var(--bdgs-white); padding: 16px; font-size: 13px; line-height: 1.6; color: var(--bdgs-text); }
+
+/* CODE */
+code {
+  font-family: var(--bdgs-font-mono); font-size: 12px;
+  background: var(--bdgs-coral-light); color: var(--bdgs-coral-dark);
+  padding: 2px 7px; border-radius: 4px;
+}
+pre {
+  font-family: var(--bdgs-font-mono); font-size: 12px; line-height: 1.6;
+  background: var(--bdgs-dark); color: #d4d4e8;
+  border-radius: 10px; padding: 20px 24px; overflow-x: auto;
+}
+pre .c-comment { color: #5a5a70; }
+pre .c-key { color: var(--bdgs-coral); }
+pre .c-val { color: #a78bfa; }
+pre .c-str { color: #86efac; }
+
+/* TABLE */
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+thead th { background: var(--bdgs-dark); color: #E8E8EE; font-weight: 500; font-size: 12px; text-align: left; padding: 10px 14px; font-family: var(--bdgs-font-mono); letter-spacing: .04em; }
+thead th:first-child { border-radius: 8px 0 0 0; }
+thead th:last-child { border-radius: 0 8px 0 0; }
+tbody td { padding: 10px 14px; border-bottom: 1px solid var(--bdgs-border); color: var(--bdgs-text); vertical-align: middle; }
+tbody tr:last-child td { border-bottom: none; }
+tbody tr:hover td { background: var(--bdgs-coral-light); }
+.table-wrap { background: var(--bdgs-white); border-radius: 10px; border: 1px solid var(--bdgs-border); overflow: hidden; }
+
+/* MOTION */
+.motion-row { display: flex; gap: 12px; flex-wrap: wrap; }
+.motion-box {
+  width: 64px; height: 64px; border-radius: 10px;
+  background: var(--bdgs-coral); cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  color: #fff; font-size: 11px; font-weight: 500; text-align: center;
+}
+.motion-fade { transition: opacity 0.2s ease; }
+.motion-fade:hover { opacity: 0.5; }
+.motion-scale { transition: transform 0.25s cubic-bezier(0.16,1,0.3,1); }
+.motion-scale:hover { transform: scale(1.06); }
+.motion-slide { transition: transform 0.25s cubic-bezier(0.16,1,0.3,1); }
+.motion-slide:hover { transform: translateY(-4px); }
+.motion-color { transition: background 0.2s ease; }
+.motion-color:hover { background: var(--bdgs-purple); }
+
+/* ELEVATION */
+.elev-row { display: flex; gap: 16px; flex-wrap: wrap; }
+.elev-card { min-width: 100px; height: 60px; background: var(--bdgs-white); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-family: var(--bdgs-font-mono); color: var(--bdgs-text-muted); padding: 0 16px; }
+
+/* SEMANTIC ALERT */
+.sem { border-radius: 10px; padding: 14px 16px; }
+
+/* FOCUS DEMO */
+.focus-demo { display: inline-block; padding: 10px 20px; border-radius: 10px; background: var(--bdgs-white); border: 1px solid var(--bdgs-border); font-size: 14px; font-weight: 500; color: var(--bdgs-text); cursor: pointer; }
+.focus-demo:focus-visible { outline: 2px solid var(--bdgs-coral); outline-offset: 2px; }
+.focus-demo:focus:not(:focus-visible) { outline: none; }
+
+/* TOUCH TARGET DEMO */
+.touch-demo { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+.touch-ok { width: 44px; height: 44px; background: var(--bdgs-success-bg); border: 2px dashed var(--bdgs-success); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: var(--bdgs-font-mono); color: var(--bdgs-success-dark); }
+.touch-fail { width: 32px; height: 32px; background: var(--bdgs-error-bg); border: 2px dashed var(--bdgs-error); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-family: var(--bdgs-font-mono); color: var(--bdgs-error); }
+
+@media (prefers-reduced-motion: reduce) {
+  .motion-fade, .motion-scale, .motion-slide, .motion-color,
+  .swatch-block, .btn { transition: none !important; }
+}
+
+@media (max-width: 640px) {
+  .grid-2, .grid-3, .grid-4, .grid-5, .do-dont { grid-template-columns: 1fr; }
+  nav { padding: 0 16px; }
+  .nav-links { display: none; }
+  .hero { padding: 40px 24px; }
+  .hero h1 { font-size: 28px; }
+  .page { padding: 0 16px 60px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="#">
+    <div class="nav-logo-mark">BD</div>
+    <span>Design System</span>
+  </a>
+  <div class="nav-links">
+    <a href="#colors">Colors</a>
+    <a href="#typography">Type</a>
+    <a href="#spacing">Spacing</a>
+    <a href="#components">Components</a>
+    <a href="#responsive">Responsive</a>
+    <a href="#a11y">Accessibility</a>
+    <a href="#voice">Voice</a>
+    <a href="#tokens">Dev Tokens</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">
+      <svg width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="5" fill="#E74D56"/></svg>
+      BD Growth Suite
+    </div>
+    <h1>Design &amp; Development<br><span>Guidelines</span></h1>
+    <p>Single source of truth for the BDGS visual language &mdash; color, typography, spacing, components, responsive rules, and accessibility. Internal reference for dev and AI agents.</p>
+    <div class="hero-meta">
+      <div class="hero-meta-item"><div class="label">Version</div><div class="value">1.0.0</div></div>
+      <div class="hero-meta-item"><div class="label">Framework</div><div class="value">Bootstrap 3.4.1</div></div>
+      <div class="hero-meta-item"><div class="label">Stack</div><div class="value">HTML / CSS / PHP 8.1</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="page">
+
+  <!-- ============== 01 COLORS ============== -->
+  <section id="colors">
+    <div class="section-header">
+      <div class="section-number">01</div>
+      <h2 class="sec-title">Color System</h2>
+    </div>
+
+    <div class="card" style="margin-bottom:16px">
+      <h3 class="sub">Core Palette</h3>
+      <p style="font-size:12px;color:var(--bdgs-text-muted);margin-bottom:14px;font-family:var(--bdgs-font-mono)">2 brand hues + neutrals. Coral is primary, purple is secondary accent.</p>
+      <div class="grid-4">
+        <div class="swatch-block"><div class="swatch-color" style="background:#E74D56"></div><div class="swatch-info"><div class="swatch-name">Coral</div><div class="swatch-hex">#E74D56</div><div class="swatch-use">Primary CTAs, links, active</div></div></div>
+        <div class="swatch-block"><div class="swatch-color" style="background:#C93A44"></div><div class="swatch-info"><div class="swatch-name">Coral Dark</div><div class="swatch-hex">#C93A44</div><div class="swatch-use">Hover / pressed</div></div></div>
+        <div class="swatch-block"><div class="swatch-color" style="background:#95256E"></div><div class="swatch-info"><div class="swatch-name">Purple</div><div class="swatch-hex">#95256E</div><div class="swatch-use">Secondary accent</div></div></div>
+        <div class="swatch-block"><div class="swatch-color" style="background:#7A1D5A"></div><div class="swatch-info"><div class="swatch-name">Purple Dark</div><div class="swatch-hex">#7A1D5A</div><div class="swatch-use">Secondary hover</div></div></div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-bottom:16px">
+      <h3 class="sub">Light Tints &amp; Neutrals</h3>
+      <div class="grid-5">
+        <div class="swatch-block"><div class="swatch-color" style="background:#FDF0F0"></div><div class="swatch-info"><div class="swatch-name">Coral Light</div><div class="swatch-hex">#FDF0F0</div><div class="swatch-use">Accent bg</div></div></div>
+        <div class="swatch-block"><div class="swatch-color" style="background:#F8EDF5"></div><div class="swatch-info"><div class="swatch-name">Purple Light</div><div class="swatch-hex">#F8EDF5</div><div class="swatch-use">Secondary bg</div></div></div>
+        <div class="swatch-block"><div class="swatch-color" style="background:#1A1A2E"></div><div class="swatch-info"><div class="swatch-name">Dark</div><div class="swatch-hex">#1A1A2E</div><div class="swatch-use">Headings, dark bg</div></div></div>
+        <div class="swatch-block"><div class="swatch-color" style="background:#2C2C3A"></div><div class="swatch-info"><div class="swatch-name">Text</div><div class="swatch-hex">#2C2C3A</div><div class="swatch-use">Body copy</div></div></div>
+        <div class="swatch-block"><div class="swatch-color" style="background:#6B6B80"></div><div class="swatch-info"><div class="swatch-name">Muted</div><div class="swatch-hex">#6B6B80</div><div class="swatch-use">Secondary text</div></div></div>
+      </div>
+      <div class="grid-4" style="margin-top:12px">
+        <div class="swatch-block"><div class="swatch-color" style="background:#FAFAFA;border-bottom:1px solid #E8E8EE"></div><div class="swatch-info"><div class="swatch-name">Background</div><div class="swatch-hex">#FAFAFA</div><div class="swatch-use">Page bg</div></div></div>
+        <div class="swatch-block"><div class="swatch-color" style="background:#FFFFFF;border-bottom:1px solid #E8E8EE"></div><div class="swatch-info"><div class="swatch-name">White</div><div class="swatch-hex">#FFFFFF</div><div class="swatch-use">Cards, surfaces</div></div></div>
+        <div class="swatch-block"><div class="swatch-color" style="background:#E8E8EE"></div><div class="swatch-info"><div class="swatch-name">Border</div><div class="swatch-hex">#E8E8EE</div><div class="swatch-use">Dividers</div></div></div>
+        <div class="swatch-block"><div class="swatch-color" style="background:linear-gradient(135deg,#E74D56 0%,#95256E 100%)"></div><div class="swatch-info"><div class="swatch-name">Gradient</div><div class="swatch-hex">Coral &rarr; Purple</div><div class="swatch-use">Primary CTA</div></div></div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-bottom:16px">
+      <h3 class="sub">Semantic Colors</h3>
+      <div class="grid-2">
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <div class="sem" style="background:var(--bdgs-success-bg)"><span style="font-size:12px;font-weight:600;color:var(--bdgs-success-dark)">&#10003; Success</span><div style="font-family:var(--bdgs-font-mono);font-size:11px;color:var(--bdgs-success);margin-top:3px">#22C55E &middot; bg #ECFDF5</div></div>
+          <div class="sem" style="background:var(--bdgs-error-bg)"><span style="font-size:12px;font-weight:600;color:var(--bdgs-error)">&#10005; Error</span><div style="font-family:var(--bdgs-font-mono);font-size:11px;color:var(--bdgs-error);margin-top:3px">#DC2626 &middot; bg #FEF2F2</div></div>
+          <div class="sem" style="background:var(--bdgs-warning-bg)"><span style="font-size:12px;font-weight:600;color:var(--bdgs-warning)">&#9888; Warning</span><div style="font-family:var(--bdgs-font-mono);font-size:11px;color:var(--bdgs-warning);margin-top:3px">#D97706 &middot; bg #FFFBEB</div></div>
+          <div class="sem" style="background:var(--bdgs-info-bg)"><span style="font-size:12px;font-weight:600;color:var(--bdgs-info)">&#8505; Info</span><div style="font-family:var(--bdgs-font-mono);font-size:11px;color:var(--bdgs-info);margin-top:3px">#6366F1 &middot; bg #EEF2FF</div></div>
+        </div>
+        <div>
+          <div class="do-dont">
+            <div class="do-box"><div class="do-label">&#10003; DO</div><div class="do-content">Use <code>var(--bdgs-success)</code> for validation passed, payment confirmed.<br><br>Use <code>var(--bdgs-error)</code> for form errors. Never coral for errors.</div></div>
+            <div class="dont-box"><div class="dont-label">&#10005; DON'T</div><div class="dont-content">Don't use coral (#E74D56) for error states &mdash; coral is brand, not semantic.<br><br>Don't use success green as a primary CTA color.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3 class="sub">Custom Registry &mdash; Premium Gold</h3>
+      <p style="font-size:12px;color:var(--bdgs-text-muted);margin-bottom:14px">Registered extension palette for the gold-frame testimonial card. Scoped, not global.</p>
+      <div class="grid-3">
+        <div class="swatch-block"><div class="swatch-color" style="background:#f0d98c"></div><div class="swatch-info"><div class="swatch-name">Gold Bright</div><div class="swatch-hex">#f0d98c</div><div class="swatch-use">--prm-gold-bright</div></div></div>
+        <div class="swatch-block"><div class="swatch-color" style="background:#c89a3c"></div><div class="swatch-info"><div class="swatch-name">Gold</div><div class="swatch-hex">#c89a3c</div><div class="swatch-use">--prm-gold</div></div></div>
+        <div class="swatch-block"><div class="swatch-color" style="background:#a88632"></div><div class="swatch-info"><div class="swatch-name">Gold Deep</div><div class="swatch-hex">#a88632</div><div class="swatch-use">--prm-gold-deep</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== 02 TYPOGRAPHY ============== -->
+  <section id="typography">
+    <div class="section-header">
+      <div class="section-number">02</div>
+      <h2 class="sec-title">Typography</h2>
+    </div>
+
+    <div class="card" style="margin-bottom:16px">
+      <h3 class="sub">DM Sans &mdash; Primary Typeface</h3>
+      <p style="font-size:13px;color:var(--bdgs-text-muted);margin-bottom:20px">All UI, headings, body, and labels. Fluid <code>clamp()</code> sizing from mobile to 1920px.</p>
+      <div class="type-specimen"><div class="type-label">H1 &mdash; clamp(28px, 20px + 2.2vw, 46px) / 700 / -1px</div><div style="font-size:var(--fs-h1);font-weight:700;color:var(--bdgs-dark);letter-spacing:-1px;line-height:1.12">Build your directory empire</div></div>
+      <div class="type-specimen"><div class="type-label">H2 &mdash; clamp(24px, 20px + 1.2vw, 34px) / 700 / -0.5px</div><div style="font-size:var(--fs-h2);font-weight:700;color:var(--bdgs-dark);letter-spacing:-0.5px;line-height:1.2">Brilliant Directories Development</div></div>
+      <div class="type-specimen"><div class="type-label">H3 &mdash; clamp(18px, 16px + 0.6vw, 22px) / 700</div><div style="font-size:var(--fs-h3);font-weight:700;color:var(--bdgs-dark);line-height:1.3">Dedicated Developer Team</div></div>
+      <div class="type-specimen"><div class="type-label">Lead &mdash; clamp(16px, 14px + 0.6vw, 19px) / 400</div><div style="font-size:var(--fs-lead);font-weight:400;color:var(--bdgs-text);line-height:1.6">The only directory team that gets you from 0 to 1 to 10 to 100 and beyond.</div></div>
+      <div class="type-specimen"><div class="type-label">Body &mdash; 16px / 400 / 1.6 line height</div><div style="font-size:16px;font-weight:400;color:var(--bdgs-text);line-height:1.6">We deliver dedicated Brilliant Directories developers for setup, customization, AI automation, and growth. Not a ticket queue &mdash; a growth partner.</div></div>
+      <div class="type-specimen" style="margin-bottom:0"><div class="type-label">Small &mdash; 13px / 500</div><div style="font-size:13px;font-weight:500;color:var(--bdgs-text-muted)">Last updated: July 2026 &middot; 176+ verified reviews</div></div>
+    </div>
+
+    <div class="card" style="margin-bottom:16px">
+      <h3 class="sub">DM Mono &mdash; Technical Text</h3>
+      <p style="font-size:13px;color:var(--bdgs-text-muted);margin-bottom:16px">API endpoints, transaction IDs, code snippets, hex values, and dashboard technical references.</p>
+      <div style="background:var(--bdgs-dark);border-radius:10px;padding:20px 24px">
+        <div style="font-family:var(--bdgs-font-mono);color:#d4d4e8;font-size:13px;line-height:1.8">
+          <span style="color:#5a5a70">// API response example</span><br>
+          <span style="color:var(--bdgs-coral)">{</span><br>
+          &nbsp;&nbsp;<span style="color:#a78bfa">"status"</span>: <span style="color:#86efac">"success"</span>,<br>
+          &nbsp;&nbsp;<span style="color:#a78bfa">"endpoint"</span>: <span style="color:#86efac">"/api/v1/directory"</span>,<br>
+          &nbsp;&nbsp;<span style="color:#a78bfa">"transaction_id"</span>: <span style="color:#86efac">"txn_8f3k29d"</span><br>
+          <span style="color:var(--bdgs-coral)">}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-bottom:16px">
+      <h3 class="sub">Type Scale Reference</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Token</th><th>Size</th><th>Weight</th><th>Use</th></tr></thead>
+          <tbody>
+            <tr><td><code>--fs-h1</code></td><td>28 &rarr; 46px</td><td>700</td><td>Page headings (fluid)</td></tr>
+            <tr><td><code>--fs-h2</code></td><td>24 &rarr; 34px</td><td>700</td><td>Section headings (fluid)</td></tr>
+            <tr><td><code>--fs-h3</code></td><td>18 &rarr; 22px</td><td>700</td><td>Card titles, sub-sections (fluid)</td></tr>
+            <tr><td><code>--fs-lead</code></td><td>16 &rarr; 19px</td><td>400</td><td>Lead paragraphs (fluid)</td></tr>
+            <tr><td><code>--fs-body</code></td><td>16px</td><td>400</td><td>Body copy</td></tr>
+            <tr><td><code>--fs-small</code></td><td>13px</td><td>500</td><td>Captions, metadata</td></tr>
+            <tr><td><code>--fs-code</code></td><td>13px</td><td>400</td><td>Inline code, endpoints (DM Mono)</td></tr>
+            <tr><td><code>--fs-code-sm</code></td><td>12px</td><td>400</td><td>Small code, hex values (DM Mono)</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="do-dont">
+        <div class="do-box"><div class="do-label">&#10003; DO</div><div class="do-content">Use <code>var(--fs-h1)</code>, <code>var(--fs-h2)</code>, <code>var(--fs-h3)</code> tokens for heading sizes.<br><br>Use <code>px</code> (not <code>rem</code>) &mdash; Bootstrap 3 sets <code>html { font-size: 10px }</code>.</div></div>
+        <div class="dont-box"><div class="dont-label">&#10005; DON'T</div><div class="dont-content">Don't hard-code <code>font-size: 36px</code> or <code>17px</code> on headings.<br><br>Don't override heading <code>font-size</code> inside <code>@media</code> queries &mdash; <code>clamp()</code> handles scaling.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== 03 SPACING ============== -->
+  <section id="spacing">
+    <div class="section-header">
+      <div class="section-number">03</div>
+      <h2 class="sec-title">Spacing &amp; Layout</h2>
+    </div>
+
+    <div class="card" style="margin-bottom:16px">
+      <h3 class="sub">Spacing Scale (4px base)</h3>
+      <p style="font-size:13px;color:var(--bdgs-text-muted);margin-bottom:20px">All margin, padding, and gap values land on this scale. No magic numbers.</p>
+      <div class="spacing-row">
+        <div class="spacing-item"><div class="spacing-block" style="width:4px;height:4px"></div><div class="spacing-caption">4px</div></div>
+        <div class="spacing-item"><div class="spacing-block" style="width:8px;height:8px"></div><div class="spacing-caption">8px</div></div>
+        <div class="spacing-item"><div class="spacing-block" style="width:12px;height:12px"></div><div class="spacing-caption">12px</div></div>
+        <div class="spacing-item"><div class="spacing-block" style="width:16px;height:16px"></div><div class="spacing-caption">16px</div></div>
+        <div class="spacing-item"><div class="spacing-block" style="width:24px;height:24px"></div><div class="spacing-caption">24px</div></div>
+        <div class="spacing-item"><div class="spacing-block" style="width:32px;height:32px"></div><div class="spacing-caption">32px</div></div>
+        <div class="spacing-item"><div class="spacing-block" style="width:40px;height:40px"></div><div class="spacing-caption">40px</div></div>
+        <div class="spacing-item"><div class="spacing-block" style="width:48px;height:48px"></div><div class="spacing-caption">48px</div></div>
+        <div class="spacing-item"><div class="spacing-block" style="width:64px;height:64px"></div><div class="spacing-caption">64px</div></div>
+        <div class="spacing-item"><div class="spacing-block" style="width:80px;height:80px"></div><div class="spacing-caption">80px</div></div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-bottom:16px">
+      <h3 class="sub">Border Radius</h3>
+      <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:flex-end">
+        <div style="text-align:center"><div style="width:48px;height:48px;background:var(--bdgs-coral);border-radius:4px;margin-bottom:6px"></div><div style="font-size:11px;font-family:var(--bdgs-font-mono);color:var(--bdgs-text-muted)">4px<br>xs</div></div>
+        <div style="text-align:center"><div style="width:48px;height:48px;background:var(--bdgs-coral);border-radius:6px;margin-bottom:6px"></div><div style="font-size:11px;font-family:var(--bdgs-font-mono);color:var(--bdgs-text-muted)">6px<br>sm</div></div>
+        <div style="text-align:center"><div style="width:48px;height:48px;background:var(--bdgs-coral);border-radius:8px;margin-bottom:6px"></div><div style="font-size:11px;font-family:var(--bdgs-font-mono);color:var(--bdgs-text-muted)">8px<br>md</div></div>
+        <div style="text-align:center"><div style="width:48px;height:48px;background:var(--bdgs-coral);border-radius:10px;margin-bottom:6px"></div><div style="font-size:11px;font-family:var(--bdgs-font-mono);color:var(--bdgs-text-muted)">10px<br>default</div></div>
+        <div style="text-align:center"><div style="width:48px;height:48px;background:var(--bdgs-coral);border-radius:12px;margin-bottom:6px"></div><div style="font-size:11px;font-family:var(--bdgs-font-mono);color:var(--bdgs-text-muted)">12px<br>lg</div></div>
+        <div style="text-align:center"><div style="width:48px;height:48px;background:var(--bdgs-coral);border-radius:16px;margin-bottom:6px"></div><div style="font-size:11px;font-family:var(--bdgs-font-mono);color:var(--bdgs-text-muted)">16px<br>xl</div></div>
+        <div style="text-align:center"><div style="width:48px;height:48px;background:var(--bdgs-coral);border-radius:20px;margin-bottom:6px"></div><div style="font-size:11px;font-family:var(--bdgs-font-mono);color:var(--bdgs-text-muted)">20px<br>pill</div></div>
+        <div style="text-align:center"><div style="width:48px;height:48px;background:var(--bdgs-coral);border-radius:50%;margin-bottom:6px"></div><div style="font-size:11px;font-family:var(--bdgs-font-mono);color:var(--bdgs-text-muted)">50%<br>full</div></div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-bottom:16px">
+      <h3 class="sub">Shadow Scale</h3>
+      <div class="elev-row" style="margin-bottom:20px">
+        <div class="elev-card" style="box-shadow:0 2px 20px rgba(0,0,0,.06)">sm</div>
+        <div class="elev-card" style="box-shadow:0 8px 30px rgba(0,0,0,.06)">md</div>
+        <div class="elev-card" style="box-shadow:0 12px 40px rgba(0,0,0,.08)">lg</div>
+        <div class="elev-card" style="box-shadow:0 24px 70px rgba(26,26,46,.22)">xl</div>
+        <div class="elev-card" style="box-shadow:0 4px 16px rgba(231,77,86,.25);border:1px solid rgba(231,77,86,.15)">coral</div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-bottom:16px">
+      <h3 class="sub">Rhythm Tokens</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Token</th><th>Value</th><th>Use</th></tr></thead>
+          <tbody>
+            <tr><td><code>--section-y</code></td><td>clamp(48px, 7vw, 96px)</td><td>Vertical padding on every section</td></tr>
+            <tr><td><code>--content-measure</code></td><td>68ch</td><td>Max body copy line length</td></tr>
+            <tr><td><code>--gutter</code></td><td>clamp(16px, 4vw, 48px)</td><td>Page side padding</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card" style="margin-bottom:16px">
+      <h3 class="sub">Container Max-Widths</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Context</th><th>Max width</th><th>Use</th></tr></thead>
+          <tbody>
+            <tr><td>Header / nav</td><td>1240px</td><td>Site-wide navigation</td></tr>
+            <tr><td>Wide sections</td><td>1100px</td><td>Feature grids, logo strips</td></tr>
+            <tr><td>Content</td><td>900px</td><td>Card grids, stack layouts</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="do-dont">
+        <div class="do-box"><div class="do-label">&#10003; DO</div><div class="do-content">Land every margin/padding/gap on the 4px scale: <code>4, 8, 12, 16, 20, 24, 32, 40, 48, 64, 80</code>.<br><br>Use <code>max-width</code> + fluid <code>%</code> on layout containers.</div></div>
+        <div class="dont-box"><div class="dont-label">&#10005; DON'T</div><div class="dont-content">No magic numbers like <code>padding: 17px</code> or <code>gap: 13px</code>.<br><br>No fixed pixel <code>width</code> on layout containers (use <code>max-width</code> instead).</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== 04 COMPONENTS ============== -->
+  <section id="components">
+    <div class="section-header">
+      <div class="section-number">04</div>
+      <h2 class="sec-title">UI Components</h2>
+    </div>
+
+    <div class="card" style="margin-bottom:16px">
+      <h3 class="sub">Buttons</h3>
+      <div class="btn-demo">
+        <button class="btn btn-primary">Get Started &rarr;</button>
+        <button class="btn btn-gradient">Explore Services &rarr;</button>
+        <button class="btn btn-secondary">Learn More</button>
+        <button class="btn btn-ghost">View Docs</button>
+        <button class="btn btn-danger btn-sm">Delete</button>
+      </div>
+      <div class="btn-demo">
+        <button class="btn btn-primary btn-sm">Small</button>
+        <button class="btn btn-primary">Default</button>
+        <button class="btn btn-primary btn-lg">Large</button>
+      </div>
+      <div style="margin-top:12px;font-size:13px;color:var(--bdgs-text-muted);line-height:1.7">
+        <strong style="color:var(--bdgs-text)">Primary</strong> &mdash; one per view &nbsp;&middot;&nbsp;
+        <strong style="color:var(--bdgs-text)">Gradient</strong> &mdash; hero CTAs &nbsp;&middot;&nbsp;
+        <strong style="color:var(--bdgs-text)">Secondary</strong> &mdash; paired with primary &nbsp;&middot;&nbsp;
+        <strong style="color:var(--bdgs-text)">Ghost</strong> &mdash; low-priority &nbsp;&middot;&nbsp;
+        <strong style="color:var(--bdgs-text)">Danger</strong> &mdash; destructive, always red
+      </div>
+    </div>
+
+    <div class="card" style="margin-bottom:16px">
+      <h3 class="sub">Form Inputs</h3>
+      <div class="grid-2">
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div class="field-group">
+            <label class="field-label">Directory name</label>
+            <input class="field-input" type="text" placeholder="e.g. Best Lawyers NYC">
+            <span class="field-hint">Shown on your public listing page.</span>
+          </div>
+          <div class="field-group">
+            <label class="field-label">API endpoint</label>
+            <input class="field-input fi-success" type="text" value="/api/v1/directory" style="color:var(--bdgs-success-dark)">
+            <span class="field-hint" style="color:var(--bdgs-success-dark)">Endpoint validated.</span>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div class="field-group">
+            <label class="field-label">Email</label>
+            <input class="field-input fi-error" type="email" placeholder="you@example.com">
+            <span class="field-hint" style="color:var(--bdgs-error)">Email is required.</span>
+          </div>
+          <div class="field-group">
+            <label class="field-label">Disabled field</label>
+            <input class="field-input fi-disabled" type="text" value="Not editable" disabled>
+            <span class="field-hint">This field is locked.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-bottom:16px">
+      <h3 class="sub">Badges</h3>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px">
+        <span class="badge badge-coral">Featured</span>
+        <span class="badge badge-purple">Premium</span>
+        <span class="badge badge-success">Active</span>
+        <span class="badge badge-warning">Pending</span>
+        <span class="badge badge-error">Failed</span>
+        <span class="badge badge-muted">Archived</span>
+        <span class="badge" style="background:var(--bdgs-dark);color:var(--bdgs-coral)">BD Expert</span>
+      </div>
+      <div style="font-size:13px;color:var(--bdgs-text-muted)">Keep text to 1&ndash;3 words. Sentence case, never ALL CAPS.</div>
+    </div>
+
+    <div class="card" style="margin-bottom:16px">
+      <h3 class="sub">Cards</h3>
+      <div class="grid-3">
+        <div style="background:var(--bdgs-white);border-radius:12px;border:1px solid var(--bdgs-border);padding:20px">
+          <div style="width:36px;height:36px;background:var(--bdgs-coral-light);border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:12px;font-size:16px;color:var(--bdgs-coral)">&#9881;</div>
+          <div style="font-size:15px;font-weight:600;color:var(--bdgs-dark);margin-bottom:6px">Express Setup</div>
+          <div style="font-size:13px;color:var(--bdgs-text-muted);line-height:1.6">Get your directory live in 7 days with our dedicated team.</div>
+        </div>
+        <div style="background:var(--bdgs-white);border-radius:12px;border:2px solid var(--bdgs-coral);padding:20px">
+          <div style="font-size:11px;font-weight:600;color:#fff;background:var(--bdgs-coral);display:inline-block;padding:3px 10px;border-radius:20px;margin-bottom:10px">Popular</div>
+          <div style="font-size:15px;font-weight:600;color:var(--bdgs-dark);margin-bottom:6px">Dedicated Developer</div>
+          <div style="font-size:13px;color:var(--bdgs-text-muted);line-height:1.6">Your own BD expert, working exclusively on your directory.</div>
+        </div>
+        <div style="background:var(--bdgs-dark);border-radius:12px;padding:20px">
+          <div style="font-size:15px;font-weight:600;color:#E8E8EE;margin-bottom:6px">Dark Card</div>
+          <div style="font-size:13px;color:#6B6B80;line-height:1.6">For feature highlights, pricing tiers, and hero sections.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3 class="sub">Motion &mdash; hover to preview</h3>
+      <div class="motion-row" style="margin-bottom:14px">
+        <div class="motion-box motion-fade" style="font-size:10px">Fade<br>200ms</div>
+        <div class="motion-box motion-scale" style="font-size:10px">Scale<br>250ms</div>
+        <div class="motion-box motion-slide" style="font-size:10px">Lift<br>250ms</div>
+        <div class="motion-box motion-color" style="font-size:10px">Color<br>200ms</div>
+      </div>
+      <div style="font-size:13px;color:var(--bdgs-text-muted)">Duration &lt;300ms only. <code>ease</code> or <code>cubic-bezier(0.16, 1, 0.3, 1)</code>. Motion communicates state &mdash; never decorative. Respect <code>prefers-reduced-motion</code>.</div>
+    </div>
+  </section>
+
+  <!-- ============== 05 RESPONSIVE ============== -->
+  <section id="responsive">
+    <div class="section-header">
+      <div class="section-number">05</div>
+      <h2 class="sec-title">Responsive</h2>
+    </div>
+
+    <div class="card" style="margin-bottom:16px">
+      <h3 class="sub">Breakpoints</h3>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Name</th><th>Max-width</th><th>Device class</th></tr></thead>
+          <tbody>
+            <tr><td><code>xs</code></td><td>480px</td><td>Small phones</td></tr>
+            <tr><td><code>sm</code></td><td>768px</td><td>Large phones / small tablets</td></tr>
+            <tr><td><code>md</code></td><td>991px</td><td>Tablets (Bootstrap 3 threshold)</td></tr>
+            <tr><td><code>lg</code></td><td>1029px</td><td>Small laptops</td></tr>
+            <tr><td><code>xl</code></td><td>1199px</td><td>Laptops / desktops</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card" style="margin-bottom:16px">
+      <h3 class="sub">Test Matrix</h3>
+      <p style="font-size:13px;color:var(--bdgs-text-muted);margin-bottom:12px">Every page must pass all combinations below with zero horizontal scroll, clipping, or overlap.</p>
+      <div class="grid-2">
+        <div>
+          <div style="font-size:12px;font-weight:600;color:var(--bdgs-text);margin-bottom:8px">Viewport widths</div>
+          <div style="display:flex;gap:6px;flex-wrap:wrap">
+            <span class="badge badge-coral">320</span><span class="badge badge-coral">375</span><span class="badge badge-coral">480</span><span class="badge badge-coral">768</span><span class="badge badge-coral">1024</span><span class="badge badge-coral">1280</span><span class="badge badge-coral">1440</span><span class="badge badge-coral">1920</span>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:12px;font-weight:600;color:var(--bdgs-text);margin-bottom:8px">Browser zoom (at 1920&times;1080)</div>
+          <div style="display:flex;gap:6px;flex-wrap:wrap">
+            <span class="badge badge-purple">90%</span><span class="badge badge-purple">100%</span><span class="badge badge-purple">110%</span><span class="badge badge-purple">125%</span><span class="badge badge-purple">150%</span><span class="badge badge-purple">175%</span><span class="badge badge-purple">200%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="do-dont" style="margin-bottom:16px">
+        <div class="do-box"><div class="do-label">&#10003; DO</div><div class="do-content">Use <code>min-height</code> on variable content. Let content determine height.<br><br>Use <code>clamp()</code> for fluid type &mdash; headings scale smoothly without media queries.</div></div>
+        <div class="dont-box"><div class="dont-label">&#10005; DON'T</div><div class="dont-content">Don't use fixed <code>height: 480px</code> on cards with variable copy &mdash; content will overflow or clip.<br><br>Don't override heading <code>font-size</code> in <code>@media</code> queries.</div></div>
+      </div>
+      <div class="do-dont">
+        <div class="do-box"><div class="do-label">&#10003; DO</div><div class="do-content">Use <code>max-width</code> + <code>width: 100%</code> on layout containers.<br><br>Use <code>padding-inline: var(--gutter)</code> for fluid side padding.</div></div>
+        <div class="dont-box"><div class="dont-label">&#10005; DON'T</div><div class="dont-content">Don't use <code>overflow-x: hidden</code> on body &mdash; find and fix the overflowing element instead.<br><br>Don't use <code>100vh</code> with capped content sections.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== 06 ACCESSIBILITY ============== -->
+  <section id="a11y">
+    <div class="section-header">
+      <div class="section-number">06</div>
+      <h2 class="sec-title">Accessibility</h2>
+    </div>
+
+    <div class="card" style="margin-bottom:16px">
+      <h3 class="sub">Contrast &mdash; WCAG AA</h3>
+      <div class="grid-2">
+        <div>
+          <div class="sem" style="background:var(--bdgs-success-bg);margin-bottom:8px"><span style="font-size:12px;font-weight:600;color:var(--bdgs-success-dark)">&#10003; Body text on white: 4.5:1 minimum</span></div>
+          <div class="sem" style="background:var(--bdgs-success-bg)"><span style="font-size:12px;font-weight:600;color:var(--bdgs-success-dark)">&#10003; Large text / UI: 3:1 minimum</span></div>
+        </div>
+        <div>
+          <div class="sem" style="background:var(--bdgs-error-bg);margin-bottom:8px"><span style="font-size:12px;font-weight:600;color:var(--bdgs-error)">&#10005; Muted text must still pass 4.5:1</span></div>
+          <div class="sem" style="background:var(--bdgs-error-bg)"><span style="font-size:12px;font-weight:600;color:var(--bdgs-error)">&#10005; Never remove outline without replacement</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-bottom:16px">
+      <h3 class="sub">Focus Ring</h3>
+      <p style="font-size:13px;color:var(--bdgs-text-muted);margin-bottom:16px">Tab through elements to see the coral focus ring. <code>outline: 2px solid var(--bdgs-coral); outline-offset: 2px</code>.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <button class="focus-demo">Tab to me</button>
+        <a href="#" class="focus-demo">Link element</a>
+        <input class="focus-demo" type="text" value="Input field" style="font-family:var(--bdgs-font-sans)">
+      </div>
+      <p style="font-size:12px;color:var(--bdgs-text-muted);margin-top:12px">Mouse clicks suppress the ring via <code>:focus:not(:focus-visible) { outline: none }</code>.</p>
+    </div>
+
+    <div class="card">
+      <h3 class="sub">Touch Targets</h3>
+      <p style="font-size:13px;color:var(--bdgs-text-muted);margin-bottom:16px">Minimum 44&times;44px for all interactive elements on mobile.</p>
+      <div class="touch-demo">
+        <div class="touch-ok">44px</div>
+        <span style="font-size:12px;color:var(--bdgs-success-dark);font-weight:500">Pass &mdash; meets minimum</span>
+        <div class="touch-fail">32px</div>
+        <span style="font-size:12px;color:var(--bdgs-error);font-weight:500">Fail &mdash; too small</span>
+      </div>
+      <p style="font-size:12px;color:var(--bdgs-text-muted);margin-top:16px">Respect <code>prefers-reduced-motion</code> on all animations. Text zoom to 200% must not break layout.</p>
+    </div>
+  </section>
+
+  <!-- ============== 07 VOICE ============== -->
+  <section id="voice">
+    <div class="section-header">
+      <div class="section-number">07</div>
+      <h2 class="sec-title">Voice &amp; Brand</h2>
+    </div>
+    <div class="card" style="margin-bottom:16px">
+      <div class="grid-2" style="gap:24px">
+        <div>
+          <h3 class="sub" style="margin-bottom:16px">Brand Personality</h3>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <div style="display:flex;gap:10px"><div style="width:6px;height:6px;background:var(--bdgs-coral);border-radius:50%;margin-top:7px;flex-shrink:0"></div><div><strong>Anti-fluff</strong> &mdash; every sentence earns its place with specifics, not vague marketing.</div></div>
+            <div style="display:flex;gap:10px"><div style="width:6px;height:6px;background:var(--bdgs-coral);border-radius:50%;margin-top:7px;flex-shrink:0"></div><div><strong>Oppositional</strong> &mdash; state what we're NOT, then what we ARE, then prove it.</div></div>
+            <div style="display:flex;gap:10px"><div style="width:6px;height:6px;background:var(--bdgs-coral);border-radius:50%;margin-top:7px;flex-shrink:0"></div><div><strong>Founder-savvy</strong> &mdash; speak to BD site owners as business operators.</div></div>
+            <div style="display:flex;gap:10px"><div style="width:6px;height:6px;background:var(--bdgs-coral);border-radius:50%;margin-top:7px;flex-shrink:0"></div><div><strong>Outcome-focused</strong> &mdash; lead with results, not process.</div></div>
+            <div style="display:flex;gap:10px"><div style="width:6px;height:6px;background:var(--bdgs-coral);border-radius:50%;margin-top:7px;flex-shrink:0"></div><div><strong>Concrete</strong> &mdash; numbers, specifics, examples. Never "we help businesses grow."</div></div>
+          </div>
+        </div>
+        <div>
+          <h3 class="sub" style="margin-bottom:14px">Copy Rules</h3>
+          <div class="do-dont">
+            <div class="do-box"><div class="do-label">&#10003; WRITE</div><div class="do-content">"500+ directory sites served"<br><br>"Your own dedicated BD developer"<br><br>"Get Started &rarr;"</div></div>
+            <div class="dont-box"><div class="dont-label">&#10005; AVOID</div><div class="dont-content">"Comprehensive, robust solutions"<br><br>"Affordable, seamless experience"<br><br>"Click Here" / "Submit"</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3 class="sub">CTA Patterns</h3>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:12px">
+        <button class="btn btn-primary">Get Started &rarr;</button>
+        <button class="btn btn-gradient">Start Your Setup &rarr;</button>
+        <button class="btn btn-secondary">Explore Services</button>
+        <button class="btn btn-ghost">Read 176+ Reviews</button>
+      </div>
+      <div style="font-size:13px;color:var(--bdgs-text-muted);line-height:1.7">
+        Every CTA uses <strong style="color:var(--bdgs-text)">verb + benefit + &rarr;</strong>. Never just "Submit" or "Click Here". Always "Brilliant Directories" in full &mdash; never "BD" in customer copy.
+      </div>
+    </div>
+  </section>
+
+  <!-- ============== 08 TOKENS ============== -->
+  <section id="tokens">
+    <div class="section-header">
+      <div class="section-number">08</div>
+      <h2 class="sec-title">Design Tokens (CSS)</h2>
+    </div>
+    <div class="card">
+      <p style="font-size:13px;color:var(--bdgs-text-muted);margin-bottom:16px">Copy this block into your page's root CSS. Reference tokens &mdash; never hard-code values.</p>
+<pre><span class="c-comment">/* ===== BDGS DESIGN TOKENS v1.0 ===== */</span>
+<span class="c-key">:root</span> {
+
+  <span class="c-comment">/* Color &mdash; Brand */</span>
+  <span class="c-key">--bdgs-coral</span>:          <span class="c-val">#E74D56</span>;
+  <span class="c-key">--bdgs-coral-dark</span>:     <span class="c-val">#C93A44</span>;
+  <span class="c-key">--bdgs-coral-light</span>:    <span class="c-val">#FDF0F0</span>;
+  <span class="c-key">--bdgs-purple</span>:         <span class="c-val">#95256E</span>;
+  <span class="c-key">--bdgs-purple-dark</span>:    <span class="c-val">#7A1D5A</span>;
+  <span class="c-key">--bdgs-purple-light</span>:   <span class="c-val">#F8EDF5</span>;
+  <span class="c-key">--bdgs-gradient</span>:       <span class="c-str">linear-gradient(135deg, #E74D56 0%, #95256E 100%)</span>;
+  <span class="c-key">--bdgs-gradient-subtle</span>:<span class="c-str">linear-gradient(135deg, #FDF0F0 0%, #F8EDF5 100%)</span>;
+
+  <span class="c-comment">/* Color &mdash; Neutrals */</span>
+  <span class="c-key">--bdgs-dark</span>:       <span class="c-val">#1A1A2E</span>;
+  <span class="c-key">--bdgs-dark-mid</span>:   <span class="c-val">#2D2D44</span>;
+  <span class="c-key">--bdgs-text</span>:       <span class="c-val">#2C2C3A</span>;
+  <span class="c-key">--bdgs-text-muted</span>: <span class="c-val">#6B6B80</span>;
+  <span class="c-key">--bdgs-bg</span>:         <span class="c-val">#FAFAFA</span>;
+  <span class="c-key">--bdgs-white</span>:      <span class="c-val">#FFFFFF</span>;
+  <span class="c-key">--bdgs-border</span>:     <span class="c-val">#E8E8EE</span>;
+
+  <span class="c-comment">/* Color &mdash; Semantic */</span>
+  <span class="c-key">--bdgs-success</span>:     <span class="c-val">#22C55E</span>;  <span class="c-key">--bdgs-success-bg</span>:  <span class="c-val">#ECFDF5</span>;
+  <span class="c-key">--bdgs-success-dark</span>: <span class="c-val">#16A34A</span>;
+  <span class="c-key">--bdgs-error</span>:       <span class="c-val">#DC2626</span>;  <span class="c-key">--bdgs-error-bg</span>:    <span class="c-val">#FEF2F2</span>;
+  <span class="c-key">--bdgs-warning</span>:     <span class="c-val">#D97706</span>;  <span class="c-key">--bdgs-warning-bg</span>:  <span class="c-val">#FFFBEB</span>;
+  <span class="c-key">--bdgs-info</span>:        <span class="c-val">#6366F1</span>;  <span class="c-key">--bdgs-info-bg</span>:     <span class="c-val">#EEF2FF</span>;
+
+  <span class="c-comment">/* Typography */</span>
+  <span class="c-key">--bdgs-font-sans</span>: <span class="c-str">'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif</span>;
+  <span class="c-key">--bdgs-font-mono</span>: <span class="c-str">'DM Mono', 'Fira Code', ui-monospace, monospace</span>;
+  <span class="c-key">--fs-h1</span>:   <span class="c-val">clamp(28px, 20px + 2.2vw, 46px)</span>;
+  <span class="c-key">--fs-h2</span>:   <span class="c-val">clamp(24px, 20px + 1.2vw, 34px)</span>;
+  <span class="c-key">--fs-h3</span>:   <span class="c-val">clamp(18px, 16px + 0.6vw, 22px)</span>;
+  <span class="c-key">--fs-lead</span>: <span class="c-val">clamp(16px, 14px + 0.6vw, 19px)</span>;
+  <span class="c-key">--fs-body</span>: <span class="c-val">16px</span>;   <span class="c-key">--fs-small</span>: <span class="c-val">13px</span>;
+  <span class="c-key">--fs-code</span>: <span class="c-val">13px</span>;   <span class="c-key">--fs-code-sm</span>: <span class="c-val">12px</span>;
+
+  <span class="c-comment">/* Spacing (4px base) */</span>
+  <span class="c-comment">/* 4  8  12  16  20  24  28  32  36  40  48  64  80 */</span>
+
+  <span class="c-comment">/* Rhythm */</span>
+  <span class="c-key">--section-y</span>:        <span class="c-val">clamp(48px, 7vw, 96px)</span>;
+  <span class="c-key">--content-measure</span>:  <span class="c-val">68ch</span>;
+  <span class="c-key">--gutter</span>:           <span class="c-val">clamp(16px, 4vw, 48px)</span>;
+
+  <span class="c-comment">/* Border Radius */</span>
+  <span class="c-comment">/* xs:4  sm:6  md:8  10  lg:12  xl:16  pill:20  full:50% */</span>
+
+  <span class="c-comment">/* Shadows */</span>
+  <span class="c-comment">/* sm: 0 2px 20px rgba(0,0,0,.06) */</span>
+  <span class="c-comment">/* md: 0 8px 30px rgba(0,0,0,.06) */</span>
+  <span class="c-comment">/* lg: 0 12px 40px rgba(0,0,0,.08) */</span>
+  <span class="c-comment">/* xl: 0 24px 70px rgba(26,26,46,.22) */</span>
+  <span class="c-comment">/* coral: 0 4px 16px rgba(231,77,86,.25) */</span>
+
+  <span class="c-comment">/* Transitions */</span>
+  <span class="c-key">--transition-fast</span>:   <span class="c-val">150ms ease</span>;
+  <span class="c-key">--transition-base</span>:   <span class="c-val">200ms ease</span>;
+  <span class="c-key">--transition-slow</span>:   <span class="c-val">300ms ease</span>;
+  <span class="c-key">--transition-card</span>:   <span class="c-val">250ms cubic-bezier(0.16, 1, 0.3, 1)</span>;
+}</pre>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <div style="text-align:center;padding:40px 0 0;border-top:1px solid var(--bdgs-border);margin-top:20px">
+    <div style="display:inline-flex;align-items:center;gap:10px;margin-bottom:10px">
+      <div style="width:32px;height:32px;background:var(--bdgs-gradient);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#fff;letter-spacing:-0.5px">BD</div>
+      <span style="font-size:14px;font-weight:600;color:var(--bdgs-dark)">BD Growth Suite Design System</span>
+    </div>
+    <p style="font-size:12px;color:var(--bdgs-text-muted)">Version 1.0.0 &middot; Internal reference only &middot; Not a public page</p>
+  </div>
+
+</div>
+</body>
+</html>
