@@ -1,13 +1,13 @@
 /**
- * BDGS — exact review count from Marketplace API (no "+" suffix).
+ * BDGS — exact review count from Laravel DB (no "+" suffix).
  * Updates only review-related elements; other stats (500+, 20+, 10+) are untouched.
  */
 (function (global) {
-  var API = 'https://bdgrowthsuite.com/api/widget/json/get/bdgs-blabs-reviews-api';
-  var KEY = '3d5ca826459ec3a3b47675f7ea0a0cd3';
+  var API = '/api/reviews/count';
   var FALLBACK = 176;
 
   function syncBdgsReviewCount(count) {
+    if (count <= 0) count = FALLBACK;
     var n = String(count);
     var el;
 
@@ -41,8 +41,7 @@
   }
 
   function fetchBdgsReviewCount() {
-    var url = API + '?action=list&published_only=1&limit=1&offset=0&bd_api_key=' + KEY;
-    return fetch(url)
+    return fetch(API)
       .then(function (r) { return r.json(); })
       .then(function (data) {
         if (data && data.ok && data.total !== undefined) {
@@ -59,6 +58,17 @@
   }
 
   function autoInit() {
+    if (typeof global.bdgsReviewCount === 'number' && global.bdgsReviewCount > 0) {
+      syncBdgsReviewCount(global.bdgsReviewCount);
+      return;
+    }
+
+    var hiddenCount = document.getElementById('bdgs-reviews-total-count');
+    if (hiddenCount && hiddenCount.textContent && !isNaN(parseInt(hiddenCount.textContent, 10))) {
+      syncBdgsReviewCount(parseInt(hiddenCount.textContent, 10));
+      return;
+    }
+
     var hasTarget =
       document.getElementById('bdgs-footer-reviews-link') ||
       document.getElementById('bdgs-hero-reviews-btn') ||
@@ -66,7 +76,7 @@
       document.getElementById('bdgs-stat-reviews-count') ||
       document.getElementById('bdgs-hero-reviews-count') ||
       document.querySelector('[data-bdgs-review-count]');
-    /* Reviews page runs its own list fetch — skip duplicate request there */
+
     if (hasTarget && !document.getElementById('reviewsGrid')) {
       fetchBdgsReviewCount();
     }

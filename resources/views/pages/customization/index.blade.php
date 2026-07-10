@@ -23,9 +23,6 @@
 <meta name="twitter:title" content="Brilliant Directories Customization — Custom Projects — BD Growth Suite">
 <meta name="twitter:description" content="Brilliant Directories customization: fixed-scope custom projects, quote in 24 hours, 1-year warranty. 1000+ builds across 500+ directories.">
 <meta name="twitter:image" content="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/logo.png">
-<link rel="icon" type="image/png" href="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/favicon.png">
-<link rel="shortcut icon" href="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/favicon.png">
-<link rel="apple-touch-icon" href="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/logo.png">
 @endsection
 
 @push('page-styles')

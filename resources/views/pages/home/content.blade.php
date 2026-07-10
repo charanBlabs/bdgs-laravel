@@ -28,7 +28,7 @@
       </div>
     </div>
     <div class="bdgsownv2-hero-ctas">
-      <a href="/services/" class="bdgsownv2-btn-primary">Explore Services</a>
+      <a href="/services" class="bdgsownv2-btn-primary">Explore Services</a>
       <button type="button" class="bdgsownv2-btn-secondary bdgsownv2-btn-zoom-cta" onclick="bdgsOpenZoomModal(); return false;">Join Free Zoom Clinic</button>
     </div>
   </div>
@@ -43,19 +43,24 @@
     <div class="row">
       <div class="col-md-5">
         <span class="bdgsownv2-badge bdgsownv2-badge-coral" style="margin-bottom:20px;display:inline-flex">🏅 Recommended by Brilliant Directories' CEO</span>
-        <h2 id="ceo-endorsement" class="bdgsownv2-section-title" style="margin-bottom:16px">Don't take our word for it.<br><span style="color:var(--bdgs-coral)">Hear from the source.</span></h2>
+        <h2 id="ceo-endorsement" class="bdgsownv2-section-title" style="margin:revert;margin-bottom:16px">Don't take our word for it.<br><span style="color:var(--bdgs-coral)">Hear from the source.</span></h2>
         <p style="font-size:16px;color:var(--bdgs-text-muted);line-height:1.65;margin-bottom:24px">Jason, CEO of Brilliant Directories, personally endorsed BD Growth Suite across 3 official webinars. When the platform's own CEO recommends a team — that says everything.</p>
         <div class="bdgsownv2-hero-ctas" style="justify-content:flex-start">
-          <a href="/services/" class="bdgsownv2-btn-primary">Explore Services</a>
-          <a href="/blabs-review/" class="bdgsownv2-btn-secondary bdgsownv2-btn-light" id="bdgs-hero-reviews-btn">Read 176 reviews</a>
+          <a href="/services" class="bdgsownv2-btn-primary">Explore Services</a>
+          <a href="/blabs-review" class="bdgsownv2-btn-secondary bdgsownv2-btn-light" id="bdgs-hero-reviews-btn">Read {{ $reviewCount }} reviews</a>
         </div>
       </div>
       <div class="col-md-7">
-        <div class="bdgsownv2-video-embed" style="padding: 0; overflow: hidden; position: relative; padding-bottom: 56.25%; height: 0; min-height: 0; border: none; background: transparent;">
-          <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);" src="https://www.youtube-nocookie.com/embed/pxKOMfuuPO8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <div class="bdgsownv2-video-embed bdgs-yt-host" data-bdgs-yt-key="ceo-endorsement" style="padding: 0; overflow: hidden; position: relative; padding-bottom: 56.25%; height: 0; min-height: 0; border: none; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+          <div class="bdgs-yt-player-mount" id="bdgs-yt-ceo-endorsement"></div>
+          <button type="button" class="bdgs-yt-play" aria-label="Play video: CEO Endorsement">
+            <span class="bdgs-yt-play-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M8 5v14l12-7z"/></svg>
+            </span>
+          </button>
         </div>
         <div style="text-align: center; margin-top: 16px;">
-          <a href="/webinars/" style="font-size: 14px; color: var(--bdgs-coral); font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 4px; transition: opacity 0.2s;">Check out all webinars →</a>
+          <a href="/webinars" style="font-size: 14px; color: var(--bdgs-coral); font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 4px; transition: opacity 0.2s;">Check out all webinars →</a>
         </div>
         </div>
     </div>
@@ -295,7 +300,7 @@ Chatbots. Agents. Smart search.<br>
     </div>
 
     <div class="bdgsownv2-reviews-more" style="margin-top: 32px;">
-      <a href="/blabs-review/" id="bdgs-proof-reviews-link">See 176 reviews &rarr;</a>
+      <a href="/blabs-review" id="bdgs-proof-reviews-link">See {{ $reviewCount }} reviews &rarr;</a>
     </div>
   </section>
 
@@ -310,7 +315,7 @@ Chatbots. Agents. Smart search.<br>
         <div class="bdgsownv2-stat-label">Directories Directly Served</div>
       </div>
       <div class="bdgsownv2-stat">
-        <div class="bdgsownv2-stat-number bdgsownv2-grad-text" id="bdgs-stat-reviews-count">176</div>
+        <div class="bdgsownv2-stat-number bdgsownv2-grad-text" id="bdgs-stat-reviews-count">{{ $reviewCount }}</div>
         <div class="bdgsownv2-stat-label">Verified Reviews</div>
       </div>
       <div class="bdgsownv2-stat">
@@ -575,7 +580,7 @@ Chatbots. Agents. Smart search.<br>
         <div class="bdgsownv2-stack-card-cta"><a href="/solutions">Browse all solutions →</a></div>
 
         <div class="bdgsownv2-sol-categories">
-          <a href="/solutions?category=seo" class="bdgsownv2-sol-cat">
+          <a href="/solutions/seo" class="bdgsownv2-sol-cat">
             <div class="bdgsownv2-sol-cat-icon sol-icon-coral">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><polyline points="4 10 8 6 12 9 20 2"/><polyline points="15 2 20 2 20 7"/></svg>
             </div>
@@ -584,7 +589,7 @@ Chatbots. Agents. Smart search.<br>
               <span class="bdgsownv2-sol-cat-desc">Advanced markup &amp; technical SEO. Rank higher.</span>
             </div>
           </a>
-          <a href="/solutions?category=lead-gen" class="bdgsownv2-sol-cat">
+          <a href="/solutions/lead-gen" class="bdgsownv2-sol-cat">
             <div class="bdgsownv2-sol-cat-icon sol-icon-purple">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
             </div>
@@ -593,7 +598,7 @@ Chatbots. Agents. Smart search.<br>
               <span class="bdgsownv2-sol-cat-desc">Capture more leads. Turn visitors into members.</span>
             </div>
           </a>
-          <a href="/solutions?category=member-profile" class="bdgsownv2-sol-cat">
+          <a href="/solutions/member-profiles" class="bdgsownv2-sol-cat">
             <div class="bdgsownv2-sol-cat-icon sol-icon-coral">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/><path d="M21 21v-2a4 4 0 0 0-3-3.87"/></svg>
             </div>
@@ -602,7 +607,7 @@ Chatbots. Agents. Smart search.<br>
               <span class="bdgsownv2-sol-cat-desc">Custom profile layouts. Make members stand out.</span>
             </div>
           </a>
-          <a href="/solutions?category=search" class="bdgsownv2-sol-cat">
+          <a href="/solutions/search" class="bdgsownv2-sol-cat">
             <div class="bdgsownv2-sol-cat-icon sol-icon-purple">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
             </div>
@@ -611,7 +616,7 @@ Chatbots. Agents. Smart search.<br>
               <span class="bdgsownv2-sol-cat-desc">Optimized search flows. Help users find what they need.</span>
             </div>
           </a>
-          <a href="/solutions?category=design" class="bdgsownv2-sol-cat">
+          <a href="/solutions/page-design" class="bdgsownv2-sol-cat">
             <div class="bdgsownv2-sol-cat-icon sol-icon-coral">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
             </div>
@@ -620,7 +625,7 @@ Chatbots. Agents. Smart search.<br>
               <span class="bdgsownv2-sol-cat-desc">Stunning layouts. Built for modern directories.</span>
             </div>
           </a>
-          <a href="/solutions?category=content" class="bdgsownv2-sol-cat">
+          <a href="/solutions/content" class="bdgsownv2-sol-cat">
             <div class="bdgsownv2-sol-cat-icon sol-icon-purple">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
             </div>
@@ -629,7 +634,7 @@ Chatbots. Agents. Smart search.<br>
               <span class="bdgsownv2-sol-cat-desc">Keep audiences hooked. Automated content strategies.</span>
             </div>
           </a>
-          <a href="/solutions?category=integrations" class="bdgsownv2-sol-cat">
+          <a href="/solutions/integrations" class="bdgsownv2-sol-cat">
             <div class="bdgsownv2-sol-cat-icon sol-icon-coral">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
             </div>
@@ -913,124 +918,3 @@ Chatbots. Agents. Smart search.<br>
 
 
 
-<!-- ============================================
-     FOOTER (V3 — Locked)
-     ============================================ -->
-
-<div class="bdgsownv2-modal-overlay" id="bdgsZoomModal">
-  <div class="bdgsownv2-modal">
-    <button class="bdgsownv2-modal-close" style="width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; top: 14px; right: 14px; padding: 0;" onclick="bdgsCloseZoomModal()">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-    </button>
-    <div id="bdgsZoomModalContent">
-      <div id="bdgsZoomModalStep1">
-        <h3>🟢 Join Free Zoom Clinics</h3>
-        <p>Stuck on small things? Drop into our live Zoom session to get free help and learn Brilliant Directories.</p>
-        <div style="background:var(--bdgs-bg);padding:16px;border-radius:8px;font-size:14px;border-left:3px solid var(--bdgs-coral);margin-bottom:16px;">
-          <style>
-.bdgs-tz-wrapper { position:relative; display:inline-flex; align-items:center; background-color:rgba(17, 24, 39, 0.05); border-radius:6px; padding:4px 10px; margin-left:4px; cursor:pointer; user-select:none; transition: background-color 0.2s; }
-.bdgs-tz-wrapper:hover { background-color: rgba(17, 24, 39, 0.09) !important; }
-.bdgs-custom-dropdown { display:none; position:absolute; top:calc(100% + 4px); left:0; min-width:100%; width:max-content; background:var(--bdgs-white); border:1px solid rgba(0,0,0,0.08); border-radius:8px; box-shadow:0 12px 28px -6px rgba(0,0,0,0.12), 0 8px 16px -8px rgba(0,0,0,0.08); z-index:1000; padding:6px; flex-direction:column; gap:2px; }
-.bdgs-custom-dropdown.show { display:flex; animation: bdgsDropdownFade 0.2s ease; }
-@keyframes bdgsDropdownFade { from { opacity:0; transform:translateY(-5px); } to { opacity:1; transform:translateY(0); } }
-.bdgs-tz-option { padding:8px 12px; font-size:13px; color:var(--bdgs-dark); border-radius:4px; cursor:pointer; transition:background 0.2s, color 0.2s; font-weight: 500; }
-.bdgs-tz-option:hover, .bdgs-tz-option.selected { background:rgba(231,77,86,0.08); color:var(--bdgs-coral); }
-</style>
-
-          <div style="margin-bottom:8px;">
-            <strong style="color:var(--bdgs-dark)">Next session:</strong> <span id="bdgsZoomSessionDisplay">Loading...</span>
-            <div style="margin-top: 2px;">
-              <strong style="color:var(--bdgs-dark)">Timezone:</strong>
-              
-              <div class="bdgs-tz-wrapper" id="bdgsTzWrapper" onclick="document.getElementById('bdgsTzDropdown').classList.toggle('show')">
-                <span id="bdgsZoomTimezoneText" style="font-size:13px; color:inherit; margin-right:8px; pointer-events:none; font-weight:600;">Eastern Time (EDT / EST) - New York</span>
-                <svg width="10" height="6" xmlns="http://www.w3.org/2000/svg" style="pointer-events:none; flex-shrink:0;"><path d="M1 1l4 4 4-4" stroke="#6b7280" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                <input type="hidden" id="bdgsZoomTimezone" value="America/New_York">
-                
-                <div class="bdgs-custom-dropdown" id="bdgsTzDropdown">
-                  <div class="bdgs-tz-option selected" data-value="America/New_York" data-base="Eastern Time ({tz}) - New York" onclick="bdgsSelectTimezone(this, event)">Eastern Time - New York</div>
-                  <div class="bdgs-tz-option" data-value="America/Chicago" data-base="Central Time ({tz}) - Chicago" onclick="bdgsSelectTimezone(this, event)">Central Time - Chicago</div>
-                  <div class="bdgs-tz-option" data-value="America/Denver" data-base="Mountain Time ({tz}) - Denver" onclick="bdgsSelectTimezone(this, event)">Mountain Time - Denver</div>
-                  <div class="bdgs-tz-option" data-value="America/Los_Angeles" data-base="Pacific Time ({tz}) - Los Angeles" onclick="bdgsSelectTimezone(this, event)">Pacific Time - Los Angeles</div>
-                  <div class="bdgs-tz-option" data-value="America/Anchorage" data-base="Alaska Time ({tz}) - Anchorage" onclick="bdgsSelectTimezone(this, event)">Alaska Time - Anchorage</div>
-                  <div class="bdgs-tz-option" data-value="Europe/London" data-base="British Time ({tz}) - London" onclick="bdgsSelectTimezone(this, event)">British Time - London</div>
-
-                  <div class="bdgs-tz-option" data-value="Asia/Kolkata" data-base="Indian Standard Time ({tz}) - New Delhi" onclick="bdgsSelectTimezone(this, event)">Indian Standard Time - New Delhi</div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div style="margin-bottom:2px;">
-            <strong style="color:var(--bdgs-dark)">Agenda:</strong> Live Website Reviews &amp; Open Q&amp;A
-          </div>
-          <strong style="color:var(--bdgs-dark)">Format:</strong> 60-min open Q&amp;A with our devs<br>
-          <strong style="color:var(--bdgs-dark)">Cost:</strong> Free, forever
-        </div>
-
-        <p style="font-size:12px;color:var(--bdgs-text-muted);margin-bottom:24px;">Strategy questions? Those need our Founder Concierge or Express Setup. Everything else - come on in.</p>
-        <div style="display:flex;flex-direction:column;align-items:center;gap:12px;">
-          <button type="button" onclick="bdgsShowZoomForm()" class="bdgsownv2-btn-primary" style="width:100%;padding:14px 20px;font-size:15px;text-align:center;">Register Now</button>
-          <a href="/zoom-clinics" style="font-size:13px;color:var(--bdgs-coral);font-weight:600;text-decoration:none;">View all upcoming clinics &rarr;</a>
-        </div>
-      </div>
-
-      <form id="bdgsZoomBookingForm" onsubmit="event.preventDefault(); bdgsProcessZoomBooking();" style="display:none;">
-        <div style="margin-bottom:28px;">
-          <h3 class="bdgsownv2-section-title" style="margin:0 0 20px;padding-right:32px;font-size:var(--fs-h3)">Live Website Reviews &amp; Open Q&amp;A</h3>
-          
-          <div style="font-size:15px; color:var(--bdgs-dark); margin-bottom:14px; display:flex; align-items:center;">
-            <strong style="font-weight:700; margin-right:6px;">Session:</strong> <span id="bdgsZoomSessionDisplayForm">Loading...</span>
-          </div>
-          
-          <div style="font-size:15px; color:var(--bdgs-dark); margin-bottom:20px; display:flex; align-items:center;">
-            <strong style="font-weight:700; margin-right:6px;">Timezone:</strong>
-            <div class="bdgs-tz-wrapper" id="bdgsTzWrapperForm" onclick="document.getElementById('bdgsTzDropdownForm').classList.toggle('show')" style="background-color:rgba(17, 24, 39, 0.04); margin-left:0; padding:6px 12px; border-radius:6px;">
-              <span id="bdgsZoomTimezoneTextForm" style="font-size:13px; color:inherit; margin-right:8px; pointer-events:none; font-weight:600;">Eastern Time (EDT / EST) - New York</span>
-              <svg width="10" height="6" xmlns="http://www.w3.org/2000/svg" style="pointer-events:none; flex-shrink:0;"><path d="M1 1l4 4 4-4" stroke="#6b7280" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              <input type="hidden" id="bdgsZoomTimezoneForm" value="America/New_York">
-              <div class="bdgs-custom-dropdown" id="bdgsTzDropdownForm">
-                <div class="bdgs-tz-option selected" data-value="America/New_York" data-base="Eastern Time ({tz}) - New York" onclick="bdgsSelectTimezone(this, event, 'Form')">Eastern Time - New York</div>
-                <div class="bdgs-tz-option" data-value="America/Chicago" data-base="Central Time ({tz}) - Chicago" onclick="bdgsSelectTimezone(this, event, 'Form')">Central Time - Chicago</div>
-                <div class="bdgs-tz-option" data-value="America/Denver" data-base="Mountain Time ({tz}) - Denver" onclick="bdgsSelectTimezone(this, event, 'Form')">Mountain Time - Denver</div>
-                <div class="bdgs-tz-option" data-value="America/Los_Angeles" data-base="Pacific Time ({tz}) - Los Angeles" onclick="bdgsSelectTimezone(this, event, 'Form')">Pacific Time - Los Angeles</div>
-                <div class="bdgs-tz-option" data-value="America/Anchorage" data-base="Alaska Time ({tz}) - Anchorage" onclick="bdgsSelectTimezone(this, event, 'Form')">Alaska Time - Anchorage</div>
-                <div class="bdgs-tz-option" data-value="Europe/London" data-base="British Time ({tz}) - London" onclick="bdgsSelectTimezone(this, event, 'Form')">British Time - London</div>
-
-                <div class="bdgs-tz-option" data-value="Asia/Kolkata" data-base="Indian Standard Time ({tz}) - New Delhi" onclick="bdgsSelectTimezone(this, event, 'Form')">Indian Standard Time - New Delhi</div>
-              </div>
-            </div>
-          </div>
-          
-          <p style="font-size:14px; color:var(--bdgs-text-muted); line-height:1.6; margin:0;">Stuck on small things? Drop into our live Zoom session to get free help and learn Brilliant Directories.</p>
-        </div>
-
-        <h4 style="margin:0 0 6px; font-size:16px; font-weight:700; color:var(--bdgs-dark); letter-spacing:-0.2px;">Your details please:</h4>
-        <p style="font-size:13px; color:var(--bdgs-text-muted); margin-bottom:16px;">Please enter your name and email to receive the calendar invite.</p>
-        
-        <div class="bdgsownv2-modal-form" style="margin-top:0; margin-bottom:24px;">
-          <input type="text" id="bdgsZoomName" name="name" placeholder="Your Name" required style="border-radius:8px; border:1px solid rgba(0,0,0,0.08); padding:12px 16px; width:100%; margin-bottom:12px; font-size:15px; outline:none; transition:border-color 0.2s, box-shadow 0.2s;">
-          <input type="email" id="bdgsZoomEmail" name="email" placeholder="Your Email" required style="border-radius:8px; border:1px solid rgba(0,0,0,0.08); padding:12px 16px; width:100%; font-size:15px; outline:none; transition:border-color 0.2s, box-shadow 0.2s;">
-        </div>
-        
-        <button type="submit" id="bdgsZoomScheduleBtn" class="bdgsownv2-btn-primary" style="width:100%;padding:14px 20px;font-size:15px;text-align:center;border-radius:8px;font-weight:600;">Complete Registration</button>
-      </form>
-    </div>
-    <div id="bdgsZoomModalSuccess" style="display:none;text-align:center;padding:24px 20px;">
-      <div style="font-size:64px;margin-bottom:20px;display:inline-block;text-shadow:0 10px 30px rgba(231,77,86,0.2);">🎉</div>
-      <h3 class="bdgsownv2-section-title" style="color:var(--bdgs-coral);margin-bottom:20px;font-size:var(--fs-h3)">Registration Complete!</h3>
-
-      <div style="text-align:left;margin:0 auto 24px;padding:14px 16px;background:var(--bdgs-bg);border-radius:10px;border-left:3px solid var(--bdgs-coral);">
-        <p style="font-size:14px;font-weight:700;color:var(--bdgs-dark);margin:0 0 10px;line-height:1.35;">Live Website Reviews &amp; Open Q&amp;A</p>
-        <p style="font-size:13px;color:var(--bdgs-text-muted);margin:0 0 6px;line-height:1.5;"><strong style="font-weight:600;color:var(--bdgs-dark);">Session:</strong> <span id="bdgsZoomSuccessWhen"></span></p>
-        <p style="font-size:13px;color:var(--bdgs-text-muted);margin:0;line-height:1.5;"><strong style="font-weight:600;color:var(--bdgs-dark);">Timezone:</strong> <span id="bdgsZoomSuccessTz"></span></p>
-      </div>
-
-      <a id="bdgsGoogleCalLink" target="_blank" rel="noopener noreferrer" href="#" class="bdgsownv2-btn-primary" style="width:100%;padding:14px 20px;font-size:15px;text-decoration:none;display:flex;justify-content:center;align-items:center;gap:8px;border-radius:8px;font-weight:600;">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-        Add to Google Calendar
-      </a>
-    </div>
-  </div>
-</div>
-
-<!-- Final CTA Inquiry Modal (front-end shell; backend automation to be wired later) -->

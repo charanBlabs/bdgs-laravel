@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Support\MarkdownMirror;
 use Closure;
 use Illuminate\Http\Request;
 use League\HTMLToMarkdown\HtmlConverter;
@@ -21,6 +22,16 @@ class ProvideMarkdownResponse
 
     public function handle(Request $request, Closure $next): Response
     {
+        if ($this->wantsMarkdown($request)) {
+            $mirror = MarkdownMirror::resolve($request->getPathInfo());
+
+            if ($mirror !== null) {
+                return response($mirror, 200, [
+                    'Content-Type' => 'text/markdown; charset=UTF-8',
+                ]);
+            }
+        }
+
         $wantsMarkdown = $this->wantsMarkdown($request);
         $response = $next($request);
 

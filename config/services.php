@@ -35,4 +35,12 @@ return [
         ],
     ],
 
+    'reviews_sync' => [
+        'token' => env('REVIEWS_SYNC_TOKEN'),
+    ],
+
+    'inquiry_agent' => [
+        'token' => env('INQUIRY_AGENT_TOKEN'),
+    ],
+
 ];

@@ -1,7 +1,5 @@
 @extends('layouts.bdgs')
 
-@php($showFab = false)
-
 @section('ai-summary')
 @include('pages.home.ai-summary')
 @endsection
@@ -24,23 +22,28 @@
 <meta name="twitter:title" content="Brilliant Directories Developers — BD Growth Suite">
 <meta name="twitter:description" content="Brilliant Directories developers who think like co-founders. Dedicated BD developer team for setup, customization, AI automation, and growth.">
 <meta name="twitter:image" content="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/logo.png">
-<link rel="icon" type="image/png" href="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/favicon.png">
-<link rel="shortcut icon" href="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/favicon.png">
-<link rel="apple-touch-icon" href="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/logo.png">
 @endsection
 
 @push('page-styles')
 <link rel="stylesheet" href="/css/bdgs-home.css">
+<link rel="stylesheet" href="/css/bdgs-webinars.css">
 @endpush
 
 @section('content')
 @include('pages.home.content')
 @endsection
 
+@push('page-modals')
+@include('pages.home.zoom-modal')
+@endpush
+
 @push('page-schema')
 @include('partials.bdgs.schema-home')
 @endpush
 
 @push('page-scripts')
+@include('pages.home.carousel-data')
 @include('pages.home.page-scripts')
+<script src="/snippets/bdgs-webinar-videos.js?v=20260708a"></script>
+<script src="/snippets/bdgs-youtube-player.js?v=20260708a"></script>
 @endpush

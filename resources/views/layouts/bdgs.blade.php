@@ -8,6 +8,10 @@
 @include('partials.bdgs.head-assets')
 <link rel="stylesheet" href="/css/bdgs-shell.css">
 @stack('page-styles')
+@if ($showFab ?? true)
+<link rel="preload" as="style" href="/css/cpb-fab.css" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="/css/cpb-fab.css"></noscript>
+@endif
 </head>
 <body>
 
@@ -21,17 +25,18 @@
 @yield('content')
 
 @include('partials.bdgs.footer')
+@stack('page-modals')
 @include('partials.bdgs.inquiry-modal')
+@include('partials.bdgs.inquiry-scripts')
 @include('partials.bdgs.shell-scripts')
+@include('partials.bdgs.auth-user-data')
 @include('partials.bdgs.mobile-nav')
 @include('partials.bdgs.mobile-nav-scripts')
 @stack('page-schema')
 @if ($showFab ?? true)
-<link rel="stylesheet" href="/css/cpb-fab.css">
 @include('partials.bdgs.copy-page-fab')
 @include('partials.bdgs.copy-page-fab-scripts')
 @endif
-<script src="/snippets/bdgs-review-count.js"></script>
 @stack('page-scripts')
 </body>
 </html>

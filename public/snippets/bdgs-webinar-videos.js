@@ -5,6 +5,11 @@
  *   webinars/index.html  (JSON-LD VideoObject blocks)
  */
 window.BDGS_WEBINAR_VIDEOS = {
+  'ceo-endorsement': {
+    id: 'pxKOMfuuPO8',
+    title: 'CEO Endorsement — Jason, CEO of Brilliant Directories, recommends BD Growth Suite',
+    watchUrl: 'https://www.youtube.com/watch?v=pxKOMfuuPO8'
+  },
   '205': {
     id: 'OOQqH-veL8k',
     title: 'Your First 100 Members — Simplify Your Directory — Webinar Wednesday #205',

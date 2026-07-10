@@ -21,9 +21,6 @@
 <meta name="twitter:title" content="Brilliant Directories CEO Webinars — BD Growth Suite">
 <meta name="twitter:description" content="3 official webinars featuring Jason, CEO of Brilliant Directories, and Yakin Shah of BD Growth Suite — including the Your First 100 Members series.">
 <meta name="twitter:image" content="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/logo.png">
-<link rel="icon" type="image/png" href="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/favicon.png">
-<link rel="shortcut icon" href="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/favicon.png">
-<link rel="apple-touch-icon" href="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/logo.png">
 @endsection
 
 @push('page-styles')

@@ -1,7 +1,7 @@
 <div class="bdgs-mob-overlay" id="bdgsMobOverlay" aria-hidden="true">
   <div class="bdgs-mob-header">
     <a href="/" class="bdgsownv2-logo">
-      <img referrerpolicy="no-referrer" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/logo.png" alt="BD Growth Suite" height="32">
+      <img referrerpolicy="no-referrer" loading="lazy" width="140" height="32" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/logo.png" alt="BD Growth Suite">
     </a>
     <button type="button" class="bdgs-mob-close" id="bdgsMobCloseBtn" aria-label="Close menu">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
@@ -34,7 +34,23 @@
           </li>
         </ul>
         <div class="bdgs-mob-cta-wrap">
+          @auth
+          @php($mobUser = auth()->user()->loadMissing(['profile.avatar', 'roles']))
+          <div class="bdgs-mob-user">
+            @include('partials.bdgs.user-avatar', ['user' => $mobUser, 'size' => 48, 'class' => 'bdgs-mob-user__avatar'])
+            <div class="bdgs-mob-user__meta">
+              <p class="bdgs-mob-user__name">{{ $mobUser->fullName() }}</p>
+              <p class="bdgs-mob-user__role">{{ $mobUser->primaryRoleLabel() }}</p>
+            </div>
+          </div>
+          <a href="{{ route('dashboard') }}" class="bdgs-mob-cta" style="display:block;text-align:center;text-decoration:none;">My Dashboard</a>
+          <form method="POST" action="{{ route('logout') }}" class="bdgs-mob-logout">
+            @csrf
+            <button type="submit" class="bdgs-mob-logout-btn">Log out</button>
+          </form>
+          @else
           <button type="button" class="bdgs-mob-cta">Get Started →</button>
+          @endauth
         </div>
       </div>
     </div>
@@ -56,13 +72,13 @@
         <div class="bdgs-mob-divider"></div>
         <div class="bdgs-mob-section">
           <p class="bdgs-mob-section-heading">Solutions Done For You</p>
-          <a href="/solutions?category=seo" class="bdgs-mob-subitem"><span class="bdgs-mob-subitem-title">SEO &amp; Schema</span><span class="bdgs-mob-subitem-desc">Advanced markup &amp; technical SEO. Rank higher.</span></a>
-          <a href="/solutions?category=lead-gen" class="bdgs-mob-subitem"><span class="bdgs-mob-subitem-title">Lead Gen &amp; Conversion</span><span class="bdgs-mob-subitem-desc">Capture more leads. Turn visitors into members.</span></a>
-          <a href="/solutions?category=member-profile" class="bdgs-mob-subitem"><span class="bdgs-mob-subitem-title">Member Profile Enhancement</span><span class="bdgs-mob-subitem-desc">Custom profile layouts. Make members stand out.</span></a>
-          <a href="/solutions?category=search" class="bdgs-mob-subitem"><span class="bdgs-mob-subitem-title">Search &amp; Discovery</span><span class="bdgs-mob-subitem-desc">Optimized search flows. Help users find what they need.</span></a>
-          <a href="/solutions?category=design" class="bdgs-mob-subitem"><span class="bdgs-mob-subitem-title">Page Design &amp; Development</span><span class="bdgs-mob-subitem-desc">Stunning layouts. Built for modern directories.</span></a>
-          <a href="/solutions?category=content" class="bdgs-mob-subitem"><span class="bdgs-mob-subitem-title">Content &amp; Engagement</span><span class="bdgs-mob-subitem-desc">Keep audiences hooked. Automated content strategies.</span></a>
-          <a href="/solutions?category=integrations" class="bdgs-mob-subitem"><span class="bdgs-mob-subitem-title">Integrations</span><span class="bdgs-mob-subitem-desc">Connect your favorite tools. Seamless API integrations.</span></a>
+          <a href="/solutions/seo" class="bdgs-mob-subitem"><span class="bdgs-mob-subitem-title">SEO &amp; Schema</span><span class="bdgs-mob-subitem-desc">Advanced markup &amp; technical SEO. Rank higher.</span></a>
+          <a href="/solutions/lead-gen" class="bdgs-mob-subitem"><span class="bdgs-mob-subitem-title">Lead Gen &amp; Conversion</span><span class="bdgs-mob-subitem-desc">Capture more leads. Turn visitors into members.</span></a>
+          <a href="/solutions/member-profiles" class="bdgs-mob-subitem"><span class="bdgs-mob-subitem-title">Member Profile Enhancement</span><span class="bdgs-mob-subitem-desc">Custom profile layouts. Make members stand out.</span></a>
+          <a href="/solutions/search" class="bdgs-mob-subitem"><span class="bdgs-mob-subitem-title">Search &amp; Discovery</span><span class="bdgs-mob-subitem-desc">Optimized search flows. Help users find what they need.</span></a>
+          <a href="/solutions/page-design" class="bdgs-mob-subitem"><span class="bdgs-mob-subitem-title">Page Design &amp; Development</span><span class="bdgs-mob-subitem-desc">Stunning layouts. Built for modern directories.</span></a>
+          <a href="/solutions/content" class="bdgs-mob-subitem"><span class="bdgs-mob-subitem-title">Content &amp; Engagement</span><span class="bdgs-mob-subitem-desc">Keep audiences hooked. Automated content strategies.</span></a>
+          <a href="/solutions/integrations" class="bdgs-mob-subitem"><span class="bdgs-mob-subitem-title">Integrations</span><span class="bdgs-mob-subitem-desc">Connect your favorite tools. Seamless API integrations.</span></a>
           <a href="/solutions/member-management" class="bdgs-mob-subitem"><span class="bdgs-mob-subitem-title">Member Management</span><span class="bdgs-mob-subitem-desc">Approval workflows, dashboards, member control.</span></a>
         </div>
         <div class="bdgs-mob-also">

@@ -18,6 +18,7 @@
     { "url": "/about", "title": "About BD Growth Suite — Brilliant Directories Experts", "primary_keyword": "brilliant directories experts", "funnel": "trust", "schema": ["Organization", "Person"], "status": "planned", "sprint": 1 },
     { "url": "/contact", "title": "Contact BD Growth Suite", "primary_keyword": "contact brilliant directories developers", "funnel": "conversion", "schema": ["Organization"], "status": "planned", "sprint": 1 },
     { "url": "/login", "title": "Client Login", "primary_keyword": "", "funnel": "utility", "schema": [], "status": "noindex", "sprint": 1 },
+    { "url": "/signup", "title": "Client Signup", "primary_keyword": "", "funnel": "utility", "schema": [], "status": "noindex", "sprint": 1 },
 
     { "url": "/services", "title": "Brilliant Directories Services — BD Growth Suite", "primary_keyword": "brilliant directories services", "funnel": "consideration", "schema": ["WebPage", "ItemList", "BreadcrumbList"], "status": "live", "sprint": 1, "md_mirror": "/services.md" },
     { "url": "/setup", "title": "Brilliant Directories Setup & Launch — Express Setup", "primary_keyword": "brilliant directories setup", "funnel": "consideration", "schema": ["Service"], "status": "planned", "sprint": 1 },
@@ -26,7 +27,7 @@
     { "url": "/maintenance", "title": "Brilliant Directories Maintenance Plans", "primary_keyword": "brilliant directories maintenance", "funnel": "consideration", "schema": ["Service"], "status": "planned", "sprint": 3 },
     { "url": "/consultation", "title": "Brilliant Directories Consultation", "primary_keyword": "brilliant directories consultant", "funnel": "consideration", "schema": ["Service"], "status": "planned", "sprint": 2 },
     { "url": "/founders-track", "title": "Founder's Track — BD Growth Suite", "primary_keyword": "brilliant directories growth partner", "funnel": "conversion", "schema": ["Service"], "status": "planned", "sprint": 2 },
-    { "url": "/zoom-clinics", "title": "Free Brilliant Directories Zoom Clinics", "primary_keyword": "brilliant directories help", "funnel": "awareness", "schema": ["Event"], "status": "planned", "sprint": 1 },
+    { "url": "/zoom-clinics", "title": "Free Brilliant Directories Zoom Clinics", "primary_keyword": "brilliant directories zoom clinics", "funnel": "awareness", "schema": ["Event"], "status": "live", "sprint": 1, "md_mirror": "/zoom-clinics.md" },
 
     { "url": "/grow-with-ai", "title": "Grow Your Brilliant Directories Site with AI", "primary_keyword": "brilliant directories ai", "funnel": "consideration", "schema": ["Service"], "status": "planned", "sprint": 2 },
     { "url": "/ai-development", "title": "AI-Powered Brilliant Directories Development", "primary_keyword": "ai brilliant directories development", "funnel": "consideration", "schema": ["Service"], "status": "planned", "sprint": 2 },
@@ -54,8 +55,9 @@
     { "url": "/case-studies", "title": "Brilliant Directories Case Studies", "primary_keyword": "brilliant directories case studies", "funnel": "trust", "schema": ["Article"], "status": "planned", "sprint": 3 },
     { "url": "/webinars", "title": "Brilliant Directories CEO Webinars", "primary_keyword": "brilliant directories webinar", "funnel": "trust", "schema": ["VideoObject"], "status": "live", "sprint": 1, "md_mirror": "/webinars.md" },
 
-    { "url": "/terms", "title": "Terms of Service", "primary_keyword": "", "funnel": "legal", "schema": ["WebPage"], "status": "planned", "sprint": 1 },
-    { "url": "/privacy", "title": "Privacy Policy", "primary_keyword": "", "funnel": "legal", "schema": ["WebPage"], "status": "planned", "sprint": 1 }
+    { "url": "/about/terms", "title": "Terms of Use", "primary_keyword": "", "funnel": "legal", "schema": ["WebPage"], "status": "planned", "sprint": 1 },
+    { "url": "/about/privacy", "title": "Privacy Policy", "primary_keyword": "", "funnel": "legal", "schema": ["WebPage"], "status": "planned", "sprint": 1 },
+    { "url": "/license/sdcl-v1", "title": "License Terms for Single Domain Use", "primary_keyword": "BD Growth Suite license", "funnel": "legal", "schema": ["WebPage"], "status": "planned", "sprint": 1 }
   ],
   "templated_page_groups": [
     { "pattern": "/solutions/[slug]", "count": 61, "schema": ["Service"], "status": "planned", "note": "Individual solution pages — migrate/redesign from live site (Sprint 4)." },

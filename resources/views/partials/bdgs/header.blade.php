@@ -1,7 +1,7 @@
 <header class="bdgsownv2-header" id="bdgsHeader">
   <nav class="bdgsownv2-nav">
     <a href="/" class="bdgsownv2-logo">
-      <img referrerpolicy="no-referrer" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/logo.png" alt="BD Growth Suite">
+      <img referrerpolicy="no-referrer" loading="lazy" width="140" height="32" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/logo.png" alt="BD Growth Suite">
     </a>
     <ul class="bdgsownv2-nav-links">
       <li class="bdgsownv2-nav-item bdgsownv2-nav-item-mega">
@@ -23,13 +23,13 @@
             <div class="bdgsownv2-dropdown-mega-solutions">
               <p class="bdgsownv2-dropdown-col-heading">Solutions Done For You</p>
               <div class="bdgsownv2-dropdown-grid bdgsownv2-dropdown-solutions-grid">
-                <a href="/solutions?category=seo" class="bdgsownv2-dropdown-item"><div class="bdgsownv2-dropdown-item-title">SEO &amp; Schema</div><div class="bdgsownv2-dropdown-item-desc">Advanced markup &amp; technical SEO. Rank higher.</div></a>
-                <a href="/solutions?category=lead-gen" class="bdgsownv2-dropdown-item"><div class="bdgsownv2-dropdown-item-title">Lead Gen &amp; Conversion</div><div class="bdgsownv2-dropdown-item-desc">Capture more leads. Turn visitors into members.</div></a>
-                <a href="/solutions?category=member-profile" class="bdgsownv2-dropdown-item"><div class="bdgsownv2-dropdown-item-title">Member Profile Enhancement</div><div class="bdgsownv2-dropdown-item-desc">Custom profile layouts. Make members stand out.</div></a>
-                <a href="/solutions?category=search" class="bdgsownv2-dropdown-item"><div class="bdgsownv2-dropdown-item-title">Search &amp; Discovery</div><div class="bdgsownv2-dropdown-item-desc">Optimized search flows. Help users find what they need.</div></a>
-                <a href="/solutions?category=design" class="bdgsownv2-dropdown-item"><div class="bdgsownv2-dropdown-item-title">Page Design &amp; Development</div><div class="bdgsownv2-dropdown-item-desc">Stunning layouts. Built for modern directories.</div></a>
-                <a href="/solutions?category=content" class="bdgsownv2-dropdown-item"><div class="bdgsownv2-dropdown-item-title">Content &amp; Engagement</div><div class="bdgsownv2-dropdown-item-desc">Keep audiences hooked. Automated content strategies.</div></a>
-                <a href="/solutions?category=integrations" class="bdgsownv2-dropdown-item"><div class="bdgsownv2-dropdown-item-title">Integrations</div><div class="bdgsownv2-dropdown-item-desc">Connect your favorite tools. Seamless API integrations.</div></a>
+                <a href="/solutions/seo" class="bdgsownv2-dropdown-item"><div class="bdgsownv2-dropdown-item-title">SEO &amp; Schema</div><div class="bdgsownv2-dropdown-item-desc">Advanced markup &amp; technical SEO. Rank higher.</div></a>
+                <a href="/solutions/lead-gen" class="bdgsownv2-dropdown-item"><div class="bdgsownv2-dropdown-item-title">Lead Gen &amp; Conversion</div><div class="bdgsownv2-dropdown-item-desc">Capture more leads. Turn visitors into members.</div></a>
+                <a href="/solutions/member-profiles" class="bdgsownv2-dropdown-item"><div class="bdgsownv2-dropdown-item-title">Member Profile Enhancement</div><div class="bdgsownv2-dropdown-item-desc">Custom profile layouts. Make members stand out.</div></a>
+                <a href="/solutions/search" class="bdgsownv2-dropdown-item"><div class="bdgsownv2-dropdown-item-title">Search &amp; Discovery</div><div class="bdgsownv2-dropdown-item-desc">Optimized search flows. Help users find what they need.</div></a>
+                <a href="/solutions/page-design" class="bdgsownv2-dropdown-item"><div class="bdgsownv2-dropdown-item-title">Page Design &amp; Development</div><div class="bdgsownv2-dropdown-item-desc">Stunning layouts. Built for modern directories.</div></a>
+                <a href="/solutions/content" class="bdgsownv2-dropdown-item"><div class="bdgsownv2-dropdown-item-title">Content &amp; Engagement</div><div class="bdgsownv2-dropdown-item-desc">Keep audiences hooked. Automated content strategies.</div></a>
+                <a href="/solutions/integrations" class="bdgsownv2-dropdown-item"><div class="bdgsownv2-dropdown-item-title">Integrations</div><div class="bdgsownv2-dropdown-item-desc">Connect your favorite tools. Seamless API integrations.</div></a>
                 <a href="/solutions/member-management" class="bdgsownv2-dropdown-item"><div class="bdgsownv2-dropdown-item-title">Member Management</div><div class="bdgsownv2-dropdown-item-desc">Approval workflows, dashboards, member control.</div></a>
               </div>
             </div>
@@ -72,6 +72,10 @@
       <span class="bdgs-mob-hamburger-line"></span>
       <span class="bdgs-mob-hamburger-line"></span>
     </button>
-    <button type="button" class="bdgsownv2-cta-btn" onclick="bdgsOpenInquiryModal(); return false;">Get Started →</button>
+    @auth
+      @include('partials.bdgs.auth-user-menu')
+    @else
+      <button type="button" class="bdgsownv2-cta-btn" onclick="bdgsOpenInquiryModal(); return false;">Get Started →</button>
+    @endauth
   </nav>
 </header>

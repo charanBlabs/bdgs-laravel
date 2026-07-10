@@ -1,0 +1,146 @@
+/* Legal pages (Privacy, Terms) — production typography on theme DM Sans */
+
+.content-container.fr-view {
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 22.8571px;
+  color: rgb(41, 41, 41);
+  background: var(--bdgs-white);
+  padding-top: clamp(32px, 5vw, 56px);
+  padding-bottom: clamp(48px, 8vw, 88px);
+}
+
+.content-container.fr-view > .container {
+  max-width: 1200px;
+}
+
+.content-container.fr-view .pagehead {
+  margin: clamp(8px, 2vw, 10px) 0 clamp(20px, 4vw, 30px);
+  padding: 0;
+  text-align: center;
+}
+
+.content-container.fr-view .pagehead h1 {
+  font-family: inherit;
+  font-size: clamp(28px, 6vw, 44px);
+  font-weight: 600;
+  line-height: 1.1;
+  color: rgb(41, 41, 41);
+  margin: 0 0 10px;
+  padding: 0;
+  text-align: center;
+}
+
+.content-container.fr-view h3 {
+  font-family: inherit;
+  font-size: clamp(20px, 4.5vw, 24px);
+  font-weight: 700;
+  line-height: 1.1;
+  color: rgb(41, 41, 41);
+  margin: 0 0 16px;
+  padding: 0;
+  text-align: start;
+}
+
+.content-container.fr-view p {
+  font-size: clamp(15px, 3.8vw, 16px);
+  font-weight: 400;
+  line-height: 1.4286;
+  color: rgb(41, 41, 41);
+  margin: 0 0 10px;
+  text-align: start;
+}
+
+.content-container.fr-view p[style*="margin-left"] {
+  margin-left: clamp(1rem, 5vw, 1in) !important;
+}
+
+.content-container.fr-view strong {
+  font-weight: 600;
+  color: rgb(41, 41, 41);
+}
+
+.content-container.fr-view ul.small {
+  padding-left: clamp(20px, 5vw, 40px);
+  margin: 0 0 10px;
+  list-style-type: disc;
+}
+
+.content-container.fr-view ul.small ul.small {
+  margin-top: 0.35em;
+  padding-left: clamp(16px, 4vw, 32px);
+}
+
+.content-container.fr-view ul.small li {
+  font-size: clamp(13px, 3.4vw, 13.6px);
+  font-weight: 400;
+  line-height: 1.4286;
+  color: rgb(41, 41, 41);
+  margin-bottom: 0;
+}
+
+.content-container.fr-view ul.small li + li {
+  margin-top: 0.35em;
+}
+
+.content-container.fr-view ul.small li strong {
+  font-size: inherit;
+  font-weight: 600;
+}
+
+.content-container.fr-view a {
+  color: rgb(231, 77, 86);
+  text-decoration: none;
+  font-size: inherit;
+  font-weight: 400;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.content-container.fr-view a:hover,
+.content-container.fr-view a:focus {
+  color: rgb(231, 77, 86);
+  text-decoration: none;
+}
+
+@media (max-width: 575px) {
+  .content-container.fr-view {
+    padding-top: 28px;
+    padding-bottom: 40px;
+  }
+
+  .content-container.fr-view > .container {
+    padding-left: clamp(16px, 4vw, 20px);
+    padding-right: clamp(16px, 4vw, 20px);
+  }
+
+  .content-container.fr-view .pagehead {
+    margin-bottom: 18px;
+  }
+
+  .content-container.fr-view h3 {
+    margin-bottom: 12px;
+  }
+
+  .content-container.fr-view ul.small {
+    padding-left: 1.25rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .content-container.fr-view .pagehead h1 {
+    line-height: 48.4px;
+  }
+
+  .content-container.fr-view h3 {
+    line-height: 26.4px;
+  }
+
+  .content-container.fr-view p {
+    line-height: 22.8571px;
+  }
+
+  .content-container.fr-view ul.small li {
+    line-height: 19.4286px;
+  }
+}

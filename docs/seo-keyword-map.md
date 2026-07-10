@@ -91,7 +91,68 @@ Re-researched 2026-07-04 (pass 2) via Google autosuggest (seeds + a–z letter a
 
 ---
 
+## Target map — Zoom Clinics (awareness / live events)
+
+Researched 2026-07-10 via Google autosuggest (seeds + related searches), SERP intent validation, People Also Ask, and AI-question patterns. Scope: `/zoom-clinics` only.
+
+### Primary keywords (high intent, confirmed)
+- "brilliant directories zoom clinics" — related searches under `free brilliant directories zoom clinics` + `brilliant directories zoom clinic` (low competition; no dominant owner SERP) — maps to /zoom-clinics
+- "bd growth suite zoom clinics" — related searches (`bd growth suite zoom clinic free`, `… review`, `… cost`) — maps to /zoom-clinics (brand + product)
+
+### Do not primary-target on /zoom-clinics (intent mismatch)
+- "brilliant directories help" — autosuggest + related searches (`… help chat`, `… help phone number`, `… help email`, `… help contact`); SERP is Brilliant Directories official support docs, contact page, Admin ChatBot, and YouTube getting-started guides — **platform vendor support**, not partner live Q&A
+- "brilliant directories support" — related searches (`… support phone number`, `… support chat`, `… support email`); same official BD support/contact SERP
+- "free brilliant directories help" — related searches (`… reddit`, `… chat`, `… phone number`); SERP is BD docs, free trial, Capterra/Software Advice pricing — **free trial / vendor help**, not Zoom Clinics
+- "brilliant directories live help" — related searches mirror contact/support modifiers; SERP is BD one-hour paid support call + platform docs — not free drop-in clinics
+- "how to get help with brilliant directories" — PAA (`Is Brilliant Directories good for beginners?`, `How much does Brilliant directories cost?`, platform FAQs); SERP is BD homepage, YouTube tutorials, software review sites — **general onboarding**, not clinic registration
+- "free brilliant directories zoom clinics" — related searches exist but SERP is BD homepage, YouTube Q&A livestreams, Capterra pricing, ZoomInfo noise — **platform + generic Zoom**, not our product page; use as secondary body phrase only after primary is established
+
+### Question targets (for FAQs and blog)
+- "How do I get help with my Brilliant Directories website?" — AI-style buyer question — answer on /zoom-clinics FAQ (live tactical help vs strategy)
+- "Are BD Growth Suite Zoom Clinics free?" — related search `bd growth suite zoom clinic free` — /zoom-clinics FAQ
+- "When are Brilliant Directories Zoom Clinics?" — schedule intent — /zoom-clinics FAQ + hero
+- "What can I ask at a Brilliant Directories Zoom Clinic?" — scope/tactics (widgets, CSS, search, email) — /zoom-clinics FAQ
+- "How do I register for a Zoom Clinic?" — conversion intent — /zoom-clinics FAQ
+- "Is there free live help for Brilliant Directories?" — AI-style — /zoom-clinics FAQ (disambiguate from BD official support)
+- PAA from `how to get help with brilliant directories` — route elsewhere, not /zoom-clinics primary:
+  - "Is Brilliant Directories good for beginners?" — /setup or /blog when live
+  - "How much does Brilliant directories cost?" — /setup when live
+  - "What is Brilliant Directories used for?" — /
+  - "Does Brilliant Directories offer SEO tools?" — /seo-growth when live
+
+### Related searches (supporting phrases)
+- "bd growth suite zoom clinic free" — related search — maps to /zoom-clinics (body + FAQ, emphasize $0)
+- "bd growth suite zoom clinic cost" — related search — maps to /zoom-clinics FAQ (answer: free)
+- "bd growth suite zoom clinic review" — related search — maps to /blabs-review (trust proof), secondary mention on /zoom-clinics
+- "brilliant directories help chat" / "… phone number" / "… email" — related under `brilliant directories help` — **do not chase**; optional sidebar disambiguation ("Not official BD support — partner-run free clinics")
+- "brilliant directories zoom clinic" (singular) — related/noisy SERP (ZoomInfo, Marketplace Zoom tool) — secondary H1 variant only; prefer plural "zoom clinics"
+- "brilliant directories documentation" — autosuggest under help cluster — maps to external BD docs; link only if helpful, not a ranking target
+
+### Copywriter brief
+- H1: **Brilliant Directories Zoom Clinics** (keep product name; do not force "help" into H1 — SERP intent is wrong)
+- Title / meta / first paragraph: own **"brilliant directories zoom clinics"** + **"free"** + **"BD Growth Suite"**; lead with drop-in live Q&A (Tues/Thu, $0)
+- Use these exact phrases in headings + body: "Brilliant Directories Zoom Clinics", "free Zoom Clinics", "Brilliant Directories site owners", "live Q&A", "BD Growth Suite developers"
+- Supporting (not primary): "brilliant directories help" — OK once in body when clarifying *tactical* help vs official BD support ticket/chat
+- Disambiguate from: Brilliant Directories **official support** (docs, phone, Admin ChatBot, paid one-hour training call); **CEO webinars** on /webinars; **paid setup** on /setup and Express Setup; Zoom the **video app** / ZoomInfo company pages
+- FAQ questions to add (verbatim buyer wording):
+  - "How do I get help with my Brilliant Directories website?"
+  - "Are BD Growth Suite Zoom Clinics free?"
+  - "When are Brilliant Directories Zoom Clinics?"
+  - "What can I ask at a Brilliant Directories Zoom Clinic?"
+  - "How do I register for a Zoom Clinic?"
+- Internal links: /, /services, /webinars, /blabs-review, /customization; /setup when live (sidebar already references Express Setup)
+
+### Gaps / notes (zoom-clinics cluster)
+- `data/seo-pages.json` lists primary `"brilliant directories help"` — **SERP intent fails validation**; recommend Yakin updates registry to `"brilliant directories zoom clinics"` on lock.
+- `site:bdgrowthsuite.com brilliant directories zoom clinics` returned **zero Google results** (2026-07-10) — page is live locally but not indexed yet; expect ranking lag until deploy + Search Console.
+- Search volume for "zoom clinics" is thin/niche; winnable play is **owning the branded product phrase** + **bd growth suite zoom clinic** related searches, not generic "help" head terms.
+- Competitor content: membershipwebsites.net "Brilliant Directories Zoom Support" — different product; do not mirror their positioning.
+- `/webinars` owns CEO/on-demand webinar intent; `/zoom-clinics` owns recurring free developer Q&A — keep cross-links explicit in copy.
+
+---
+
 ## Gaps / notes
 - Confirm the north-star metric with Yakin before locking (see `data/seo-pages.json` -> site.north_star).
 - Add clusters for the /solutions/* hubs after the homepage and core pages are researched.
 - Reviews cluster re-researched 2026-07-04 (pass 2, SERP intent validated) — ready for Yakin to review; full map STATUS remains DRAFT until all clusters are locked.
+- Zoom Clinics cluster researched 2026-07-10 — ready for Yakin to review; recommends changing seo-pages.json primary from `brilliant directories help` to `brilliant directories zoom clinics`.

@@ -3,7 +3,7 @@
 (function () {
   var origin = window.location.origin;
   var path = window.location.pathname.replace(/\/index\.html$/, "/");
-  var mdPath = path === "/" ? "/index.md" : path.replace(/\/$/, "") + "/index.md";
+  var mdPath = path === "/" ? "/index.md" : path.replace(/\/$/, "") + ".md";
   var pageUrl = origin + (path === "/" ? "/" : path);
   var mdUrl = origin + mdPath;
   var q = encodeURIComponent("Read " + pageUrl + " and answer my questions about it.");

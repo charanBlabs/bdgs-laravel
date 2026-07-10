@@ -1,3 +1,14 @@
+/* ── HERO ── */
+.wb-hero {
+  background: var(--bdgs-gradient-subtle);
+  padding: var(--section-y) 0;
+  text-align: center;
+  border-bottom: 1px solid var(--bdgs-border);
+}
+.wb-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   padding: 6px 16px; border-radius: 20px; font-size: 12px; font-weight: 600;
   background: var(--bdgs-coral-light); border: 1px solid rgba(231,77,86,0.2);
   color: var(--bdgs-coral); margin-bottom: 20px;
@@ -12,6 +23,7 @@
   letter-spacing: var(--ls-h1-page);
   min-height: calc(2 * var(--lh-h1-page) * 1em);
   contain: layout style;
+  text-align: center;
 }
 .wb-hero-lead {
   font-size: var(--fs-lead);
@@ -20,12 +32,9 @@
   margin: 0 auto 12px;
   line-height: 1.65;
   font-weight: 500;
+  text-align: center;
 }
 .wb-hero h1 span { color: var(--bdgs-coral); }
-.wb-hero p {
-  font-size: var(--fs-lead); color: var(--bdgs-text-muted); max-width: 620px;
-  margin: 0 auto; line-height: 1.65;
-}
 
 /* ── WEBINAR CARDS ── */
 .wb-cards-section { padding: 64px 0 72px; background: var(--bdgs-white); }
@@ -549,6 +558,7 @@
 
 /* ── RESPONSIVE (page-specific) ── */
 @media (max-width: 991px) {
+  .wb-hero { padding: 60px 0 70px; }
   .wb-card-body { padding: 20px 20px 18px; }
   .wb-card-title { font-size: 18px; }
 }

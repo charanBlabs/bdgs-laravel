@@ -19,9 +19,6 @@
 <meta name="twitter:title" content="Brilliant Directories Services — BD Growth Suite">
 <meta name="twitter:description" content="Setup, dedicated developers, AI, custom projects, solutions, themes, maintenance, and Founder's Track. Every service we offer for Brilliant Directories site owners.">
 <meta name="twitter:image" content="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/logo.png">
-<link rel="icon" type="image/png" href="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/favicon.png">
-<link rel="shortcut icon" href="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/favicon.png">
-<link rel="apple-touch-icon" href="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/logo.png">
 @endsection
 
 @push('page-styles')

@@ -23,6 +23,17 @@ Homestead.json
 Homestead.yaml
 Thumbs.db
 
+# IDE / local dev (not for production repo)
+.cursor/
+.env.test-token
+
+# Local test / audit artifacts
+/storage/cookies.txt
+/storage/lighthouse-*.json
+/storage/test-inquiry.json
+/storage/web-inquiry.json
+/storage/terms-production-html.txt
+
 # Runtime caches
 /storage/framework/cache/data/*
 /storage/framework/sessions/*
