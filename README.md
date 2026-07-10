@@ -111,6 +111,15 @@ Runs `artisan serve`, queue listener, log tail, and Vite dev server concurrently
 
 Copy `.env.example` to `.env` on each server. Never commit `.env`.
 
+For **staging**, use the dedicated template:
+
+```bash
+cp .env.staging.example .env
+php artisan key:generate
+```
+
+When `APP_ENV=staging`, `/robots.txt` automatically returns `Disallow: /` so search engines do not index the staging site. Production serves the full allow/disallow rules with a dynamic sitemap URL from `APP_URL`.
+
 | Variable | Production | Staging |
 |----------|------------|---------|
 | `APP_ENV` | `production` | `staging` |
@@ -267,16 +276,20 @@ Repeat the production steps with these differences:
 | `APP_URL` | `https://staging.bdgrowthsuite.com` |
 | `APP_DEBUG` | `true` (optional, for debugging) |
 
-### Staging hardening (recommended)
+### Staging `.env` setup
 
-**Option A — Block search engines** — add to staging `public/robots.txt`:
-
+```bash
+cd ~/bdgs-laravel-staging
+cp .env.staging.example .env
+nano .env   # set staging DB, mail, tokens
+php artisan key:generate
 ```
-User-agent: *
-Disallow: /
-```
 
-**Option B — HTTP Basic Auth** — in staging `public/.htaccess` (before Laravel rules):
+### Staging hardening
+
+**Search engines (automatic):** With `APP_ENV=staging`, `/robots.txt` returns `Disallow: /` for all crawlers. No manual file edit needed.
+
+**Optional — HTTP Basic Auth** — in staging `public/.htaccess` (before Laravel rules):
 
 ```apache
 AuthType Basic

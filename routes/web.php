@@ -26,6 +26,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InquiryWebController;
 use App\Http\Controllers\LicenseSdclController;
 use App\Http\Controllers\PrivacyPolicyController;
+use App\Http\Controllers\RobotsController;
 use App\Http\Controllers\ServicesController;
 use App\Http\Controllers\SitemapPostsController;
 use App\Http\Controllers\TermsOfUseController;
@@ -33,6 +34,8 @@ use App\Http\Controllers\WebinarsController;
 use App\Http\Controllers\ZoomClinicsController;
 use App\Http\Middleware\ProvideMarkdownResponse;
 use Illuminate\Support\Facades\Route;
+
+Route::get('/robots.txt', RobotsController::class)->name('robots');
 
 Route::get('/inquiry/form-guard', [InquiryWebController::class, 'formGuard'])
     ->middleware('throttle:30,1');

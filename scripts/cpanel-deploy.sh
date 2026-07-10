@@ -13,7 +13,10 @@ if ! command -v "$COMPOSER_BIN" >/dev/null 2>&1; then
 fi
 
 if [ ! -f .env ]; then
-  echo "ERROR: .env is missing in ${DEPLOYPATH}. Copy .env.example and configure secrets before deploying."
+  if [ -f .env.staging.example ] && grep -q '^APP_ENV=staging' .env.staging.example 2>/dev/null; then
+    echo "Hint: copy .env.staging.example to .env for staging deploys."
+  fi
+  echo "ERROR: .env is missing in ${DEPLOYPATH}. Copy .env.example (production) or .env.staging.example (staging) before deploying."
   exit 1
 fi
 
