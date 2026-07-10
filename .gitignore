@@ -11,17 +11,26 @@
 /.phpunit.cache
 /.vscode
 /.zed
+/.vagrant
 /auth.json
 /node_modules
 /public/build
 /public/hot
 /public/storage
+/public_html/storage
+/public_html/hot
 /storage/*.key
 /storage/pail
 /vendor
 Homestead.json
 Homestead.yaml
 Thumbs.db
+npm-debug.log
+yarn-error.log
+
+# Laravel legacy paths
+bootstrap/compiled.php
+app/storage/
 
 # IDE / local dev (not for production repo)
 .cursor/
