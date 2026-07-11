@@ -207,12 +207,12 @@ QUEUE_CONNECTION=database
 CACHE_STORE=database
 
 MAIL_MAILER=smtp
-MAIL_HOST=mail.bdgrowthsuite.com
-MAIL_PORT=465
+MAIL_HOST=mail.bdgrowthsuite.test
+MAIL_PORT=4443
 MAIL_ENCRYPTION=ssl
-MAIL_USERNAME=noreply@bdgrowthsuite.com
+MAIL_USERNAME=noreply@bdgrowthsuite.test
 MAIL_PASSWORD=your-mail-password
-MAIL_FROM_ADDRESS=noreply@bdgrowthsuite.com
+MAIL_FROM_ADDRESS=noreply@bdgrowthsuite.test
 MAIL_FROM_NAME="BD Growth Suite"
 
 REVIEWS_SYNC_TOKEN=generate-a-long-random-string
