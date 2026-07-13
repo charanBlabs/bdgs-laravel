@@ -2,7 +2,7 @@
 
 Production Laravel application for [bdgrowthsuite.com](https://bdgrowthsuite.com): public marketing site, CMS-backed content, member dashboard, admin panel, inquiry handling, email automation, and API endpoints for reviews sync and Zoom clinic registration.
 
-**Repository:** [github.com/charanBlabs/bdgs-laravel](https://github.com/charanBlabs/bdgs-laravel)
+**Repository:** [github.com/BusinessLabsHQ/bd-growth-suite-laravel](https://github.com/BusinessLabsHQ/bd-growth-suite-laravel)
 
 | Branch    | Environment | URL                              |
 |-----------|-------------|----------------------------------|

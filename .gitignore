@@ -3,6 +3,7 @@
 .env
 .env.backup
 .env.production
+.env.staging
 .phpactor.json
 .phpunit.result.cache
 /.fleet
@@ -32,9 +33,10 @@ yarn-error.log
 bootstrap/compiled.php
 app/storage/
 
-# IDE / local dev (not for production repo)
+# IDE / local agent (not for production repo)
 .cursor/
 .env.test-token
+agent-transcripts/
 
 # Local test / audit artifacts
 /storage/cookies.txt
@@ -43,7 +45,11 @@ app/storage/
 /storage/web-inquiry.json
 /storage/terms-production-html.txt
 
-# Planning / research (not for production deploy)
+# Planning / research / internal docs (not for production deploy)
+docs/archive/
+docs/decisions/
+docs/tasks/
+docs/variants/
 docs/*.xlsx
 docs/~$*
 docs/_*.json
@@ -51,17 +57,30 @@ docs/cdn-image-urls*.txt
 docs/hosting-*
 docs/recommended-hosting-services.txt
 docs/live-site-forms-catalog.md
+docs/progress.md
+docs/website-review.md
+docs/design-guidelines.html
+docs/seo-todo.md
+docs/seo-system-guide.md
+docs/services-page-layout.md
+docs/knowledge-graph.md
+docs/taxonomy.md
+docs/bdgs-*.xlsx
+docs/bdgs-*.md
+!docs/seo-keyword-map.md
 
 # Local CDN migration dump (~60MB+)
 /public/images/cdn-migrated/
 
-# One-off crawl / sheet-builder scripts
+# One-off crawl / sheet-builder / migration scripts
 scripts/analyze_sitemap_forms.php
 scripts/build_developer_task_sheet.py
 scripts/build_full_site_work_plan.py
 scripts/build_page_keyword_matrix.py
 scripts/build_primary_forms_inquiry_sheet.py
 scripts/build_site_structure_sheet.py
+scripts/build_terms_content.py
+scripts/migrate_page_to_blade.py
 scripts/crawl_*
 scripts/download_cdn_images.py
 scripts/export_solutions_for_sheet.php
