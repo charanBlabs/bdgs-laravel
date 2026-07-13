@@ -3,6 +3,8 @@
 @section('account-heading', $clinic->exists ? 'Edit Zoom Clinic' : 'New Zoom Clinic')
 
 @section('account-content')
+@include('dashboard.zoom-clinics.partials.tabs', ['activeTab' => 'clinics'])
+
 <form method="POST"
       action="{{ $clinic->exists ? route('dashboard.zoom-clinics.update', $clinic->clinic_id) : route('dashboard.zoom-clinics.store') }}"
       class="bdgs-profile-form bdgs-panel-form--solution">
@@ -61,6 +63,18 @@
     </div>
 
     <div class="bdgs-profile-form__row">
+      <label class="bdgs-profile-form__label" for="zc_registration_hooks">Registration hooks</label>
+      <div class="bdgs-profile-form__field">
+        <textarea id="zc_registration_hooks" name="registration_hooks" rows="4"
+                  placeholder="Filters not behaving? We debug them live.">{{ old('registration_hooks', $clinic->registration_hooks) }}</textarea>
+        <p style="font-size:0.8125rem;color:#64748b;margin-top:6px;line-height:1.5;">
+          Optional. Shown while registrations are below 30. One hook per line. Leave blank for auto-match from title/agenda.
+        </p>
+        @error('registration_hooks') <p class="bdgs-profile-form__error">{{ $message }}</p> @enderror
+      </div>
+    </div>
+
+    <div class="bdgs-profile-form__row">
       <label class="bdgs-profile-form__label" for="zc_format">Format Note</label>
       <div class="bdgs-profile-form__field">
         <input type="text" id="zc_format" name="format_note" value="{{ old('format_note', $clinic->format_note) }}" placeholder="60-min open Q&A with our devs">
@@ -77,7 +91,8 @@
       <div class="bdgs-profile-form__field">
         <input type="url" id="zc_zoom_url" name="zoom_meeting_url"
                value="{{ old('zoom_meeting_url', $clinic->zoom_meeting_url) }}"
-               placeholder="https://zoom.us/j/..." required>
+               placeholder="https://zoom.us/j/...">
+        <p class="bdgs-profile-form__hint" style="margin:6px 0 0;font-size:12px;color:var(--bdgs-text-muted);">Required before publishing — registrants need this join link.</p>
         @error('zoom_meeting_url') <p class="bdgs-profile-form__error">{{ $message }}</p> @enderror
       </div>
     </div>
@@ -206,7 +221,10 @@
   @if ($clinic->exists)
     <div class="bdgs-profile-form__section">
       <h2 class="bdgs-profile-form__section-title">Registrations</h2>
-      <p><strong>{{ $clinic->confirmed_registrations_count ?? 0 }}</strong> confirmed registration(s)</p>
+      <p>
+        <strong>{{ $clinic->confirmed_registrations_count ?? 0 }}</strong> confirmed registration(s)
+        — <a href="{{ route('dashboard.zoom-clinics.registrations.index', ['clinic_id' => $clinic->clinic_id]) }}">View registrations</a>
+      </p>
     </div>
   @endif
 

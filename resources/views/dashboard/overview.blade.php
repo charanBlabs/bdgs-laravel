@@ -29,6 +29,16 @@
       <a href="{{ route('dashboard.settings.photo') }}" class="bdgs-account-card__action bdgs-account-card__action--secondary">Profile Photo</a>
     </div>
   </div>
+  @cannot('manage-content')
+  <div class="bdgs-account-card">
+    <h2>My Zoom Clinics</h2>
+    <p>See clinics you’ve registered for, add them to Google Calendar, and track when sessions complete.</p>
+    <div class="bdgs-account-card__links">
+      <a href="{{ route('dashboard.my-zoom-clinics.index') }}" class="bdgs-account-card__action">View my clinics</a>
+      <a href="{{ url('/zoom-clinics') }}" class="bdgs-account-card__action bdgs-account-card__action--secondary">Browse clinics</a>
+    </div>
+  </div>
+  @endcannot
   <div class="bdgs-account-card">
     <h2>Account Details</h2>
     <ul class="bdgs-account-card__details">

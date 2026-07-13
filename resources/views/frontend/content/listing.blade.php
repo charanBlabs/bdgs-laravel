@@ -16,20 +16,22 @@
 <section class="bdgs-section">
   <div class="bdgs-container">
     <h1>{{ $dataType->name }}</h1>
-    <div class="bdgs-grid-cards">
-      @forelse ($posts as $post)
-        <article class="bdgs-card">
-          @if ($post->featuredMedia)
-            <img src="{{ $post->featuredMedia->url('medium') }}" alt="{{ $post->featuredMedia->alt_text ?? $post->title }}" loading="lazy" style="width:100%;border-radius:8px;">
-          @endif
-          <h2><a href="{{ url('/'.$type.'/'.$post->slug) }}">{{ $post->title }}</a></h2>
-          <p>{{ $post->excerpt }}</p>
-        </article>
-      @empty
-        <p>No published content yet.</p>
-      @endforelse
+    <div data-ajax-list="public-{{ $type }}-listing">
+      <div class="bdgs-grid-cards">
+        @forelse ($posts as $post)
+          <article class="bdgs-card">
+            @if ($post->featuredMedia)
+              <img src="{{ $post->featuredMedia->url('medium') }}" alt="{{ $post->featuredMedia->alt_text ?? $post->title }}" loading="lazy" style="width:100%;border-radius:8px;">
+            @endif
+            <h2><a href="{{ url('/'.$type.'/'.$post->slug) }}">{{ $post->title }}</a></h2>
+            <p>{{ $post->excerpt }}</p>
+          </article>
+        @empty
+          <p>No published content yet.</p>
+        @endforelse
+      </div>
+      {{ $posts->links() }}
     </div>
-    {{ $posts->links() }}
   </div>
 </section>
 @endsection

@@ -47,7 +47,7 @@ class AdminUserSeeder extends Seeder
                 [
                     'first_name' => 'Demo',
                     'last_name' => 'Customer',
-                    'password' => 'DemoUser-'.bin2hex(random_bytes(4)),
+                    'password' => 'DemoUser123!',
                     'email_verified_at' => now(),
                     'is_active' => true,
                 ]

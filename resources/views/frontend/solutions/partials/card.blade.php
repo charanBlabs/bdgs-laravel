@@ -1,7 +1,19 @@
 <article class="bdgs-sol-card">
   <a href="{{ url('/solutions/'.$post->slug) }}" class="bdgs-sol-card__media">
     @if ($post->featuredMedia)
-      <img src="{{ $post->featuredMedia->url('medium') }}" alt="{{ $post->featuredMedia->alt_text ?? $post->title }}" loading="lazy" @if($post->featuredMedia->width) width="{{ $post->featuredMedia->width }}" height="{{ $post->featuredMedia->height }}" @endif>
+      @php($media = $post->featuredMedia)
+      @php($imgDims = $media->dimensions('medium'))
+      @php($srcset = $media->srcset(['thumb', 'medium', 'large']))
+      <img
+        src="{{ $media->url('medium') }}"
+        srcset="{{ $srcset }}"
+        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+        alt="{{ $media->alt_text ?? $post->title }}"
+        loading="lazy"
+        decoding="async"
+        width="{{ $imgDims[0] ?? '' }}"
+        height="{{ $imgDims[1] ?? '' }}"
+      >
     @else
       <div class="bdgs-sol-card__placeholder" aria-hidden="true"></div>
     @endif

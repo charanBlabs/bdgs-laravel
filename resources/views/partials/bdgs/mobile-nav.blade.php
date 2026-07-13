@@ -75,10 +75,10 @@
           <a href="/solutions/seo" class="bdgs-mob-subitem"><span class="bdgs-mob-subitem-title">SEO &amp; Schema</span><span class="bdgs-mob-subitem-desc">Advanced markup &amp; technical SEO. Rank higher.</span></a>
           <a href="/solutions/lead-gen" class="bdgs-mob-subitem"><span class="bdgs-mob-subitem-title">Lead Gen &amp; Conversion</span><span class="bdgs-mob-subitem-desc">Capture more leads. Turn visitors into members.</span></a>
           <a href="/solutions/member-profiles" class="bdgs-mob-subitem"><span class="bdgs-mob-subitem-title">Member Profile Enhancement</span><span class="bdgs-mob-subitem-desc">Custom profile layouts. Make members stand out.</span></a>
-          <a href="/solutions/search" class="bdgs-mob-subitem"><span class="bdgs-mob-subitem-title">Search &amp; Discovery</span><span class="bdgs-mob-subitem-desc">Optimized search flows. Help users find what they need.</span></a>
+          <a href="/solutions/search" class="bdgs-mob-subitem"><span class="bdgs-mob-subitem-title">Search &amp; Discovery</span><span class="bdgs-mob-subitem-desc">Optimized search flows. Help visitors find what they need.</span></a>
           <a href="/solutions/page-design" class="bdgs-mob-subitem"><span class="bdgs-mob-subitem-title">Page Design &amp; Development</span><span class="bdgs-mob-subitem-desc">Stunning layouts. Built for modern directories.</span></a>
           <a href="/solutions/content" class="bdgs-mob-subitem"><span class="bdgs-mob-subitem-title">Content &amp; Engagement</span><span class="bdgs-mob-subitem-desc">Keep audiences hooked. Automated content strategies.</span></a>
-          <a href="/solutions/integrations" class="bdgs-mob-subitem"><span class="bdgs-mob-subitem-title">Integrations</span><span class="bdgs-mob-subitem-desc">Connect your favorite tools. Seamless API integrations.</span></a>
+          <a href="/solutions/integrations" class="bdgs-mob-subitem"><span class="bdgs-mob-subitem-title">Integrations</span><span class="bdgs-mob-subitem-desc">Connect your favorite tools. Clean API integrations.</span></a>
           <a href="/solutions/member-management" class="bdgs-mob-subitem"><span class="bdgs-mob-subitem-title">Member Management</span><span class="bdgs-mob-subitem-desc">Approval workflows, dashboards, member control.</span></a>
         </div>
         <div class="bdgs-mob-also">

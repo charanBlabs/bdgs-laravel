@@ -7,7 +7,6 @@
 @section('meta')
 <meta name="description" content="Read BD Growth Suite license terms for single domain use, including usage rights, restrictions, transfers, and domain change policies.">
 <meta name="keywords" content="BD Growth Suite license, single domain license, SDCL">
-<meta name="robots" content="index, follow">
 <link rel="canonical" href="https://bdgrowthsuite.com/license/sdcl-v1">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://bdgrowthsuite.com/license/sdcl-v1">

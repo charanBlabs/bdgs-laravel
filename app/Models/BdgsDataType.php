@@ -26,6 +26,19 @@ class BdgsDataType extends Model
         return $this->name_plural ?: \Illuminate\Support\Str::plural($this->name);
     }
 
+    /** Public URL prefix for this type (e.g. solution → /solutions). */
+    public function publicBasePath(): string
+    {
+        return '/'.match ($this->slug) {
+            'solution' => 'solutions',
+            'blog' => 'blog',
+            'tool' => 'tools',
+            'theme' => 'themes',
+            'event' => 'events',
+            default => \Illuminate\Support\Str::plural($this->slug),
+        };
+    }
+
     protected function casts(): array
     {
         return [

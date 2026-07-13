@@ -16,24 +16,26 @@
   <label><input type="checkbox" name="is_active" value="1" checked> Active</label>
   <button type="submit" class="bdgs-btn">Add Redirect</button>
 </form>
-<table class="bdgs-panel-table" style="margin-top:24px;">
-  <thead><tr><th>From</th><th>To</th><th>Code</th><th>Active</th><th></th></tr></thead>
-  <tbody>
-    @foreach ($redirects as $redirect)
-      <tr>
-        <td>{{ $redirect->from_url }}</td>
-        <td>{{ $redirect->to_url }}</td>
-        <td>{{ $redirect->status_code }}</td>
-        <td>{{ $redirect->is_active ? 'Yes' : 'No' }}</td>
-        <td>
-          <form method="POST" action="{{ route('admin.redirects.destroy', $redirect) }}" onsubmit="return confirm('Delete?')">
-            @csrf @method('DELETE')
-            <button type="submit">Delete</button>
-          </form>
-        </td>
-      </tr>
-    @endforeach
-  </tbody>
-</table>
-{{ $redirects->links() }}
+<div data-ajax-list="admin-redirects">
+  <table class="bdgs-panel-table" style="margin-top:24px;">
+    <thead><tr><th>From</th><th>To</th><th>Code</th><th>Active</th><th></th></tr></thead>
+    <tbody>
+      @foreach ($redirects as $redirect)
+        <tr>
+          <td>{{ $redirect->from_url }}</td>
+          <td>{{ $redirect->to_url }}</td>
+          <td>{{ $redirect->status_code }}</td>
+          <td>{{ $redirect->is_active ? 'Yes' : 'No' }}</td>
+          <td>
+            <form method="POST" action="{{ route('admin.redirects.destroy', $redirect) }}" onsubmit="return confirm('Delete?')">
+              @csrf @method('DELETE')
+              <button type="submit">Delete</button>
+            </form>
+          </td>
+        </tr>
+      @endforeach
+    </tbody>
+  </table>
+  {{ $redirects->links() }}
+</div>
 @endsection

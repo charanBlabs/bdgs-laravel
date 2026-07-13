@@ -32,7 +32,8 @@
 @endsection
 
 @push('page-modals')
-@php($hideZoomAllLink = true)
+@php($zoomModalSkipDetails = true)
+@php($zoomModalClinicsLink = '#upcoming-clinics')
 @include('pages.home.zoom-modal')
 @endpush
 

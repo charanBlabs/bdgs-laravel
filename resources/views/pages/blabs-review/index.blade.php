@@ -15,11 +15,11 @@
 @section('meta')
 <meta name="description" content="{{ $reviewsMetaDescription }}">
 <meta name="keywords" content="bd growth suite reviews, brilliant directories reviews, brilliant directories developers, directory website expert, verified client reviews">
-<link rel="canonical" href="https://bdgrowthsuite.com/blabs-review/">
+<link rel="canonical" href="https://bdgrowthsuite.com/reviews/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="{{ $reviewsPageTitle }}">
 <meta property="og:description" content="{{ $reviewsMetaDescription }}">
-<meta property="og:url" content="https://bdgrowthsuite.com/blabs-review/">
+<meta property="og:url" content="https://bdgrowthsuite.com/reviews/">
 <meta property="og:image" content="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/logo.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{ $reviewsPageTitle }}">

@@ -14,18 +14,12 @@ class ZoomClinicsController extends Controller
     public function index(): View
     {
         $clinicList = $this->clinics->upcomingPublished();
+        $registerable = $this->clinics->registerablePublished();
         $featured = $this->clinics->currentlyLive()
             ?? $clinicList->firstWhere('is_featured', true)
             ?? $clinicList->first();
 
-        $clinicJson = $clinicList->map(fn ($c) => [
-            'id' => $c->clinic_id,
-            'slug' => $c->slug,
-            'title' => $c->title,
-            'agenda' => $c->agenda,
-            'starts_at' => $c->session_starts_at->toIso8601String(),
-            'ends_at' => $c->session_ends_at->toIso8601String(),
-        ])->values();
+        $clinicJson = $registerable->map(fn ($c) => $this->clinics->toPublicClinicArray($c))->values();
 
         return view('pages.zoom-clinics.index', [
             'clinics' => $clinicList,

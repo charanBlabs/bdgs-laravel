@@ -6,8 +6,11 @@
 
 @section('meta')
 <meta name="description" content="{{ $post->seo?->meta_description ?? \Illuminate\Support\Str::limit(strip_tags($post->excerpt ?? ''), 160) }}">
-@if ($post->seo?->robots)<meta name="robots" content="{{ $post->seo->robots }}">@endif
 @endsection
+
+@if ($post->seo?->robots)
+@section('robots-content'){{ $post->seo->robots }}@endsection
+@endif
 
 @push('page-styles')
 <link rel="stylesheet" href="/css/bdgs-services.css">

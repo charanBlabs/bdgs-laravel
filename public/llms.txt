@@ -2,7 +2,7 @@
 
 **Website:** https://bdgrowthsuite.com/
 **Authority:** Gold Certified Brilliant Directories Partner | World's Largest BD Development Team
-**Last Updated:** 2026-07-07
+**Last Updated:** 2026-07-13
 
 > Brilliant Directories developers. A dedicated developer team for setup, customization, AI automation, and growth.
 
@@ -18,8 +18,17 @@ quote the site accurately.
 - [Brilliant Directories Developers — BD Growth Suite](https://bdgrowthsuite.com/index.md): brilliant directories developers
 - [Brilliant Directories Services — BD Growth Suite](https://bdgrowthsuite.com/services.md): brilliant directories services
 - [Brilliant Directories Customization — Custom Projects](https://bdgrowthsuite.com/customization.md): brilliant directories customization
-- [Free Brilliant Directories Zoom Clinics](https://bdgrowthsuite.com/zoom-clinics.md): brilliant directories help
-- [176 Verified Client Reviews — BD Growth Suite](https://bdgrowthsuite.com/blabs-review.md): bd growth suite reviews
+- [Free Brilliant Directories Zoom Clinics](https://bdgrowthsuite.com/zoom-clinics.md): brilliant directories zoom clinics
+- [49+ Brilliant Directories Solutions (Done-For-You)](https://bdgrowthsuite.com/solutions.md): brilliant directories solutions
+- [SEO & Schema Solutions for Brilliant Directories](https://bdgrowthsuite.com/solutions/seo/): brilliant directories schema
+- [Lead Generation & Conversion Solutions](https://bdgrowthsuite.com/solutions/lead-gen/): directory lead generation
+- [Member Profile Enhancement Solutions](https://bdgrowthsuite.com/solutions/member-profiles/): directory member profiles
+- [Search & Discovery Solutions](https://bdgrowthsuite.com/solutions/search/): directory search filters
+- [Page Design & Development Solutions](https://bdgrowthsuite.com/solutions/page-design/): directory page design
+- [Content & Engagement Solutions](https://bdgrowthsuite.com/solutions/content/): directory content solutions
+- [Integrations for Brilliant Directories](https://bdgrowthsuite.com/solutions/integrations/): brilliant directories integrations
+- [Member Management & Automation Solutions](https://bdgrowthsuite.com/solutions/member-management/): directory member management
+- [176 Verified Client Reviews — BD Growth Suite](https://bdgrowthsuite.com/reviews.md): bd growth suite reviews
 - [Brilliant Directories CEO Webinars](https://bdgrowthsuite.com/webinars.md): brilliant directories webinar
 
 ## Agent API Specs

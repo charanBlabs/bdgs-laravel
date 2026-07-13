@@ -19,6 +19,7 @@ class BdgsZoomClinic extends Model
         'title',
         'agenda',
         'description',
+        'registration_hooks',
         'session_starts_at',
         'session_ends_at',
         'buffer_ends_at',
@@ -106,5 +107,30 @@ class BdgsZoomClinic extends Model
         $endsAt = $this->buffer_ends_at ?? $this->session_ends_at;
 
         return $this->session_starts_at <= $now && $endsAt >= $now;
+    }
+
+    /**
+     * Lifecycle for UI lists — uses wall-clock when DB status hasn't been flipped yet.
+     */
+    public function displayLifecycleStatus(): string
+    {
+        if ($this->status === 'cancelled') {
+            return 'cancelled';
+        }
+
+        if ($this->status === 'completed') {
+            return 'completed';
+        }
+
+        $endsAt = $this->buffer_ends_at ?? $this->session_ends_at;
+        if ($endsAt && $endsAt->lt(now())) {
+            return 'completed';
+        }
+
+        if ($this->isLiveNow()) {
+            return 'live';
+        }
+
+        return 'upcoming';
     }
 }

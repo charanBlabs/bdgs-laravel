@@ -1,12 +1,14 @@
 <script>
 // Modal — Zoom Clinics
-// Canonical clinic time: 6:30–7:30 PM Asia/Kolkata (Tue/Thu), shown in visitor's selected timezone
+// Canonical clinic time: 6:30–7:30 PM Asia/Kolkata (Tue/Thu), page shows New York (EST/EDT)
 const BDGS_ZOOM_CANONICAL_TZ = 'Asia/Kolkata';
+const BDGS_PAGE_DISPLAY_TZ = 'America/New_York';
 
 let ZOOM_SESSION_DB_DATE;
 let ZOOM_SESSION_END_DATE;
 let BDGS_ACTIVE_CLINIC_ID = null;
 let BDGS_ACTIVE_CLINIC_TITLE = 'Live Website Reviews & Open Q&A';
+let BDGS_ACTIVE_CLINIC_JOIN_URL = '';
 
 function bdgsZoomPartsInZone(instant, tz) {
   const dtf = new Intl.DateTimeFormat('en-US', {
@@ -59,12 +61,14 @@ function bdgsSetZoomSession(clinic) {
     ZOOM_SESSION_END_DATE = new Date(clinic.ends_at);
     BDGS_ACTIVE_CLINIC_ID = clinic.id || null;
     BDGS_ACTIVE_CLINIC_TITLE = clinic.title || clinic.agenda || 'Zoom Clinic';
+    BDGS_ACTIVE_CLINIC_JOIN_URL = clinic.join_url || '';
   } else {
     const session = bdgsGetNextZoomSession();
     ZOOM_SESSION_DB_DATE = session.start;
     ZOOM_SESSION_END_DATE = session.end;
     BDGS_ACTIVE_CLINIC_ID = null;
     BDGS_ACTIVE_CLINIC_TITLE = 'Live Website Reviews & Open Q&A';
+    BDGS_ACTIVE_CLINIC_JOIN_URL = '';
   }
 
   const clinicInput = document.getElementById('bdgsZoomClinicId');
@@ -82,7 +86,8 @@ function bdgsSetZoomSession(clinic) {
 }
 
 (function bdgsInitZoomSessionDefaults() {
-  bdgsSetZoomSession(null);
+  const first = (window.bdgsZoomClinics && window.bdgsZoomClinics.length) ? window.bdgsZoomClinics[0] : null;
+  bdgsSetZoomSession(first);
 })();
 
 function bdgsFormatZoomSessionDisplay(tz) {
@@ -92,11 +97,22 @@ function bdgsFormatZoomSessionDisplay(tz) {
   return dateFmt + ' - ' + timeFmt + ' to ' + timeEndFmt;
 }
 
-function bdgsFormatZoomTimeRange(startInstant, endInstant, tz) {
+function bdgsFormatZoomTimeRange(startInstant, endInstant, tz, options) {
+  options = options || {};
+  const includeDate = options.includeDate !== false;
+  const showCity = options.showCity !== false && tz === BDGS_PAGE_DISPLAY_TZ;
   const dateFmt = new Intl.DateTimeFormat('en-US', { weekday: 'short', month: 'short', day: 'numeric', timeZone: tz }).format(startInstant);
   const timeFmt = new Intl.DateTimeFormat('en-US', { hour: 'numeric', minute: '2-digit', timeZone: tz }).format(startInstant);
   const timeEndFmt = new Intl.DateTimeFormat('en-US', { hour: 'numeric', minute: '2-digit', timeZoneName: 'short', timeZone: tz }).format(endInstant);
-  return dateFmt + ' · ' + timeFmt + ' – ' + timeEndFmt;
+  let out = includeDate ? dateFmt + ' · ' + timeFmt + ' – ' + timeEndFmt : timeFmt + ' – ' + timeEndFmt;
+  if (showCity) {
+    out += ' - New York';
+  }
+  return out;
+}
+
+function bdgsGetPageDisplayTimezone() {
+  return BDGS_PAGE_DISPLAY_TZ;
 }
 
 function bdgsGetSelectedZoomTimezone() {
@@ -105,33 +121,72 @@ function bdgsGetSelectedZoomTimezone() {
   return (formInput && formInput.value) || (mainInput && mainInput.value) || 'America/New_York';
 }
 
-function bdgsFormatGcalDateTime(date, timeZone) {
-  const parts = new Intl.DateTimeFormat('en-US', {
-    timeZone,
-    year: 'numeric',
-    month: '2-digit',
-    day: '2-digit',
-    hour: '2-digit',
-    minute: '2-digit',
-    second: '2-digit',
-    hour12: false
-  }).formatToParts(date);
-  const get = (type) => parts.find(p => p.type === type).value;
-  let hour = parseInt(get('hour'), 10);
-  if (hour === 24) hour = 0;
+function bdgsFormatGcalUtc(date) {
   const pad = (n) => String(n).padStart(2, '0');
-  return get('year') + get('month') + get('day') + 'T' + pad(hour) + get('minute') + get('second');
+  return date.getUTCFullYear()
+    + pad(date.getUTCMonth() + 1)
+    + pad(date.getUTCDate())
+    + 'T'
+    + pad(date.getUTCHours())
+    + pad(date.getUTCMinutes())
+    + pad(date.getUTCSeconds())
+    + 'Z';
 }
 
-function bdgsUpdateGoogleCalLink() {
-  const tz = bdgsGetSelectedZoomTimezone();
-  const startStr = bdgsFormatGcalDateTime(ZOOM_SESSION_DB_DATE, tz);
-  const endStr = bdgsFormatGcalDateTime(ZOOM_SESSION_END_DATE, tz);
-  const title = encodeURIComponent('Zoom Clinic: ' + BDGS_ACTIVE_CLINIC_TITLE);
-  const details = encodeURIComponent('Join us for a free live Zoom session to get help and learn Brilliant Directories.\n\nFormat: 60-min open Q&A with our devs');
-  const gcalUrl = 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=' + title + '&dates=' + startStr + '/' + endStr + '&details=' + details + '&ctz=' + encodeURIComponent(tz);
+function bdgsBuildGoogleCalUrl(options) {
+  options = options || {};
+  const start = options.start || ZOOM_SESSION_DB_DATE;
+  const end = options.end || ZOOM_SESSION_END_DATE;
+  const title = options.title || ('Zoom Clinic: ' + BDGS_ACTIVE_CLINIC_TITLE);
+  const joinUrl = options.joinUrl || '';
+  const whenLabel = options.whenLabel || '';
+  const name = options.name || '';
+  const email = options.email || '';
+
+  let details = 'You are registered for this free Zoom Clinic with BD Growth Suite.';
+  if (whenLabel) details += '\nWhen: ' + whenLabel;
+  details += '\nFormat: 60-min open Q&A with our devs';
+  if (joinUrl) details += '\nJoin Zoom: ' + joinUrl;
+  details += '\nPage: ' + window.location.origin + '/zoom-clinics';
+  if (name || email) {
+    details += '\nRegistered as: ' + [name, email ? '(' + email + ')' : ''].filter(Boolean).join(' ');
+  }
+
+  const params = new URLSearchParams({
+    action: 'TEMPLATE',
+    text: title,
+    dates: bdgsFormatGcalUtc(start) + '/' + bdgsFormatGcalUtc(end),
+    details: details,
+    location: joinUrl || 'Online via Zoom',
+  });
+
+  // www.google.com avoids Workspace marketing redirects for signed-out users.
+  return 'https://www.google.com/calendar/render?' + params.toString();
+}
+
+function bdgsUpdateGoogleCalLink(overrideUrl) {
   const gcalBtn = document.getElementById('bdgsGoogleCalLink');
-  if (gcalBtn) gcalBtn.href = gcalUrl;
+  if (!gcalBtn) return;
+
+  if (overrideUrl) {
+    gcalBtn.href = overrideUrl;
+    return;
+  }
+
+  const nameEl = document.getElementById('bdgsZoomName');
+  const emailEl = document.getElementById('bdgsZoomEmail');
+  let whenLabel = '';
+  try {
+    whenLabel = bdgsFormatZoomSessionDisplay(bdgsGetSelectedZoomTimezone());
+  } catch (e) {}
+
+  gcalBtn.href = bdgsBuildGoogleCalUrl({
+    title: 'Zoom Clinic: ' + BDGS_ACTIVE_CLINIC_TITLE,
+    whenLabel: whenLabel,
+    joinUrl: BDGS_ACTIVE_CLINIC_JOIN_URL,
+    name: nameEl ? nameEl.value.trim() : '',
+    email: emailEl ? emailEl.value.trim() : '',
+  });
 }
 
 function bdgsUpdateZoomSuccessDetails() {
@@ -197,6 +252,9 @@ function bdgsZoomAutoFill() {
   }
   if (emailEl && user.email) {
     emailEl.value = user.email;
+    emailEl.readOnly = true;
+    emailEl.title = 'Registrations are saved to your account email';
+    emailEl.style.background = 'rgba(17, 24, 39, 0.04)';
   }
 }
 
@@ -215,6 +273,23 @@ function bdgsUpdateTimezoneDisplay() {
   });
 }
 
+function bdgsZoomModalSkipsDetails() {
+  const modal = document.getElementById('bdgsZoomModal');
+  return modal && modal.dataset.skipDetails === '1';
+}
+
+function bdgsResetZoomModalView() {
+  const step1 = document.getElementById('bdgsZoomModalStep1');
+  const form = document.getElementById('bdgsZoomBookingForm');
+  if (bdgsZoomModalSkipsDetails()) {
+    if (step1) step1.style.display = 'none';
+    if (form) form.style.display = 'block';
+  } else {
+    if (step1) step1.style.display = 'block';
+    if (form) form.style.display = 'none';
+  }
+}
+
 function bdgsShowZoomForm() {
   document.getElementById('bdgsZoomModalStep1').style.display = 'none';
   document.getElementById('bdgsZoomBookingForm').style.display = 'block';
@@ -223,7 +298,9 @@ function bdgsShowZoomForm() {
 
 function bdgsHideZoomForm() {
   document.getElementById('bdgsZoomBookingForm').style.display = 'none';
-  document.getElementById('bdgsZoomModalStep1').style.display = 'block';
+  if (!bdgsZoomModalSkipsDetails()) {
+    document.getElementById('bdgsZoomModalStep1').style.display = 'block';
+  }
 }
 
 function bdgsFindZoomClinicById(clinicId) {
@@ -231,36 +308,94 @@ function bdgsFindZoomClinicById(clinicId) {
   return window.bdgsZoomClinics.find(function(c) { return String(c.id) === String(clinicId); }) || null;
 }
 
+function bdgsDefaultZoomClinic() {
+  if (window.bdgsZoomClinics && window.bdgsZoomClinics.length) {
+    return window.bdgsZoomClinics[0];
+  }
+  return null;
+}
+
+function bdgsHasRegisterableClinics() {
+  return !!(window.bdgsZoomClinics && window.bdgsZoomClinics.length);
+}
+
+function bdgsShowZoomModalPanel(panel) {
+  const content = document.getElementById('bdgsZoomModalContent');
+  const success = document.getElementById('bdgsZoomModalSuccess');
+  const empty = document.getElementById('bdgsZoomModalEmpty');
+  if (content) content.style.display = panel === 'content' ? 'block' : 'none';
+  if (success) success.style.display = panel === 'success' ? 'block' : 'none';
+  if (empty) empty.style.display = panel === 'empty' ? 'block' : 'none';
+}
+
 function bdgsOpenZoomModal(clinicId) {
-  const clinic = bdgsFindZoomClinicById(clinicId);
+  const modal = document.getElementById('bdgsZoomModal');
+  if (!modal) {
+    window.alert('Zoom Clinic registration is temporarily unavailable. Please try again later.');
+    return;
+  }
+
+  const clinic = bdgsFindZoomClinicById(clinicId) || (!clinicId ? bdgsDefaultZoomClinic() : null);
+
+  if (!clinic && !bdgsHasRegisterableClinics()) {
+    bdgsShowZoomModalPanel('empty');
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+    return;
+  }
+
+  if (clinicId && !clinic) {
+    window.alert('That clinic is no longer open for registration. Please pick another upcoming clinic.');
+    return;
+  }
+
   bdgsSetZoomSession(clinic);
   bdgsZoomAutoFill();
   bdgsUpdateTimezoneDisplay();
-  document.getElementById('bdgsZoomModal').classList.add('active');
+  bdgsShowZoomModalPanel('content');
+  bdgsResetZoomModalView();
+  if (bdgsZoomModalSkipsDetails()) {
+    bdgsShowZoomForm();
+  }
+  modal.classList.add('active');
   document.body.style.overflow = 'hidden';
 }
 
 function bdgsCloseZoomModal() {
-  document.getElementById('bdgsZoomModal').classList.remove('active');
+  const modal = document.getElementById('bdgsZoomModal');
+  if (!modal) return;
+  modal.classList.remove('active');
   document.body.style.overflow = '';
   setTimeout(function() {
     const content = document.getElementById('bdgsZoomModalContent');
     const success = document.getElementById('bdgsZoomModalSuccess');
-    if (content && success) {
+    const empty = document.getElementById('bdgsZoomModalEmpty');
+    if (content) {
       content.style.display = 'block';
       content.style.opacity = '1';
       content.style.transform = 'none';
-      success.style.display = 'none';
-      document.getElementById('bdgsZoomModalStep1').style.display = 'block';
-      document.getElementById('bdgsZoomBookingForm').style.display = 'none';
-      document.getElementById('bdgsZoomBookingForm').reset();
-      bdgsSetZoomSession(null);
     }
+    if (success) success.style.display = 'none';
+    if (empty) empty.style.display = 'none';
+    const form = document.getElementById('bdgsZoomBookingForm');
+    if (form) form.reset();
+    bdgsSetZoomSession(bdgsDefaultZoomClinic());
+    bdgsResetZoomModalView();
+    const joinLink = document.getElementById('bdgsZoomJoinLink');
+    if (joinLink) {
+      joinLink.style.display = 'none';
+      joinLink.href = '#';
+    }
+    const emailNote = document.getElementById('bdgsZoomEmailNote');
+    if (emailNote) emailNote.style.display = 'none';
+    const gcalBtn = document.getElementById('bdgsGoogleCalLink');
+    if (gcalBtn) gcalBtn.removeAttribute('data-registration-id');
   }, 300);
 }
 
 function bdgsProcessZoomBooking() {
   const btn = document.getElementById('bdgsZoomScheduleBtn');
+  if (!btn) return;
   const originalText = btn.innerHTML;
   btn.innerHTML = '<span style="opacity:0.8; letter-spacing: 0.5px;">Scheduling...</span>';
   btn.disabled = true;
@@ -268,14 +403,40 @@ function bdgsProcessZoomBooking() {
   const clinicInput = document.getElementById('bdgsZoomClinicId');
   const clinicId = clinicInput && clinicInput.value ? parseInt(clinicInput.value, 10) : null;
 
+  if (!clinicId && !BDGS_ACTIVE_CLINIC_ID && !bdgsHasRegisterableClinics()) {
+    btn.innerHTML = originalText;
+    btn.disabled = false;
+    bdgsShowZoomModalPanel('empty');
+    return;
+  }
+
+  const nameEl = document.getElementById('bdgsZoomName');
+  const emailEl = document.getElementById('bdgsZoomEmail');
   const payload = {
-    name: document.getElementById('bdgsZoomName').value.trim(),
-    email: document.getElementById('bdgsZoomEmail').value.trim(),
+    name: nameEl ? nameEl.value.trim() : '',
+    email: emailEl ? emailEl.value.trim() : '',
     registrant_timezone: bdgsGetSelectedZoomTimezone(),
   };
 
+  // Logged-in users: keep account email so the seat shows in My Zoom Clinics.
+  if (window.bdgsAuthUser && window.bdgsAuthUser.email) {
+    payload.email = String(window.bdgsAuthUser.email).trim();
+    if (window.bdgsAuthUser.name && !payload.name) {
+      payload.name = String(window.bdgsAuthUser.name).trim();
+    }
+  }
+
+  if (!payload.name || !payload.email) {
+    btn.innerHTML = originalText;
+    btn.disabled = false;
+    window.alert('Please enter your name and a valid email to finish registration.');
+    return;
+  }
+
   if (clinicId) {
     payload.clinic_id = clinicId;
+  } else if (BDGS_ACTIVE_CLINIC_ID) {
+    payload.clinic_id = BDGS_ACTIVE_CLINIC_ID;
   }
 
   fetch('/api/zoom-clinics/register', {
@@ -287,39 +448,115 @@ function bdgsProcessZoomBooking() {
     body: JSON.stringify(payload),
   })
     .then(function(response) {
-      return response.json().then(function(data) {
+      return response.text().then(function(text) {
+        var data = {};
+        if (text) {
+          try {
+            data = JSON.parse(text);
+          } catch (e) {
+            throw new Error(response.ok
+              ? 'Unexpected response from the server. Please try again.'
+              : 'Registration is temporarily unavailable. Please try again in a moment.');
+          }
+        }
         return { response: response, data: data };
       });
     })
     .then(function(result) {
+      if (result.response.status === 429) {
+        throw new Error('Too many registration attempts. Please wait a minute and try again.');
+      }
       if (!result.response.ok) {
-        const message = result.data.message
-          || (result.data.errors && Object.values(result.data.errors).flat()[0])
+        const message = (result.data.errors && Object.values(result.data.errors).flat()[0])
+          || result.data.message
           || 'Registration failed. Please try again.';
         throw new Error(message);
       }
-      bdgsShowZoomBookingSuccess(btn, originalText);
+      bdgsShowZoomBookingSuccess(btn, originalText, result.data);
     })
     .catch(function(error) {
       btn.innerHTML = originalText;
       btn.disabled = false;
-      window.alert(error.message || 'Something went wrong. Please try again.');
+      var msg = error && error.message ? error.message : 'Something went wrong. Please try again.';
+      if (/failed to fetch|networkerror|load failed/i.test(msg)) {
+        msg = 'Network error — check your connection and try again.';
+      }
+      window.alert(msg);
     });
 }
 
-function bdgsShowZoomBookingSuccess(btn, originalText) {
+function bdgsShowZoomBookingSuccess(btn, originalText, registrationData) {
   const content = document.getElementById('bdgsZoomModalContent');
   const success = document.getElementById('bdgsZoomModalSuccess');
+  if (!content || !success) {
+    btn.innerHTML = originalText;
+    btn.disabled = false;
+    window.alert('You’re registered, but the confirmation screen could not be shown. Check your email for details.');
+    return;
+  }
+
+  if (registrationData) {
+    if (registrationData.clinic_title) {
+      BDGS_ACTIVE_CLINIC_TITLE = registrationData.clinic_title;
+      document.querySelectorAll('[data-bdgs-zoom-agenda]').forEach(function(el) {
+        el.textContent = BDGS_ACTIVE_CLINIC_TITLE;
+      });
+    }
+    if (registrationData.starts_at) {
+      ZOOM_SESSION_DB_DATE = new Date(registrationData.starts_at);
+    }
+    if (registrationData.ends_at) {
+      ZOOM_SESSION_END_DATE = new Date(registrationData.ends_at);
+    }
+    if (registrationData.join_url) {
+      BDGS_ACTIVE_CLINIC_JOIN_URL = registrationData.join_url;
+    }
+  }
 
   bdgsUpdateZoomSuccessDetails();
+
+  if (registrationData && registrationData.google_calendar_url) {
+    bdgsUpdateGoogleCalLink(registrationData.google_calendar_url);
+  } else {
+    bdgsUpdateGoogleCalLink(bdgsBuildGoogleCalUrl({
+      title: 'Zoom Clinic: ' + BDGS_ACTIVE_CLINIC_TITLE,
+      joinUrl: registrationData && registrationData.join_url ? registrationData.join_url : BDGS_ACTIVE_CLINIC_JOIN_URL,
+      whenLabel: (function() {
+        try { return bdgsFormatZoomSessionDisplay(bdgsGetSelectedZoomTimezone()); } catch (e) { return ''; }
+      })(),
+      name: document.getElementById('bdgsZoomName').value.trim(),
+      email: document.getElementById('bdgsZoomEmail').value.trim(),
+    }));
+  }
+
+  const gcalBtn = document.getElementById('bdgsGoogleCalLink');
+  if (gcalBtn && registrationData && registrationData.registration_id) {
+    gcalBtn.setAttribute('data-registration-id', String(registrationData.registration_id));
+  }
+
+  const joinLink = document.getElementById('bdgsZoomJoinLink');
+  const joinUrl = (registrationData && registrationData.join_url) || BDGS_ACTIVE_CLINIC_JOIN_URL;
+  if (joinLink) {
+    if (joinUrl) {
+      joinLink.href = joinUrl;
+      joinLink.style.display = 'flex';
+    } else {
+      joinLink.href = '#';
+      joinLink.style.display = 'none';
+    }
+  }
+
+  const emailNote = document.getElementById('bdgsZoomEmailNote');
+  if (emailNote) {
+    emailNote.style.display = (registrationData && registrationData.confirmation_sent === false) ? 'block' : 'none';
+  }
 
   content.style.transition = 'opacity 0.25s ease, transform 0.25s ease';
   content.style.opacity = '0';
   content.style.transform = 'translateY(-10px)';
 
   setTimeout(function() {
-    content.style.display = 'none';
-    success.style.display = 'block';
+    bdgsShowZoomModalPanel('success');
     success.style.opacity = '0';
     success.style.transform = 'scale(0.92)';
     success.style.transition = 'opacity 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275), transform 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
@@ -332,6 +569,37 @@ function bdgsShowZoomBookingSuccess(btn, originalText) {
       btn.disabled = false;
     }, 500);
   }, 250);
+}
+
+function bdgsMarkCalendarAddedFromModal(registrationId) {
+  if (!registrationId || !window.bdgsAuthUser) {
+    return;
+  }
+  const csrf = document.querySelector('meta[name="csrf-token"]');
+  const token = csrf ? csrf.getAttribute('content') : '';
+  if (!token) {
+    return;
+  }
+  fetch('/dashboard/my-zoom-clinics/' + registrationId + '/calendar-added', {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'X-CSRF-TOKEN': token,
+      'X-Requested-With': 'XMLHttpRequest',
+    },
+    credentials: 'same-origin',
+  }).then(function(res) {
+        if (res.status === 401 || res.status === 419) {
+          if (window.confirm('Your session expired. Sign in again to keep calendar status in sync?')) {
+            window.location.href = '/dashboard/my-zoom-clinics';
+          }
+          return null;
+        }
+    if (res.status === 403) {
+      return null;
+    }
+    return res.ok ? res.json() : null;
+  }).catch(function() {});
 }
 
 function bdgsSelectTimezone(el, event) {
@@ -356,7 +624,6 @@ function bdgsSelectTimezone(el, event) {
 
   bdgsUpdateTimezoneDisplay();
   bdgsUpdateGoogleCalLink();
-  bdgsRenderClinicCardTimes();
 }
 
 document.addEventListener('click', function(e) {
@@ -370,7 +637,7 @@ document.addEventListener('click', function(e) {
 });
 
 function bdgsRenderClinicCardTimes() {
-  const tz = bdgsGetSelectedZoomTimezone();
+  const tz = bdgsGetPageDisplayTimezone();
   document.querySelectorAll('[data-clinic-starts]').forEach(function(el) {
     const start = new Date(el.getAttribute('data-clinic-starts'));
     const end = new Date(el.getAttribute('data-clinic-ends'));
@@ -382,9 +649,56 @@ function bdgsRenderClinicCardTimes() {
   });
 }
 
+function bdgsUpdateHeroScheduleTime() {
+  const heroEl = document.getElementById('zc-hero-time');
+  if (!heroEl) {
+    return;
+  }
+  const tz = bdgsGetPageDisplayTimezone();
+  let start;
+  let end;
+  const startsAttr = heroEl.getAttribute('data-clinic-starts');
+  const endsAttr = heroEl.getAttribute('data-clinic-ends');
+  if (startsAttr && endsAttr) {
+    start = new Date(startsAttr);
+    end = new Date(endsAttr);
+  } else if (window.bdgsZoomClinics && window.bdgsZoomClinics.length) {
+    const featured = window.bdgsZoomClinics.find(function(c) { return c.is_live; }) || window.bdgsZoomClinics[0];
+    start = new Date(featured.starts_at);
+    end = new Date(featured.ends_at);
+  } else {
+    const session = bdgsGetNextZoomSession();
+    start = session.start;
+    end = session.end;
+  }
+  try {
+    heroEl.textContent = bdgsFormatZoomTimeRange(start, end, tz, { includeDate: false });
+  } catch (e) {
+    heroEl.textContent = heroEl.getAttribute('data-fallback') || '';
+  }
+}
+
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', bdgsRenderClinicCardTimes);
+  document.addEventListener('DOMContentLoaded', function() {
+    bdgsRenderClinicCardTimes();
+    bdgsUpdateHeroScheduleTime();
+    const gcalBtn = document.getElementById('bdgsGoogleCalLink');
+    if (gcalBtn) {
+      gcalBtn.addEventListener('click', function() {
+        const registrationId = gcalBtn.getAttribute('data-registration-id');
+        bdgsMarkCalendarAddedFromModal(registrationId);
+      });
+    }
+  });
 } else {
   bdgsRenderClinicCardTimes();
+  bdgsUpdateHeroScheduleTime();
+  const gcalBtn = document.getElementById('bdgsGoogleCalLink');
+  if (gcalBtn) {
+    gcalBtn.addEventListener('click', function() {
+      const registrationId = gcalBtn.getAttribute('data-registration-id');
+      bdgsMarkCalendarAddedFromModal(registrationId);
+    });
+  }
 }
 </script>

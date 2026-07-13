@@ -34,11 +34,15 @@
     @if (session('status'))
       <div class="bdgs-panel__flash">{{ session('status') }}</div>
     @endif
+    @if (session('error'))
+      <div class="bdgs-panel__flash bdgs-panel__flash--error">{{ session('error') }}</div>
+    @endif
     <main class="bdgs-panel__content">
       @yield('content')
     </main>
   </div>
 </div>
+<script src="/js/bdgs-ajax-list.js" defer></script>
 <script src="/js/bdgs-dashboard.js" defer></script>
 @stack('panel-scripts')
 </body>

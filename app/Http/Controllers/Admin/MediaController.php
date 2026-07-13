@@ -24,7 +24,7 @@ class MediaController extends Controller
         }
 
         return view('admin.media.index', [
-            'media' => $query->paginate(24),
+            'media' => $query->paginate(24)->withQueryString(),
             'search' => $search ?? '',
         ]);
     }
@@ -33,7 +33,11 @@ class MediaController extends Controller
     {
         $request->validate(['file' => ['required', 'file', 'max:10240', 'mimes:jpg,jpeg,png,gif,webp,svg,pdf']]);
 
-        $media = $mediaService->upload($request->file('file'), $request->input('alt_text'));
+        $file = $request->file('file');
+        $mime = (string) ($file->getMimeType() ?? '');
+        $media = str_starts_with($mime, 'image/') && ! str_contains($mime, 'svg')
+            ? $mediaService->uploadAsWebp($file, $request->input('alt_text'))
+            : $mediaService->upload($file, $request->input('alt_text'));
 
         if ($request->expectsJson() || $request->boolean('editor_upload')) {
             return response()->json([

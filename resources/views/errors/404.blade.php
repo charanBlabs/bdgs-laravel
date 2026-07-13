@@ -5,8 +5,9 @@
 <title>Page Not Found — BD Growth Suite</title>
 @endsection
 
+@section('robots-content', 'noindex, nofollow')
+
 @section('meta')
-<meta name="robots" content="noindex, nofollow">
 @endsection
 
 @push('page-styles')

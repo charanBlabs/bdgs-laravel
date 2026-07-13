@@ -28,6 +28,15 @@ class LoginRequest extends FormRequest
         ];
     }
 
+    protected function prepareForValidation(): void
+    {
+        if ($this->has('email')) {
+            $this->merge([
+                'email' => Str::lower(trim((string) $this->input('email'))),
+            ]);
+        }
+    }
+
     /** @throws ValidationException */
     public function authenticate(): void
     {
@@ -41,15 +50,17 @@ class LoginRequest extends FormRequest
             ]);
         }
 
-        if (! $user || ! $user->is_active || ! Hash::check($this->string('password'), $user->password)) {
-            if ($user) {
+        if (! $user || $user->is_active === false || ! Hash::check($this->string('password'), $user->password)) {
+            if ($user && $user->is_active !== false) {
                 $user->recordFailedLogin();
             }
 
             RateLimiter::hit($this->throttleKey());
 
             throw ValidationException::withMessages([
-                'email' => trans('auth.failed'),
+                'email' => $user && $user->is_active === false
+                    ? 'Your account has been deactivated. Please contact support.'
+                    : trans('auth.failed'),
             ]);
         }
 

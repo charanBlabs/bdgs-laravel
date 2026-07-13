@@ -92,7 +92,7 @@ select:focus-visible {
 .bdgsownv2-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(231,77,86,0.35); color: #fff; text-decoration: none; }
 .bdgsownv2-btn-secondary {
   display: inline-flex; align-items: center; gap: 8px;
-  padding: 14px 28px; font-size: 15px; font-weight: 600;
+  padding: 14px 28px; font-size: 15px; font-weight: 600; cursor: pointer;
   background: transparent; border-radius: 10px; text-decoration: none; transition: all 0.25s;
 }
 .bdgsownv2-btn-dark { color: #fff; border: 1px solid rgba(255,255,255,0.2); }

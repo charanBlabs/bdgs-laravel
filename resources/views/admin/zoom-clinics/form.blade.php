@@ -44,7 +44,8 @@
       <label class="bdgs-sf__label bdgs-sf__label--required" for="zc-zoom-url">Zoom Link</label>
       <input type="url" id="zc-zoom-url" name="zoom_meeting_url" class="bdgs-sf__input"
              value="{{ old('zoom_meeting_url', $clinic->zoom_meeting_url) }}"
-             placeholder="https://zoom.us/j/..." required>
+             placeholder="https://zoom.us/j/...">
+      <p class="bdgs-sf__hint" style="margin:6px 0 0;">Required before publishing — registrants need this join link.</p>
       @error('zoom_meeting_url') <p class="bdgs-thumb__error">{{ $message }}</p> @enderror
     </div>
 
@@ -114,6 +115,18 @@
       <label class="bdgs-sf__label" for="zc-description">Description</label>
       <textarea id="zc-description" name="description" class="bdgs-sf__textarea" rows="4">{{ old('description', $clinic->description) }}</textarea>
       @error('description') <p class="bdgs-thumb__error">{{ $message }}</p> @enderror
+    </div>
+
+    <div class="bdgs-sf__field">
+      <label class="bdgs-sf__label" for="zc-registration-hooks">Registration hooks</label>
+      <textarea id="zc-registration-hooks" name="registration_hooks" class="bdgs-sf__textarea" rows="4"
+                placeholder="Filters not behaving? We debug them live.">{{ old('registration_hooks', $clinic->registration_hooks) }}</textarea>
+      <p class="bdgs-sf__hint" style="font-size:0.8125rem;color:#64748b;margin-top:6px;line-height:1.5;">
+        Optional. Shown on the public page while this clinic has fewer than 30 registrations.
+        <strong>One hook per line.</strong> First line = clinic card footer. Multiple lines rotate in the hero card (if this is the featured clinic).
+        Leave blank to auto-pick from title/agenda keywords.
+      </p>
+      @error('registration_hooks') <p class="bdgs-thumb__error">{{ $message }}</p> @enderror
     </div>
 
     <div class="bdgs-sf__field">
@@ -190,6 +203,7 @@
       </div>
       <p style="font-size:0.9375rem;color:#1a1a2e;">
         <strong>{{ $clinic->confirmed_registrations_count ?? 0 }}</strong> confirmed registration(s)
+        — <a href="{{ route('admin.zoom-clinic-registrations.index', ['clinic_id' => $clinic->clinic_id]) }}">View registrations</a>
       </p>
     @endif
 

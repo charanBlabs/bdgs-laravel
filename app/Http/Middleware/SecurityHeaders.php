@@ -23,12 +23,12 @@ class SecurityHeaders
 
         $csp = implode('; ', [
             "default-src 'self'",
-            "script-src 'self' 'unsafe-inline' https://www.youtube.com https://www.youtube-nocookie.com https://cdn.jsdelivr.net",
+            "script-src 'self' 'unsafe-inline' https://www.youtube.com https://www.youtube-nocookie.com https://cdn.jsdelivr.net https://app.cal.com https://cal.com",
             "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net",
             "img-src 'self' data: https:",
             "font-src 'self' data: https://fonts.gstatic.com",
-            "connect-src 'self' https://www.youtube-nocookie.com https://www.youtube.com https://www.google.com https://googleads.g.doubleclick.net https://static.doubleclick.net https://i.ytimg.com https://s.ytimg.com",
-            "frame-src 'self' https://www.youtube-nocookie.com https://www.youtube.com https://www.loom.com https://player.vimeo.com",
+            "connect-src 'self' https://www.youtube-nocookie.com https://www.youtube.com https://www.google.com https://googleads.g.doubleclick.net https://static.doubleclick.net https://i.ytimg.com https://s.ytimg.com https://app.cal.com https://cal.com",
+            "frame-src 'self' https://www.youtube-nocookie.com https://www.youtube.com https://www.loom.com https://player.vimeo.com https://app.cal.com https://cal.com",
             "frame-ancestors 'none'",
         ]);
 

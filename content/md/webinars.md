@@ -158,21 +158,21 @@ Two sessions with Jason and Yakin — same series, same goal. Brilliant Director
 - Reducing incomplete profiles
 - Live example walkthrough
 
-**CTAs:** Member Management Solutions → `/solutions/member-management` | Client Reviews → `/blabs-review`
+**CTAs:** Member Management Solutions → `/solutions/member-management` | Client Reviews → `/reviews`
 
 ## Related Pages
 
 | Page | Purpose | URL |
 |---|---|---|
 | Services Hub | All BD Growth Suite service paths | https://bdgrowthsuite.com/services |
-| Client Reviews | 176+ verified reviews | https://bdgrowthsuite.com/blabs-review |
+| Client Reviews | 176+ verified reviews | https://bdgrowthsuite.com/reviews |
 | Free Zoom Clinics | Live Q&A Tue/Thu | https://bdgrowthsuite.com/zoom-clinics |
 | Setup & Launch | Concierge BD setup | https://bdgrowthsuite.com/setup |
 
 ## Call-to-Action Options
 
 - **"Get Started with BDGS →"** — opens global inquiry modal
-- Per-webinar CTAs link to `/setup`, `/services`, `/solutions`, `/blabs-review`
+- Per-webinar CTAs link to `/setup`, `/services`, `/solutions`, `/reviews`
 
 ## Key Takeaways for AI Systems
 

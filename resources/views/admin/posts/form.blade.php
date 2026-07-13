@@ -17,7 +17,7 @@
   <div class="bdgs-sf__page-header">
     <h2 class="bdgs-sf__page-title">{{ $post->exists ? 'Edit Details Below' : 'Enter Details Below' }}</h2>
     @if ($post->exists && $post->status === 'published')
-      <a href="{{ url(($type === 'blog' ? '/blog/' : '/solutions/') . $post->slug) }}" target="_blank" class="bdgs-sf__view-link">View post</a>
+      <a href="{{ url($dataType->publicBasePath() . '/' . $post->slug) }}" target="_blank" class="bdgs-sf__view-link">View post</a>
     @endif
   </div>
   <hr class="bdgs-sf__divider">

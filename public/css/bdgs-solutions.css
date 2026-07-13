@@ -25,8 +25,7 @@
   line-height: 1.2;
 }
 
-.bdgs-sol-lead,
-.bdgs-sol-count {
+.bdgs-sol-lead {
   color: var(--bdgs-text-muted);
   font-size: 1.05rem;
   max-width: 720px;
@@ -99,6 +98,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 
 .bdgs-sol-card__placeholder {
@@ -191,45 +191,6 @@
   padding-block: 32px 64px;
 }
 
-.bdgs-sol-filter-bar {
-  padding-block: 0 8px;
-  border-bottom: 1px solid var(--bdgs-border);
-  background: var(--bdgs-white);
-  position: sticky;
-  top: 69px;
-  z-index: 20;
-  margin-top: -1px;
-}
-
-.bdgs-sol-filter-bar__inner {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  padding-block: 12px;
-}
-
-.bdgs-sol-filter-pill {
-  display: inline-flex;
-  align-items: center;
-  padding: 8px 14px;
-  border-radius: 999px;
-  border: 1px solid var(--bdgs-border);
-  background: var(--bdgs-bg);
-  color: var(--bdgs-text);
-  font-size: 0.8125rem;
-  font-weight: 600;
-  text-decoration: none;
-  white-space: nowrap;
-  transition: background 0.2s, border-color 0.2s, color 0.2s;
-}
-
-.bdgs-sol-filter-pill:hover,
-.bdgs-sol-filter-pill.is-active {
-  background: var(--bdgs-purple-light);
-  border-color: var(--bdgs-purple);
-  color: var(--bdgs-purple);
-}
-
 /* Detail layout */
 .bdgs-sol-detail {
   padding-block: 0 64px;
@@ -305,8 +266,11 @@
   display: block;
   width: 100%;
   height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
   margin-bottom: 24px;
   border-radius: 8px;
+  background: var(--bdgs-bg);
 }
 
 .bdgs-sol-detail__action-bar {

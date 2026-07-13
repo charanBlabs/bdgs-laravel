@@ -231,24 +231,26 @@ final class LegacyEmailTemplateMapper
             'password-reset' => [
                 'subject' => 'Reset your password — {{ site_name }}',
                 'body_html' => <<<'HTML'
-<p><span style="font-size: 22px; padding: 15px 0px; font-weight: normal; font-family: arial; color: #0d83dd;">Reset Your Password</span></p>
-<p><span style="font-size: 14px;">Hello <strong>{{ first_name }}</strong>,</span></p>
-<p><span style="font-size: 14px;">We received a request to reset the password for your {{ site_name }} account. Click the link below to choose a new password:</span></p>
-<p><a href="{{ reset_url }}" style="font-weight: bold; font-size: 15px;">{{ reset_url }}</a></p>
-<p><span style="font-size: 14px;">If you did not request a password reset, you can safely ignore this email.</span></p>
-<p><span style="font-size: 14px;">Thank you,</span></p>
-<p><span style="font-size: 14px;">The {{ site_name }} Team.</span></p>
+<p style="margin:0 0 10px;font-family:'DM Sans', -apple-system, BlinkMacSystemFont, Arial, Helvetica, sans-serif;font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#E74D56;">Password reset</p>
+<h1 style="margin:0 0 14px;font-family:'DM Sans', -apple-system, BlinkMacSystemFont, Arial, Helvetica, sans-serif;font-size:24px;line-height:1.3;color:#1A1A2E;">Reset your password</h1>
+<p style="margin:0 0 14px;font-family:'DM Sans', -apple-system, BlinkMacSystemFont, Arial, Helvetica, sans-serif;font-size:15px;line-height:1.6;color:#6B6B80;">Hello <strong style="color:#2C2C3A;">{{ first_name }}</strong>,</p>
+<p style="margin:0 0 18px;font-family:'DM Sans', -apple-system, BlinkMacSystemFont, Arial, Helvetica, sans-serif;font-size:15px;line-height:1.6;color:#6B6B80;">We received a request to reset the password for your {{ site_name }} account. Click the button below to choose a new password.</p>
+<p style="margin:0 0 18px;text-align:center;">
+  <a href="{{ reset_url }}" style="display:inline-block;background:linear-gradient(135deg,#E74D56 0%,#95256E 100%);color:#ffffff;text-decoration:none;font-family:'DM Sans', -apple-system, BlinkMacSystemFont, Arial, Helvetica, sans-serif;font-size:15px;font-weight:700;padding:13px 26px;border-radius:8px;">Reset password</a>
+</p>
+<p style="margin:0 0 12px;font-family:'DM Sans', -apple-system, BlinkMacSystemFont, Arial, Helvetica, sans-serif;font-size:13px;line-height:1.55;color:#6B6B80;">Or copy this link:<br><a href="{{ reset_url }}" style="color:#E74D56;word-break:break-all;">{{ reset_url }}</a></p>
+<p style="margin:0;font-family:'DM Sans', -apple-system, BlinkMacSystemFont, Arial, Helvetica, sans-serif;font-size:13px;color:#6B6B80;">If you did not request this, you can safely ignore this email.</p>
 HTML,
                 'variables' => ['first_name', 'site_name', 'reset_url'],
             ],
             'inquiry-reply' => [
                 'subject' => 'Reply to your inquiry — {{ site_name }}',
                 'body_html' => <<<'HTML'
-<p dir="ltr" style="line-height:1.38;text-align: justify;margin-top:0pt;margin-bottom:8pt;"><span style="font-size:16pt;font-family:Calibri,sans-serif;font-weight:700;">Thank You for Choosing BD Growth Suite</span></p>
-<p dir="ltr" style="line-height:1.38;text-align: justify;margin-top:0pt;margin-bottom:8pt;"><span style="font-size:12pt;font-family:Calibri,sans-serif;">Hello <strong>{{ first_name }}</strong>,</span></p>
-<p dir="ltr" style="line-height:1.38;text-align: justify;margin-top:0pt;margin-bottom:8pt;"><span style="font-size:12pt;font-family:Calibri,sans-serif;">{{ reply }}</span></p>
-<p dir="ltr" style="line-height:1.38;text-align: justify;margin-top:0pt;margin-bottom:8pt;"><span style="font-size:12pt;font-family:Calibri,sans-serif;">Regards,</span></p>
-<p dir="ltr" style="line-height:1.38;text-align: justify;margin-top:0pt;margin-bottom:8pt;"><span style="font-size:12pt;font-family:Calibri,sans-serif;">The BD Growth Suite Team.</span></p>
+<p style="margin:0 0 10px;font-family:'DM Sans', -apple-system, BlinkMacSystemFont, Arial, Helvetica, sans-serif;font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#E74D56;">Inquiry reply</p>
+<h1 style="margin:0 0 14px;font-family:'DM Sans', -apple-system, BlinkMacSystemFont, Arial, Helvetica, sans-serif;font-size:24px;line-height:1.3;color:#1A1A2E;">Thanks for reaching out</h1>
+<p style="margin:0 0 14px;font-family:'DM Sans', -apple-system, BlinkMacSystemFont, Arial, Helvetica, sans-serif;font-size:15px;line-height:1.6;color:#6B6B80;">Hello <strong style="color:#2C2C3A;">{{ first_name }}</strong>,</p>
+<div style="margin:0 0 18px;padding:16px 18px;background:#FDF0F0;border:1px solid #F5D0D3;border-radius:10px;font-family:'DM Sans', -apple-system, BlinkMacSystemFont, Arial, Helvetica, sans-serif;font-size:15px;line-height:1.6;color:#2C2C3A;">{{ reply }}</div>
+<p style="margin:0;font-family:'DM Sans', -apple-system, BlinkMacSystemFont, Arial, Helvetica, sans-serif;font-size:15px;color:#6B6B80;">Regards,<br><strong style="color:#1A1A2E;">The BD Growth Suite Team</strong></p>
 HTML,
                 'variables' => ['first_name', 'reply', 'site_name'],
             ],

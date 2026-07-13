@@ -12,6 +12,7 @@
   @endforeach
   <a href="{{ route('admin.media.index') }}" @class(['is-active' => request()->routeIs('admin.media.*')])>Media</a>
   <a href="{{ route('admin.zoom-clinics.index') }}" @class(['is-active' => request()->routeIs('admin.zoom-clinics.*')])>Zoom Clinics</a>
+  <a href="{{ route('admin.zoom-clinic-registrations.index') }}" @class(['is-active' => request()->routeIs('admin.zoom-clinic-registrations.*')])>Registrations</a>
   <a href="{{ route('admin.inquiries.index') }}" @class(['is-active' => request()->routeIs('admin.inquiries.*')])>Inquiries</a>
   <a href="{{ route('admin.email-templates.index') }}" @class(['is-active' => request()->routeIs('admin.email-templates.*')])>Email Templates</a>
   <a href="{{ route('admin.settings.index') }}" @class(['is-active' => request()->routeIs('admin.settings.*')])>Settings</a>

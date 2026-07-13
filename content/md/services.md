@@ -25,7 +25,7 @@ BD Growth Suite is a team of 20+ in-house Brilliant Directories developers. We h
 
 **Proven Results:** 500+ Brilliant Directories websites delivered for 100+ clients
 
-**Verified Reviews:** 176+ verified client reviews on `/blabs-review`
+**Verified Reviews:** 176+ verified client reviews on `/reviews`
 
 **Team Scale:** 20+ in-house Brilliant Directories developers
 
@@ -187,7 +187,7 @@ High-touch, apply-only engagement combining strategy, development, and AI with d
 ## Call-to-Action Options
 
 - **"Explore →"** on each service card — routes to the dedicated service page
-- **"Book a free 30-min Discovery Call"** — soft bottom link for visitors unsure which path fits; opens the global inquiry modal
+- **"Book a free 30-min Discovery Call"** — soft bottom link for visitors unsure which path fits; opens the Cal.com 30-min booking embed
 - **Header "Get Started"** — opens inquiry modal from any page on the site
 
 ## Contact & Inquiry
@@ -220,7 +220,7 @@ Required fields: `name`, `email`, `phone`, `need`. Same service options as the s
 | Page | Purpose | URL |
 |---|---|---|
 | Homepage | Full BD Growth Suite overview, hero, reviews, Zoom Clinics | https://bdgrowthsuite.com/ |
-| Client Reviews | 176+ verified reviews and social proof | https://bdgrowthsuite.com/blabs-review |
+| Client Reviews | 176+ verified reviews and social proof | https://bdgrowthsuite.com/reviews |
 | Zoom Clinics | Free live Q&A sessions (Tue/Thu 6:30 PM IST) | https://bdgrowthsuite.com/zoom-clinics |
 | Webinars | Brilliant Directories CEO webinar recordings | https://bdgrowthsuite.com/webinars |
 

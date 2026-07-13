@@ -6,8 +6,9 @@
 <title>Create Your BD Growth Suite Account</title>
 @endsection
 
+@section('robots-content', 'noindex, nofollow')
+
 @section('meta')
-<meta name="robots" content="noindex, nofollow">
 <meta name="description" content="Create a BD Growth Suite customer account to access your Brilliant Directories projects, orders, and dashboard.">
 <link rel="canonical" href="https://bdgrowthsuite.com/signup/">
 @endsection

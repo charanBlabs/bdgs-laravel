@@ -21,6 +21,7 @@
 .bdgs-panel__topbar-actions { display: flex; align-items: center; gap: 16px; }
 .bdgs-panel__user { font-size: 14px; color: #64748b; }
 .bdgs-panel__flash { margin: 16px 28px 0; padding: 12px 16px; background: #ecfdf5; border: 1px solid #86efac; border-radius: 8px; color: #166534; }
+.bdgs-panel__flash--error { background: #fef2f2; border-color: #fecaca; color: #991b1b; }
 .bdgs-panel__content { padding: 24px 28px 40px; }
 .bdgs-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; }
 .bdgs-stat-card { background: #fff; border: 1px solid var(--panel-border); border-radius: 12px; padding: 20px; }
@@ -30,6 +31,11 @@
 .bdgs-panel-form label { display: grid; gap: 6px; font-size: 14px; font-weight: 600; }
 .bdgs-panel-form input, .bdgs-panel-form select, .bdgs-panel-form textarea { padding: 10px 12px; border: 1px solid var(--panel-border); border-radius: 8px; font: inherit; }
 .bdgs-panel-form textarea { min-height: 120px; }
+.bdgs-panel-help { margin: -4px 0 0; font-size: 13px; font-weight: 400; color: #64748b; line-height: 1.45; }
+.bdgs-flash { padding: 12px 14px; border-radius: 8px; font-size: 14px; margin-bottom: 16px; max-width: 720px; }
+.bdgs-flash--ok { background: #ecfdf5; color: #065f46; border: 1px solid #a7f3d0; }
+.bdgs-flash--err { background: #fef2f2; color: #991b1b; border: 1px solid #fecaca; }
+.bdgs-flash--err ul { margin: 0; padding-left: 18px; }
 .bdgs-panel-table { width: 100%; border-collapse: collapse; background: #fff; border: 1px solid var(--panel-border); border-radius: 12px; overflow: hidden; }
 .bdgs-panel-table th, .bdgs-panel-table td { padding: 12px 14px; text-align: left; border-bottom: 1px solid var(--panel-border); font-size: 14px; }
 .bdgs-panel-table th { background: #f1f5f9; font-weight: 600; }
@@ -57,3 +63,7 @@
 .bdgs-panel__content nav[role="navigation"] span[aria-disabled="true"] span { color: #ccc; background: #f8f8fc; border: 1px solid var(--panel-border); }
 .bdgs-panel__content nav[role="navigation"] svg { width: 14px; height: 14px; }
 .bdgs-panel__content nav[role="navigation"] .relative { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; justify-content: center; }
+
+/* Ajax list (no full-page refresh) */
+[data-ajax-list] { transition: opacity 0.15s ease; }
+[data-ajax-list].is-loading { opacity: 0.55; pointer-events: none; }

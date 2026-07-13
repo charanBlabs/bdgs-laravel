@@ -73,12 +73,7 @@ class ContentController extends Controller
             ->orderByDesc('published_at')
             ->paginate(20);
 
-        $categories = BdgsCategory::query()
-            ->where('post_type_id', $dataType->id)
-            ->orderBy('sort_order')
-            ->get();
-
-        return view('frontend.solutions.category', compact('dataType', 'category', 'categories', 'posts', 'type'));
+        return view('frontend.solutions.category', compact('dataType', 'category', 'posts', 'type'));
     }
 
     public function show(string $type, string $slug): View

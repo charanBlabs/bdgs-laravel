@@ -96,6 +96,89 @@ class MediaService
         return $media->fresh('variants');
     }
 
+    /**
+     * Convert an existing image (and its variants) to WebP and regenerate sizes.
+     */
+    public function reoptimizeAsWebp(BdgsMedia $media): BdgsMedia
+    {
+        if (! function_exists('imagecreatefromstring') || ! function_exists('imagewebp')) {
+            return $media;
+        }
+
+        if (! $this->isImage($media->mime_type ?? '')) {
+            return $media;
+        }
+
+        $disk = Storage::disk($media->disk);
+        $sourcePath = $disk->path($media->path);
+        if (! is_file($sourcePath)) {
+            return $media;
+        }
+
+        $contents = file_get_contents($sourcePath);
+        $image = $contents !== false ? @imagecreatefromstring($contents) : false;
+        if ($image === false) {
+            return $media;
+        }
+
+        $directory = dirname($media->path);
+        $filename = Str::uuid().'.webp';
+        $fullDir = $disk->path($directory);
+        if (! is_dir($fullDir)) {
+            mkdir($fullDir, 0755, true);
+        }
+        $fullPath = $fullDir.'/'.$filename;
+        $newPath = $directory.'/'.$filename;
+
+        imagepalettetotruecolor($image);
+        imagealphablending($image, true);
+        imagesavealpha($image, true);
+        imagewebp($image, $fullPath, 82);
+
+        $w = imagesx($image);
+        $h = imagesy($image);
+        imagedestroy($image);
+
+        foreach ($media->variants as $variant) {
+            $disk->delete($variant->path);
+        }
+        $media->variants()->delete();
+        $disk->delete($media->path);
+
+        $media->update([
+            'filename' => pathinfo($media->filename, PATHINFO_FILENAME).'.webp',
+            'path' => $newPath,
+            'mime_type' => 'image/webp',
+            'size_bytes' => filesize($fullPath) ?: 0,
+            'width' => $w,
+            'height' => $h,
+        ]);
+
+        $this->generateVariants($media->fresh(), $fullPath);
+
+        return $media->fresh('variants');
+    }
+
+    public function regenerateVariants(BdgsMedia $media): void
+    {
+        if (! $this->isImage($media->mime_type ?? '')) {
+            return;
+        }
+
+        $disk = Storage::disk($media->disk);
+        $sourcePath = $disk->path($media->path);
+        if (! is_file($sourcePath)) {
+            return;
+        }
+
+        foreach ($media->variants as $variant) {
+            $disk->delete($variant->path);
+        }
+        $media->variants()->delete();
+
+        $this->generateVariants($media->fresh(), $sourcePath);
+    }
+
     public function delete(BdgsMedia $media): void
     {
         Storage::disk($media->disk)->delete($media->path);
@@ -153,6 +236,11 @@ class MediaService
         $newH = (int) max(1, round($origH * $ratio));
 
         $canvas = imagecreatetruecolor($newW, $newH);
+        imagealphablending($canvas, false);
+        imagesavealpha($canvas, true);
+        $transparent = imagecolorallocatealpha($canvas, 0, 0, 0, 127);
+        imagefilledrectangle($canvas, 0, 0, $newW, $newH, $transparent);
+        imagealphablending($canvas, true);
         imagecopyresampled($canvas, $image, 0, 0, 0, 0, $newW, $newH, $origW, $origH);
 
         $pathInfo = pathinfo($originalPath);
@@ -181,6 +269,6 @@ class MediaService
 
     private function isImage(string $mime): bool
     {
-        return str_starts_with($mime, 'image/');
+        return str_starts_with($mime, 'image/') && ! str_contains($mime, 'svg');
     }
 }

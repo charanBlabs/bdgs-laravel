@@ -2,28 +2,34 @@
 
 namespace Database\Seeders;
 
-use App\Models\BdgsWebsiteSetting;
+use App\Services\SettingsService;
 use Illuminate\Database\Seeder;
 
 class WebsiteSettingsSeeder extends Seeder
 {
     public function run(): void
     {
-        $settings = [
-            ['group' => 'general', 'key' => 'site_name', 'value' => 'BD Growth Suite', 'type' => 'string'],
-            ['group' => 'general', 'key' => 'site_tagline', 'value' => 'Brilliant Directories Growth Partner', 'type' => 'string'],
-            ['group' => 'seo', 'key' => 'default_meta_title', 'value' => 'BD Growth Suite — Brilliant Directories Services', 'type' => 'string'],
-            ['group' => 'seo', 'key' => 'default_meta_description', 'value' => 'Setup, customization, tools, and growth services for Brilliant Directories websites.', 'type' => 'text'],
-            ['group' => 'mail', 'key' => 'admin_notification_email', 'value' => 'admin@bdgrowthsuite.com', 'type' => 'string'],
-            ['group' => 'social', 'key' => 'twitter_url', 'value' => '', 'type' => 'string'],
-            ['group' => 'social', 'key' => 'linkedin_url', 'value' => '', 'type' => 'string'],
+        $settings = app(SettingsService::class);
+
+        $rows = [
+            ['general', 'site_name', 'BD Growth Suite', 'string'],
+            ['general', 'site_tagline', 'Brilliant Directories Growth Partner', 'string'],
+            ['seo', 'default_meta_title', 'BD Growth Suite — Brilliant Directories Services', 'string'],
+            ['seo', 'default_meta_description', 'Setup, customization, tools, and growth services for Brilliant Directories websites.', 'text'],
+            ['mail', 'admin_notification_email', 'admin@bdgrowthsuite.com', 'string'],
+            ['social', 'twitter_url', '', 'string'],
+            ['social', 'linkedin_url', '', 'string'],
+            ['cal', 'origin', 'https://app.cal.com', 'string'],
+            ['cal', 'link', 'charan-tej-vattikuti-unbo7v/30min', 'string'],
+            ['cal', 'namespace', '30min', 'string'],
+            ['cal', 'config', [
+                'layout' => 'month_view',
+                'useSlotsViewOnSmallScreen' => 'true',
+            ], 'json'],
         ];
 
-        foreach ($settings as $setting) {
-            BdgsWebsiteSetting::query()->updateOrCreate(
-                ['group' => $setting['group'], 'key' => $setting['key']],
-                $setting
-            );
+        foreach ($rows as [$group, $key, $value, $type]) {
+            $settings->set($group, $key, $value, $type);
         }
     }
 }

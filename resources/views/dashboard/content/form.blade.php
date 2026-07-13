@@ -19,7 +19,7 @@
   <div class="bdgs-sf__page-header">
     <h2 class="bdgs-sf__page-title">{{ $post->exists ? 'Edit Details Below' : 'Enter Details Below' }}</h2>
     @if ($post->exists && $post->status === 'published')
-      <a href="{{ url(($type === 'blog' ? '/blog/' : '/' . $dataType->slug . 's/') . $post->slug) }}" target="_blank" class="bdgs-sf__view-link">View post</a>
+      <a href="{{ url($dataType->publicBasePath() . '/' . $post->slug) }}" target="_blank" class="bdgs-sf__view-link">View post</a>
     @endif
   </div>
   <hr class="bdgs-sf__divider">
@@ -104,6 +104,12 @@
       <label class="bdgs-profile-form__label" for="pf_meta_desc">Meta Description</label>
       <div class="bdgs-profile-form__field">
         <textarea id="pf_meta_desc" name="meta_description" rows="3">{{ old('meta_description', $post->seo?->meta_description) }}</textarea>
+      </div>
+    </div>
+    <div class="bdgs-profile-form__row">
+      <label class="bdgs-profile-form__label" for="pf_robots">Robots</label>
+      <div class="bdgs-profile-form__field">
+        <input type="text" id="pf_robots" name="robots" value="{{ old('robots', $post->seo?->robots) }}" placeholder="index,follow">
       </div>
     </div>
   </div>

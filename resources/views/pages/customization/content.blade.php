@@ -5,7 +5,7 @@
     <div class="bdgsownv2-cust-hero-grid">
       <div class="bdgsownv2-cust-hero-copy">
         <div class="bdgsownv2-cust-hero-eyebrow">Custom Projects &amp; Customizations</div>
-        <h1>Brilliant Directories customization — you describe it.<br><span>We scope, quote, and ship it.</span></h1>
+        <h1>Brilliant Directories customization<br>— you describe it.<br><span>We scope, quote, and ship it.</span></h1>
         <p class="bdgsownv2-cust-hero-sub">Brilliant Directories customization is scoped, fixed-price project work — from a small tweak to a full custom feature. Our developers have shipped 1000+ builds across 500+ directory sites. Send your brief; get a fixed quote within 24 hours.</p>
         <ul class="bdgsownv2-cust-trust">
           <li>Fixed scope and price before any build starts</li>
@@ -13,8 +13,8 @@
           <li>1000+ custom projects shipped</li>
         </ul>
         <div class="bdgsownv2-hero-ctas">
-          <button type="button" onclick="bdgsOpenInquiryModal()" class="bdgsownv2-btn-primary">Book a 30-min Discovery Call →</button>
-          <button type="button" onclick="bdgsOpenInquiryModal()" class="bdgsownv2-btn-secondary bdgsownv2-btn-light">Describe Your Project →</button>
+          <button type="button" class="bdgsownv2-btn-primary" @include('partials.bdgs.cal-discovery-attrs')>Book a 30-min Discovery Call</button>
+          <button type="button" onclick="bdgsOpenInquiryModal()" class="bdgsownv2-btn-secondary bdgsownv2-btn-light">Describe Your Project</button>
         </div>
       </div>
       <div class="bdgsownv2-cust-hero-visual" aria-hidden="true">
@@ -142,8 +142,8 @@
     <h3>Not sure which category? Or have something one-of-a-kind?</h3>
     <p>Tell us what you're trying to build. We'll route it to the right team and quote you within 24 hours.</p>
     <div class="bdgsownv2-hero-ctas">
-      <button type="button" onclick="bdgsOpenInquiryModal()" class="bdgsownv2-btn-primary">Book a 30-min Discovery Call →</button>
-      <button type="button" onclick="bdgsOpenInquiryModal()" class="bdgsownv2-btn-secondary bdgsownv2-btn-ghost-on-dark">Describe Your Project →</button>
+      <button type="button" class="bdgsownv2-btn-primary" @include('partials.bdgs.cal-discovery-attrs')>Book a 30-min Discovery Call</button>
+      <button type="button" onclick="bdgsOpenInquiryModal()" class="bdgsownv2-btn-secondary bdgsownv2-btn-ghost-on-dark">Describe Your Project</button>
     </div>
   </div>
 </section>
@@ -163,7 +163,7 @@
         <div class="bdgsownv2-tl-num">Step 01</div>
         <div class="bdgsownv2-tl-card">
           <div class="bdgsownv2-tl-title">Discovery</div>
-          <div class="bdgsownv2-tl-desc">You tell us the goal. 30-min free call — no slides, no sales.</div>
+          <div class="bdgsownv2-tl-desc">You tell us the goal on a 30-min free call.</div>
         </div>
       </div>
       <div class="bdgsownv2-tl-step">
@@ -193,7 +193,7 @@
         <div class="bdgsownv2-tl-num">Step 04</div>
         <div class="bdgsownv2-tl-card">
           <div class="bdgsownv2-tl-title">Warranty</div>
-          <div class="bdgsownv2-tl-desc">1-year warranty on every line of code we write. Bugs are on us.</div>
+          <div class="bdgsownv2-tl-desc">1-year warranty on every line of code we write.</div>
         </div>
       </div>
     </div>
@@ -240,7 +240,7 @@
       </div>
     </div>
     <div class="bdgsownv2-work-reviews-link">
-      <a href="/blabs-review">See all {{ $reviewCount }}+ verified reviews →</a>
+      <a href="/reviews">See all {{ $reviewCount }} verified reviews →</a>
     </div>
   </div>
 </section>
@@ -251,6 +251,10 @@
     <div class="bdgsownv2-crosssell-inner">
       <h2>Need ongoing development — not just one project?</h2>
       <p>If you need 5+ custom builds over the next year, hiring a dedicated developer is usually a better investment than scoping projects one by one. They learn your codebase, vision, and niche — and ship ideas as you have them.</p>
+      <div class="bdgsownv2-compare-qa">
+        <h3>Should I hire a developer or do a custom project?</h3>
+        <p>Choose a custom project for one scoped build with a fixed quote. Hire a dedicated developer if you need 5+ builds over the next year — they learn your codebase and ship as you go. Compare both on our services page.</p>
+      </div>
       <div class="bdgsownv2-crosssell-badges">
         <div class="bdgsownv2-crosssell-badge">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
@@ -266,7 +270,7 @@
         </div>
       </div>
       <div class="bdgsownv2-hero-ctas" style="justify-content: center;">
-        <a href="/services/" class="bdgsownv2-btn-primary">Compare Hire a Developer vs One-Off Projects →</a>
+        <a href="/services/" class="bdgsownv2-btn-primary">Compare Hire a Developer vs One-Off Projects</a>
       </div>
     </div>
   </div>
@@ -277,7 +281,7 @@
   <div class="container">
     <div class="bdgsownv2-faq-header">
       <h2>What do clients ask about custom projects?</h2>
-      <p>Timelines, fixed quotes, warranty, NDAs, payments, and how we work with your existing developer.</p>
+      <p>Timelines, pricing, fixed quotes, warranty, NDAs, payments, and Custom Projects vs Hire a Developer.</p>
     </div>
     <div class="bdgsownv2-faq-grid">
       <div class="bdgsownv2-faq-item">
@@ -285,8 +289,12 @@
         <p>Most projects scope to 2–6 weeks once we have your inputs. Smaller fixes can ship in 3–7 days. Larger features (custom dashboards, integrations) can run 4–8 weeks depending on complexity.</p>
       </div>
       <div class="bdgsownv2-faq-item">
+        <h3>How much does a custom project cost?</h3>
+        <p>Most projects range from $1,500–$8,000 depending on scope, with an average of $3,000–$4,500. You'll get an exact fixed quote after discovery.</p>
+      </div>
+      <div class="bdgsownv2-faq-item">
         <h3>Do you offer fixed quotes or hourly?</h3>
-        <p>Fixed quotes for scoped projects — you know the price before we start. Hourly only for ongoing dedicated developer engagements (separate offering).</p>
+        <p>Fixed quotes for scoped projects — you know the price before we start. Hourly only for ongoing dedicated developer engagements.</p>
       </div>
       <div class="bdgsownv2-faq-item">
         <h3>What does your 1-year warranty cover?</h3>
@@ -294,7 +302,7 @@
       </div>
       <div class="bdgsownv2-faq-item">
         <h3>Can you work with our existing developer?</h3>
-        <p>Yes, often. We coordinate scope so we don't overlap. Your developer handles their lane; we handle ours. Status updates kept transparent across both.</p>
+        <p>Yes, often. We coordinate scope so we don't overlap. Your developer handles their lane; we handle ours.</p>
       </div>
       <div class="bdgsownv2-faq-item">
         <h3>Do you sign NDAs?</h3>
@@ -306,11 +314,15 @@
       </div>
       <div class="bdgsownv2-faq-item">
         <h3>How do payments work?</h3>
-        <p>50% to start, 50% on delivery for most projects. Larger projects can be milestone-based (33/33/33). Payment via wire, Razorpay, or Stripe.</p>
+        <p>50% to start, 50% on delivery for most projects. Larger projects can be milestone-based. Payment via wire, Razorpay, or Stripe.</p>
+      </div>
+      <div class="bdgsownv2-faq-item">
+        <h3>Should I hire a developer or do a custom project?</h3>
+        <p>Choose a custom project for one scoped build with a fixed quote. Hire a dedicated developer if you need 5+ builds over the next year — they learn your codebase and ship as you go. Compare both on our services page.</p>
       </div>
       <div class="bdgsownv2-faq-item">
         <h3>Can you also help with strategy — not just execution?</h3>
-        <p>For project work, our team ships what you spec. If you want strategic input on the business itself, look at Founder's Track on our <a href="/services/">services page</a> — apply-only partnership with Yakin Shah.</p>
+        <p>For project work, our team ships what you spec. If you want strategic input on the business itself, look at our Founder's Track — apply-only partnership with Yakin Shah.</p>
       </div>
     </div>
   </div>
@@ -322,15 +334,15 @@
     <h2>Ready to scope your custom project?</h2>
     <p>Two ways to start. Both go to the same team. Or browse <a href="/services/">all services</a> and the <a href="/">BD Growth Suite home</a>.</p>
     <div class="bdgsownv2-hero-ctas">
-      <button type="button" onclick="bdgsOpenInquiryModal()" class="bdgsownv2-btn-primary">Book a 30-min Discovery Call →</button>
-      <button type="button" onclick="bdgsOpenInquiryModal()" class="bdgsownv2-btn-secondary">Describe Your Project →</button>
+      <button type="button" class="bdgsownv2-btn-primary" @include('partials.bdgs.cal-discovery-attrs')>Book a 30-min Discovery Call</button>
+      <button type="button" onclick="bdgsOpenInquiryModal()" class="bdgsownv2-btn-secondary">Describe Your Project</button>
     </div>
   </div>
 </section>
 
 <!-- STICKY FLOATING CTA -->
 <button type="button" class="bdgsownv2-floating-cta" id="bdgsFloatingCta" onclick="bdgsOpenInquiryModal()">
-  Describe Your Project →
+  Describe Your Project
 </button>
 
 <!-- ============================================

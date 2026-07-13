@@ -85,7 +85,7 @@
 
       <p class="sv3-soft-link">
         Not sure where to start?
-        <button type="button" onclick="bdgsOpenInquiryModal(); return false;">&rarr; Book a free 30-min Discovery Call</button>
+        <button type="button" @include('partials.bdgs.cal-discovery-attrs')>&rarr; Book a free 30-min Discovery Call</button>
       </p>
     </div>
   </main>

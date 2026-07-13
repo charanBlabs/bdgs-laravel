@@ -7,7 +7,6 @@
 @section('meta')
 <meta name="description" content="Read BD Growth Suite terms of use.">
 <meta name="keywords" content="business directory,">
-<meta name="robots" content="index, follow">
 <link rel="canonical" href="https://bdgrowthsuite.com/about/terms">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://bdgrowthsuite.com/about/terms">

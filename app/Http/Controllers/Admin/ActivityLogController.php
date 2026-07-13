@@ -22,7 +22,7 @@ class ActivityLogController extends Controller
         }
 
         return view('admin.activity.index', [
-            'logs' => $query->paginate(50),
+            'logs' => $query->paginate(50)->withQueryString(),
             'action' => $action ?? '',
         ]);
     }

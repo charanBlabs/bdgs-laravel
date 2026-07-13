@@ -76,7 +76,7 @@
           <li><a href="/about" @class(['active-footer-link' => $footerActive('about')])>About Us</a></li>
           <li><a href="/partner-program" @class(['active-footer-link' => $footerActive('partner-program')])>Partner Program</a></li>
           <li><a href="/webinars" @class(['active-footer-link' => $footerActive('webinars')])>CEO Webinars</a></li>
-          <li><a href="/blabs-review" id="bdgs-footer-reviews-link" @class(['active-footer-link' => $footerActive('blabs-review')])>Client Reviews ({{ $reviewCount }})</a></li>
+          <li><a href="/reviews" id="bdgs-footer-reviews-link" @class(['active-footer-link' => $footerActive('reviews')])>Client Reviews ({{ $reviewCount }})</a></li>
           <li><a href="/blog" @class(['active-footer-link' => $footerActive('blog')])>Blog</a></li>
           <li><a href="/case-studies" @class(['active-footer-link' => $footerActive('case-studies')])>Case Studies</a></li>
         </ul>

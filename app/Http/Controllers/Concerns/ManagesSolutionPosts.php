@@ -4,7 +4,11 @@ namespace App\Http\Controllers\Concerns;
 
 use App\Models\BdgsDataMeta;
 use App\Models\BdgsDataPost;
+use App\Models\BdgsDataType;
+use App\Models\BdgsMedia;
+use App\Services\MediaService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 
 trait ManagesSolutionPosts
 {
@@ -28,11 +32,59 @@ trait ManagesSolutionPosts
         ];
     }
 
+    /**
+     * Only columns that belong on bdgs_data_posts (excludes live/category_id/product_type).
+     *
+     * @param  array<string, mixed>  $validated
+     * @return array<string, mixed>
+     */
+    protected function postFillAttributes(array $validated): array
+    {
+        return Arr::only($validated, [
+            'title',
+            'slug',
+            'excerpt',
+            'content',
+            'status',
+            'visibility',
+            'featured_media_id',
+            'published_at',
+            'pinned',
+            'short_title',
+            'demo_video_url',
+            'pricing_type',
+            'price',
+            'annual_price',
+            'commitment_price',
+            'implementation_type',
+            'delivery_time',
+            'warranty',
+        ]);
+    }
+
+    /**
+     * When Live=Yes, ensure published_at is set so public listings and "Posted on" work.
+     *
+     * @param  array<string, mixed>  $validated
+     * @return array<string, mixed>
+     */
+    protected function withPublishTimestamp(array $validated, ?BdgsDataPost $existing = null): array
+    {
+        if (($validated['status'] ?? null) === 'published' && empty($validated['published_at'])) {
+            $validated['published_at'] = $existing?->published_at ?? now();
+        }
+
+        return $validated;
+    }
+
     /** @param array<string, mixed> $validated */
     protected function applySolutionFields(BdgsDataPost $post, array $validated, Request $request): void
     {
         if ($request->has('live')) {
             $post->status = $request->input('live') === 'yes' ? 'published' : 'draft';
+            if ($post->status === 'published' && ! $post->published_at) {
+                $post->published_at = now();
+            }
         }
 
         $post->fill([
@@ -46,6 +98,7 @@ trait ManagesSolutionPosts
             'delivery_time' => $validated['delivery_time'] ?? $post->delivery_time,
             'warranty' => $validated['warranty'] ?? $post->warranty,
             'wysiwyg_cta' => ($request->input('wysiwyg_cta') === 'yes'),
+            'excerpt' => array_key_exists('excerpt', $validated) ? $validated['excerpt'] : $post->excerpt,
         ]);
 
         if ($request->filled('category_id')) {
@@ -71,5 +124,36 @@ trait ManagesSolutionPosts
             ['post_id' => $post->id, 'key' => $key],
             ['value' => (string) $value]
         );
+    }
+
+    protected function replaceFeaturedMedia(BdgsDataPost $post, BdgsMedia $media, MediaService $mediaService): void
+    {
+        $previousId = $post->featured_media_id;
+        $post->update(['featured_media_id' => $media->id]);
+
+        if ($previousId && $previousId !== $media->id) {
+            $previous = BdgsMedia::query()->find($previousId);
+            if ($previous) {
+                $mediaService->delete($previous);
+            }
+        }
+    }
+
+    protected function clearFeaturedMedia(BdgsDataPost $post, MediaService $mediaService): void
+    {
+        $previousId = $post->featured_media_id;
+        $post->update(['featured_media_id' => null]);
+
+        if ($previousId) {
+            $previous = BdgsMedia::query()->find($previousId);
+            if ($previous) {
+                $mediaService->delete($previous);
+            }
+        }
+    }
+
+    protected function publicPostUrl(BdgsDataType $dataType, BdgsDataPost $post): string
+    {
+        return url($dataType->publicBasePath().'/'.$post->slug);
     }
 }

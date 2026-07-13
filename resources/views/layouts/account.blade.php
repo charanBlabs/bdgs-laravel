@@ -7,8 +7,10 @@
 <title>@yield('account-title', 'Dashboard') — BD Growth Suite</title>
 @endsection
 
+@section('robots-content', 'noindex, nofollow')
+
 @section('meta')
-<meta name="robots" content="noindex, nofollow">
+<meta name="csrf-token" content="{{ csrf_token() }}">
 @endsection
 
 @push('page-styles')

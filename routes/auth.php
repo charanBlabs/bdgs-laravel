@@ -11,6 +11,8 @@ use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use Illuminate\Support\Facades\Route;
 
+Route::get('signup/thank-you', [RegisteredUserController::class, 'thankYou'])->name('register.thank-you');
+
 Route::middleware('guest')->group(function () {
     Route::get('signup', [RegisteredUserController::class, 'create'])->name('register');
     Route::post('signup', [RegisteredUserController::class, 'store'])->name('register.store')->middleware('throttle:6,1');

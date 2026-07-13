@@ -151,6 +151,119 @@
   max-width: 1248px;
   margin: clamp(32px, 5vw, 48px) auto 0;
 }
+
+.rev-verified-head {
+  max-width: 980px;
+  margin: 0 auto clamp(28px, 4vw, 40px);
+  text-align: center;
+}
+
+.rev-verified-rule {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.rev-verified-rule__line {
+  flex: 1;
+  max-width: 220px;
+  height: 2px;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--prm-gold-bright, #f0d98c) 18%,
+    var(--prm-gold, #c89a3c) 50%,
+    var(--prm-gold-bright, #f0d98c) 82%,
+    transparent
+  );
+  box-shadow: 0 1px 0 rgba(255, 248, 210, 0.45);
+}
+
+.rev-verified-rule__medal {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  font-size: 22px;
+  line-height: 1;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #fff9e8 0%, #f5e6b8 45%, #e8c860 100%);
+  border: 1px solid rgba(200, 154, 60, 0.35);
+  box-shadow:
+    0 0 0 3px rgba(240, 217, 140, 0.22),
+    0 4px 14px rgba(168, 134, 50, 0.18);
+}
+
+.bdgsownv2-proof-section .rev-verified-head h2,
+.rev-verified-head h2 {
+  font-size: clamp(20px, 16px + 0.55vw, 26px) !important;
+  font-weight: 600 !important;
+  color: var(--bdgs-dark);
+  margin: 0 0 12px;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  max-width: none;
+}
+
+@media (min-width: 900px) {
+  .bdgsownv2-proof-section .rev-verified-head h2,
+  .rev-verified-head h2 {
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 899px) {
+  .bdgsownv2-proof-section .rev-verified-head h2,
+  .rev-verified-head h2 {
+    font-size: clamp(18px, 4.5vw, 22px) !important;
+    white-space: normal;
+  }
+}
+
+.rev-verified-lead {
+  font-size: var(--fs-body);
+  color: var(--bdgs-text-muted);
+  line-height: 1.65;
+  margin: 0 auto;
+  max-width: 640px;
+}
+
+@media (max-width: 640px) {
+  .rev-verified-rule__line {
+    max-width: 96px;
+  }
+
+  .rev-verified-rule__medal {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .rev-verified-rule__medal {
+    animation: rev-medal-glow 4s ease-in-out infinite;
+  }
+}
+
+@keyframes rev-medal-glow {
+  0%, 100% {
+    box-shadow:
+      0 0 0 3px rgba(240, 217, 140, 0.22),
+      0 4px 14px rgba(168, 134, 50, 0.18);
+  }
+  50% {
+    box-shadow:
+      0 0 0 5px rgba(240, 217, 140, 0.32),
+      0 6px 18px rgba(168, 134, 50, 0.24);
+  }
+}
+
 .bdgsownv2-reviews-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

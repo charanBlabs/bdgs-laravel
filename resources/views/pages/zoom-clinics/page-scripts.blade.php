@@ -1,12 +1,37 @@
 <script>
 (function() {
-  var heroTz = document.getElementById('zc-hero-time');
-  if (heroTz && typeof bdgsFormatZoomTimeRange === 'function' && window.bdgsZoomClinics && window.bdgsZoomClinics.length) {
-    var featured = window.bdgsZoomClinics[0];
-    var tz = typeof bdgsGetSelectedZoomTimezone === 'function' ? bdgsGetSelectedZoomTimezone() : 'America/New_York';
-    try {
-      heroTz.textContent = bdgsFormatZoomTimeRange(new Date(featured.starts_at), new Date(featured.ends_at), tz);
-    } catch (e) {}
+  if (typeof bdgsUpdateHeroScheduleTime === 'function') {
+    bdgsUpdateHeroScheduleTime();
   }
+
+  document.querySelectorAll('.zc-quote-rotator').forEach(function(rotator) {
+    var quotes;
+    try {
+      quotes = JSON.parse(rotator.dataset.quotes || '[]');
+    } catch (e) {
+      return;
+    }
+    if (!Array.isArray(quotes) || quotes.length < 2) {
+      return;
+    }
+
+    var line = rotator.querySelector('.zc-clinic-hook');
+    if (!line) {
+      return;
+    }
+
+    var idx = 0;
+    var interval = parseInt(rotator.dataset.interval || '5500', 10);
+    var fadeMs = 420;
+
+    setInterval(function() {
+      line.classList.add('zc-clinic-hook--fade-out');
+      setTimeout(function() {
+        idx = (idx + 1) % quotes.length;
+        line.textContent = '\u201C' + quotes[idx] + '\u201D';
+        line.classList.remove('zc-clinic-hook--fade-out');
+      }, fadeMs);
+    }, interval);
+  });
 })();
 </script>

@@ -1,4 +1,6 @@
-<div class="bdgsownv2-modal-overlay" id="bdgsZoomModal">
+<div class="bdgsownv2-modal-overlay" id="bdgsZoomModal"
+  data-skip-details="{{ ($zoomModalSkipDetails ?? false) ? '1' : '0' }}">
+@php($zoomClinicsBrowseLink = $zoomModalClinicsLink ?? $zoomModalSessionsLink ?? null)
   <div class="bdgsownv2-modal">
     <button class="bdgsownv2-modal-close" style="width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; top: 14px; right: 14px; padding: 0;" onclick="bdgsCloseZoomModal()">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
@@ -6,7 +8,7 @@
     <div id="bdgsZoomModalContent">
       <div id="bdgsZoomModalStep1">
         <h3>🟢 Join Free Zoom Clinics</h3>
-        <p>Stuck on small things? Drop into our live Zoom session to get free help and learn Brilliant Directories.</p>
+        <p>Stuck on small things? Drop into our live Zoom Clinic to get free help and learn Brilliant Directories.</p>
         <div style="background:var(--bdgs-bg);padding:16px;border-radius:8px;font-size:14px;border-left:3px solid var(--bdgs-coral);margin-bottom:16px;">
           <style>
 .bdgs-tz-wrapper { position:relative; display:inline-flex; align-items:center; background-color:rgba(17, 24, 39, 0.05); border-radius:6px; padding:4px 10px; margin-left:4px; cursor:pointer; user-select:none; transition: background-color 0.2s; }
@@ -19,7 +21,7 @@
 </style>
 
           <div style="margin-bottom:8px;">
-            <strong style="color:var(--bdgs-dark)">Next session:</strong> <span id="bdgsZoomSessionDisplay">Loading...</span>
+            <strong style="color:var(--bdgs-dark)">Next clinic:</strong> <span id="bdgsZoomSessionDisplay">Loading...</span>
             <div style="margin-top: 2px;">
               <strong style="color:var(--bdgs-dark)">Timezone:</strong>
               
@@ -48,12 +50,51 @@
           <strong style="color:var(--bdgs-dark)">Cost:</strong> Free, forever
         </div>
 
-        <p style="font-size:12px;color:var(--bdgs-text-muted);margin-bottom:24px;">Strategy questions? Those need our Founder Concierge or Express Setup. Everything else - come on in.</p>
+        <p style="font-size:12px;color:var(--bdgs-text-muted);margin-bottom:16px;line-height:1.5;">You're registering for the clinic shown above.@if(!empty($zoomClinicsBrowseLink)) <a href="{{ $zoomClinicsBrowseLink }}" onclick="bdgsCloseZoomModal()" style="color:var(--bdgs-coral);font-weight:600;text-decoration:none;">Pick a different date instead →</a>@endif</p>
+
+        <p style="font-size:12px;color:var(--bdgs-text-muted);margin-bottom:24px;">Strategy questions? Those need our Founder Concierge or Express Setup. Everything else — come on in.</p>
         <div style="display:flex;flex-direction:column;align-items:center;gap:12px;">
-          <button type="button" onclick="bdgsShowZoomForm()" class="bdgsownv2-btn-primary" style="width:100%;padding:14px 20px;font-size:15px;text-align:center;">Register Now</button>
-          @unless($hideZoomAllLink ?? false)
+          <style>
+.bdgs-zoom-register-cta {
+  width: 60%;
+  min-width: 180px;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 14px 20px;
+  font-size: 15px;
+  font-weight: 600;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.bdgs-zoom-register-submit {
+  width: 100%;
+  padding: 14px 20px;
+  font-size: 15px;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#bdgsZoomModal[data-skip-details="1"] .bdgs-zoom-form-extra {
+  display: none !important;
+}
+#bdgsZoomModal[data-skip-details="1"] .bdgs-zoom-form-when {
+  display: flex !important;
+}
+#bdgsZoomModal[data-skip-details="1"] #bdgsZoomModalStep1 {
+  display: none !important;
+}
+          </style>
+          <button type="button" onclick="bdgsShowZoomForm()" class="bdgsownv2-btn-primary bdgs-zoom-register-cta">Register Now</button>
+          @if(!empty($zoomClinicsBrowseLink))
+          <a href="{{ $zoomClinicsBrowseLink }}" onclick="bdgsCloseZoomModal()" style="font-size:13px;color:var(--bdgs-coral);font-weight:600;text-decoration:none;">Browse all clinics on this page →</a>
+          @elseif(!($hideZoomAllLink ?? false))
           <a href="/zoom-clinics" style="font-size:13px;color:var(--bdgs-coral);font-weight:600;text-decoration:none;">View all upcoming clinics &rarr;</a>
-          @endunless
+          @endif
         </div>
       </div>
 
@@ -62,8 +103,8 @@
           <h3 class="bdgsownv2-section-title" style="margin:0 0 20px;padding-right:32px;font-size:var(--fs-h3)" data-bdgs-zoom-agenda>Live Website Reviews &amp; Open Q&amp;A</h3>
           <input type="hidden" id="bdgsZoomClinicId" name="clinic_id" value="">
           
-          <div style="font-size:15px; color:var(--bdgs-dark); margin-bottom:14px; display:flex; align-items:center;">
-            <strong style="font-weight:700; margin-right:6px;">Session:</strong> <span id="bdgsZoomSessionDisplayForm">Loading...</span>
+          <div class="bdgs-zoom-form-extra bdgs-zoom-form-when" style="font-size:15px; color:var(--bdgs-dark); margin-bottom:14px; display:flex; align-items:center;">
+            <strong style="font-weight:700; margin-right:6px;">Clinic:</strong> <span id="bdgsZoomSessionDisplayForm">Loading...</span>
           </div>
           
           <div style="font-size:15px; color:var(--bdgs-dark); margin-bottom:20px; display:flex; align-items:center;">
@@ -85,7 +126,7 @@
             </div>
           </div>
           
-          <p style="font-size:14px; color:var(--bdgs-text-muted); line-height:1.6; margin:0;">Stuck on small things? Drop into our live Zoom session to get free help and learn Brilliant Directories.</p>
+          <p class="bdgs-zoom-form-extra" style="font-size:14px; color:var(--bdgs-text-muted); line-height:1.6; margin:0;">Stuck on small things? Drop into our live Zoom Clinic to get free help and learn Brilliant Directories.</p>
         </div>
 
         <h4 style="margin:0 0 6px; font-size:16px; font-weight:700; color:var(--bdgs-dark); letter-spacing:-0.2px;">Your details please:</h4>
@@ -96,7 +137,8 @@
           <input type="email" id="bdgsZoomEmail" name="email" placeholder="Your Email" required style="border-radius:8px; border:1px solid rgba(0,0,0,0.08); padding:12px 16px; width:100%; font-size:15px; outline:none; transition:border-color 0.2s, box-shadow 0.2s;">
         </div>
         
-        <button type="submit" id="bdgsZoomScheduleBtn" class="bdgsownv2-btn-primary" style="width:100%;padding:14px 20px;font-size:15px;text-align:center;border-radius:8px;font-weight:600;">Complete Registration</button>
+        <button type="submit" id="bdgsZoomScheduleBtn" class="bdgsownv2-btn-primary bdgs-zoom-register-submit">Complete Registration</button>
+        <p style="font-size:11px;color:var(--bdgs-text-muted);margin:12px 0 0;text-align:center;line-height:1.45;">One email with your Zoom link — no spam, no account.@if(!empty($zoomClinicsBrowseLink)) <a href="{{ $zoomClinicsBrowseLink }}" onclick="bdgsCloseZoomModal()" style="color:var(--bdgs-coral);font-weight:600;text-decoration:none;">Pick another date</a> instead.@endif</p>
       </form>
     </div>
     <div id="bdgsZoomModalSuccess" style="display:none;text-align:center;padding:24px 20px;">
@@ -105,14 +147,25 @@
 
       <div style="text-align:left;margin:0 auto 24px;padding:14px 16px;background:var(--bdgs-bg);border-radius:10px;border-left:3px solid var(--bdgs-coral);">
         <p style="font-size:14px;font-weight:700;color:var(--bdgs-dark);margin:0 0 10px;line-height:1.35;" data-bdgs-zoom-agenda>Live Website Reviews &amp; Open Q&amp;A</p>
-        <p style="font-size:13px;color:var(--bdgs-text-muted);margin:0 0 6px;line-height:1.5;"><strong style="font-weight:600;color:var(--bdgs-dark);">Session:</strong> <span id="bdgsZoomSuccessWhen"></span></p>
+        <p style="font-size:13px;color:var(--bdgs-text-muted);margin:0 0 6px;line-height:1.5;"><strong style="font-weight:600;color:var(--bdgs-dark);">Clinic:</strong> <span id="bdgsZoomSuccessWhen"></span></p>
         <p style="font-size:13px;color:var(--bdgs-text-muted);margin:0;line-height:1.5;"><strong style="font-weight:600;color:var(--bdgs-dark);">Timezone:</strong> <span id="bdgsZoomSuccessTz"></span></p>
       </div>
 
-      <a id="bdgsGoogleCalLink" target="_blank" rel="noopener noreferrer" href="#" class="bdgsownv2-btn-primary" style="width:100%;padding:14px 20px;font-size:15px;text-decoration:none;display:flex;justify-content:center;align-items:center;gap:8px;border-radius:8px;font-weight:600;">
+      <a id="bdgsGoogleCalLink" target="_blank" rel="noopener noreferrer" href="#" class="bdgsownv2-btn-primary" style="width:100%;padding:14px 20px;font-size:15px;text-decoration:none;display:flex;justify-content:center;align-items:center;gap:8px;border-radius:8px;font-weight:600;margin-bottom:10px;" data-registration-id="">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
         Add to Google Calendar
       </a>
+      <a id="bdgsZoomJoinLink" target="_blank" rel="noopener noreferrer" href="#" style="width:100%;padding:12px 20px;font-size:14px;text-decoration:none;display:none;justify-content:center;align-items:center;border-radius:8px;font-weight:600;border:1px solid rgba(26,26,46,0.14);color:var(--bdgs-dark);background:var(--bdgs-white);box-sizing:border-box;">
+        Join Zoom
+      </a>
+      <p id="bdgsZoomEmailNote" style="display:none;font-size:12px;color:var(--bdgs-text-muted);margin:12px 0 0;line-height:1.45;">You’re registered — if the confirmation email is delayed, use Add to Google Calendar above.</p>
+    </div>
+    <div id="bdgsZoomModalEmpty" style="display:none;text-align:center;padding:28px 16px 8px;">
+      <div style="font-size:40px;margin-bottom:12px;" aria-hidden="true">📅</div>
+      <h3 class="bdgsownv2-section-title" style="margin:0 0 12px;font-size:var(--fs-h3);color:var(--bdgs-dark);">No clinics open right now</h3>
+      <p style="font-size:14px;color:var(--bdgs-text-muted);line-height:1.55;margin:0 0 20px;">We usually run free Zoom Clinics every Tuesday and Thursday. Check back soon, or ask us when the next one is.</p>
+      <button type="button" class="bdgsownv2-btn-primary bdgs-zoom-register-cta" onclick="bdgsCloseZoomModal(); if (typeof bdgsOpenInquiryModal === 'function') { bdgsOpenInquiryModal(); }">Ask about the next clinic</button>
+      <p style="margin:14px 0 0;"><a href="/zoom-clinics" onclick="bdgsCloseZoomModal()" style="font-size:13px;color:var(--bdgs-coral);font-weight:600;text-decoration:none;">Browse Zoom Clinics page →</a></p>
     </div>
   </div>
 </div>

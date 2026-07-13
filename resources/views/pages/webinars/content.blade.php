@@ -171,7 +171,7 @@
 
           <div class="wb-card-ctas">
             <a href="/solutions/member-management" class="wb-btn-primary">Member Management Solutions →</a>
-            <a href="/blabs-review" class="wb-btn-secondary">Read Client Reviews →</a>
+            <a href="/reviews" class="wb-btn-secondary">Read Client Reviews →</a>
           </div>
         </div>
       </div>
@@ -191,7 +191,7 @@
       <p>These are the pages directory owners visit after the webinars.</p>
       <div class="wb-crosslinks-row">
         <a href="/services" class="wb-btn-secondary">Explore Services →</a>
-        <a href="/blabs-review" class="wb-btn-secondary">Client Reviews →</a>
+        <a href="/reviews" class="wb-btn-secondary">Client Reviews →</a>
         <a href="/zoom-clinics" class="wb-btn-secondary">Free Zoom Clinics →</a>
         <a href="/setup" class="wb-btn-secondary">Setup &amp; Launch →</a>
       </div>

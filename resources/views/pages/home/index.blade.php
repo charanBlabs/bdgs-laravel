@@ -42,6 +42,7 @@
 @endpush
 
 @push('page-scripts')
+@include('pages.zoom-clinics.clinic-data')
 @include('pages.home.carousel-data')
 @include('pages.home.page-scripts')
 <script src="/snippets/bdgs-webinar-videos.js?v=20260708a"></script>

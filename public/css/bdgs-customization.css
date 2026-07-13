@@ -46,6 +46,7 @@
 .bdgsownv2-btn-primary {
   display: inline-flex; align-items: center; gap: 8px;
   padding: 16px 28px; font-size: 15px; font-weight: 600;
+  font-family: inherit;
   color: var(--bdgs-white); background: var(--bdgs-gradient);
   border: none; border-radius: 12px; text-decoration: none; transition: all 0.25s;
   cursor: pointer;
@@ -54,6 +55,7 @@
 .bdgsownv2-btn-secondary {
   display: inline-flex; align-items: center; gap: 8px;
   padding: 16px 28px; font-size: 15px; font-weight: 600;
+  font-family: inherit;
   background: transparent; border-radius: 12px; text-decoration: none; transition: all 0.25s;
   cursor: pointer;
 }
@@ -489,6 +491,28 @@
 @media (max-width: 600px) { .bdgsownv2-work-grid { grid-template-columns: 1fr; } }
 
 /* CROSS-SELL */
+.bdgsownv2-compare-qa {
+  max-width: 640px;
+  margin: 24px auto 28px;
+  text-align: left;
+  padding: 20px 22px;
+  border: 1px solid var(--bdgs-border, #e8e8ee);
+  border-radius: 12px;
+  background: var(--bdgs-white, #fff);
+}
+.bdgsownv2-compare-qa h3 {
+  margin: 0 0 8px;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--bdgs-dark, #1a1a2e);
+  line-height: 1.35;
+}
+.bdgsownv2-compare-qa p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--bdgs-text-muted, #6b6b80);
+}
 .bdgsownv2-crosssell {
   padding: var(--section-y) 0;
   background: var(--bdgs-gradient-subtle);
@@ -502,11 +526,12 @@
   background: linear-gradient(90deg, transparent 0%, rgba(231,77,86,0.15) 50%, transparent 100%);
 }
 .bdgsownv2-crosssell-inner {
-  max-width: 720px; margin: 0 auto;
+  max-width: 900px; margin: 0 auto;
 }
 .bdgsownv2-crosssell h2 {
   font-size: var(--fs-h2); font-weight: 700; color: var(--bdgs-dark);
   margin-bottom: 16px; letter-spacing: var(--ls-h2); line-height: var(--lh-h2);
+  white-space: nowrap;
 }
 .bdgsownv2-crosssell p {
   font-size: var(--fs-body); color: var(--bdgs-text-muted); line-height: 1.65;
@@ -601,6 +626,7 @@
   .bdgsownv2-hero-ctas a, .bdgsownv2-hero-ctas button { width: 100%; justify-content: center; }
   .bdgsownv2-cust-dash-stats { grid-template-columns: repeat(3, 1fr); gap: 8px; }
   .bdgsownv2-cust-dash-stat strong { font-size: 16px; }
+  .bdgsownv2-crosssell h2 { white-space: normal; }
   .bdgsownv2-crosssell-badges { gap: 16px; }
 }
 @media (max-width: 480px) {

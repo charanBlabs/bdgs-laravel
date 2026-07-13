@@ -43,6 +43,31 @@ app/storage/
 /storage/web-inquiry.json
 /storage/terms-production-html.txt
 
+# Planning / research (not for production deploy)
+docs/*.xlsx
+docs/~$*
+docs/_*.json
+docs/cdn-image-urls*.txt
+docs/hosting-*
+docs/recommended-hosting-services.txt
+docs/live-site-forms-catalog.md
+
+# Local CDN migration dump (~60MB+)
+/public/images/cdn-migrated/
+
+# One-off crawl / sheet-builder scripts
+scripts/analyze_sitemap_forms.php
+scripts/build_developer_task_sheet.py
+scripts/build_full_site_work_plan.py
+scripts/build_page_keyword_matrix.py
+scripts/build_primary_forms_inquiry_sheet.py
+scripts/build_site_structure_sheet.py
+scripts/crawl_*
+scripts/download_cdn_images.py
+scripts/export_solutions_for_sheet.php
+scripts/list_cdn_images.py
+scripts/summarize_live_forms.php
+
 # Runtime caches
 /storage/framework/cache/data/*
 /storage/framework/sessions/*

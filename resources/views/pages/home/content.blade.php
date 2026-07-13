@@ -47,7 +47,7 @@
         <p style="font-size:16px;color:var(--bdgs-text-muted);line-height:1.65;margin-bottom:24px">Jason, CEO of Brilliant Directories, personally endorsed BD Growth Suite across 3 official webinars. When the platform's own CEO recommends a team — that says everything.</p>
         <div class="bdgsownv2-hero-ctas" style="justify-content:flex-start">
           <a href="/services" class="bdgsownv2-btn-primary">Explore Services</a>
-          <a href="/blabs-review" class="bdgsownv2-btn-secondary bdgsownv2-btn-light" id="bdgs-hero-reviews-btn">Read {{ $reviewCount }} reviews</a>
+          <a href="/reviews" class="bdgsownv2-btn-secondary bdgsownv2-btn-light" id="bdgs-hero-reviews-btn">Read {{ $reviewCount }} reviews</a>
         </div>
       </div>
       <div class="col-md-7">
@@ -300,7 +300,7 @@ Chatbots. Agents. Smart search.<br>
     </div>
 
     <div class="bdgsownv2-reviews-more" style="margin-top: 32px;">
-      <a href="/blabs-review" id="bdgs-proof-reviews-link">See {{ $reviewCount }} reviews &rarr;</a>
+      <a href="/reviews" id="bdgs-proof-reviews-link">See {{ $reviewCount }} reviews &rarr;</a>
     </div>
   </section>
 
@@ -613,7 +613,7 @@ Chatbots. Agents. Smart search.<br>
             </div>
             <div class="bdgsownv2-sol-cat-text">
               <span class="bdgsownv2-sol-cat-label">Search &amp; Discovery</span>
-              <span class="bdgsownv2-sol-cat-desc">Optimized search flows. Help users find what they need.</span>
+              <span class="bdgsownv2-sol-cat-desc">Optimized search flows. Help visitors find what they need.</span>
             </div>
           </a>
           <a href="/solutions/page-design" class="bdgsownv2-sol-cat">
@@ -640,7 +640,7 @@ Chatbots. Agents. Smart search.<br>
             </div>
             <div class="bdgsownv2-sol-cat-text">
               <span class="bdgsownv2-sol-cat-label">Integrations</span>
-              <span class="bdgsownv2-sol-cat-desc">Connect your favorite tools. Seamless API integrations.</span>
+              <span class="bdgsownv2-sol-cat-desc">Connect your favorite tools. Clean API integrations.</span>
             </div>
           </a>
           <a href="/solutions/member-management" class="bdgsownv2-sol-cat">

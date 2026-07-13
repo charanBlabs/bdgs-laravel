@@ -1,31 +1,40 @@
-<x-guest-layout>
-    <div class="mb-4 text-sm text-gray-600">
-        {{ __('Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn\'t receive the email, we will gladly send you another.') }}
-    </div>
+@extends('layouts.auth-bdgs')
 
-    @if (session('status') == 'verification-link-sent')
-        <div class="mb-4 font-medium text-sm text-green-600">
-            {{ __('A new verification link has been sent to the email address you provided during registration.') }}
-        </div>
-    @endif
+@section('title')
+<title>Verify Email — BD Growth Suite</title>
+@endsection
 
-    <div class="mt-4 flex items-center justify-between">
-        <form method="POST" action="{{ route('verification.send') }}">
-            @csrf
+@section('robots-content', 'noindex, nofollow')
 
-            <div>
-                <x-primary-button>
-                    {{ __('Resend Verification Email') }}
-                </x-primary-button>
-            </div>
-        </form>
+@section('meta')
+@endsection
 
-        <form method="POST" action="{{ route('logout') }}">
-            @csrf
+@section('auth-content')
+<h1>Verify your email</h1>
+<p class="auth-lead">
+  Thanks for signing up. Please confirm your email by clicking the link we sent to
+  <strong>{{ auth()->user()->email }}</strong>. You can keep using your account while you verify.
+</p>
 
-            <button type="submit" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-                {{ __('Log Out') }}
-            </button>
-        </form>
-    </div>
-</x-guest-layout>
+@if (session('status') == 'verification-link-sent')
+  <div class="bdgs-auth-banner bdgs-auth-banner--success bdgs-auth-banner--visible" role="status">
+    A new verification link has been sent to your email address.
+  </div>
+@endif
+
+<hr class="auth-divider" aria-hidden="true">
+
+<div class="bdgs-auth-thanks-actions">
+  <form method="POST" action="{{ route('verification.send') }}">
+    @csrf
+    <button type="submit" class="bdgsownv2-btn-primary bdgs-auth-submit">Resend verification email</button>
+  </form>
+
+  <a href="{{ route('dashboard') }}" class="bdgs-auth-btn-secondary">Go to dashboard</a>
+
+  <form method="POST" action="{{ route('logout') }}">
+    @csrf
+    <button type="submit" class="bdgs-auth-link-btn">Log out</button>
+  </form>
+</div>
+@endsection

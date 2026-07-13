@@ -28,6 +28,11 @@
   </div>
 
   <div class="bdgs-sf__field">
+    <label class="bdgs-sf__label" for="sf-excerpt">Card Excerpt</label>
+    <textarea id="sf-excerpt" name="excerpt" class="bdgs-sf__textarea" rows="3" placeholder="Short blurb shown on category cards">{{ old('excerpt', $post->excerpt) }}</textarea>
+  </div>
+
+  <div class="bdgs-sf__field">
     <label class="bdgs-sf__label" for="sf-demo">Demo video</label>
     <textarea id="sf-demo" name="demo_video_url" class="bdgs-sf__textarea" rows="3" placeholder="Enter the video embed code">{{ old('demo_video_url', $post->demo_video_url) }}</textarea>
   </div>

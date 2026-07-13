@@ -31,7 +31,7 @@ class SolutionCategorySeeder extends Seeder
         [
             'name' => 'Search & Discovery',
             'slug' => 'search',
-            'description' => 'Optimized search flows so users find what they need faster.',
+            'description' => 'Optimized search flows so visitors find what they need faster.',
             'sort_order' => 4,
         ],
         [
@@ -49,7 +49,7 @@ class SolutionCategorySeeder extends Seeder
         [
             'name' => 'Integrations',
             'slug' => 'integrations',
-            'description' => 'Connect your favorite tools with seamless API integrations.',
+            'description' => 'Connect your favorite tools with clean API integrations.',
             'sort_order' => 7,
         ],
         [

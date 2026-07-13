@@ -45,12 +45,14 @@ class EmailTemplateController extends Controller
     {
         $request->validate(['test_email' => ['required', 'email']]);
 
-        $emailService->send($template->slug, $request->string('test_email'), [
+        $to = $request->string('test_email')->toString();
+
+        $ok = $emailService->send($template->slug, $to, [
             'first_name' => 'Test',
             'last_name' => 'User',
             'full_name' => 'Test User',
             'name' => 'Test User',
-            'email' => $request->string('test_email'),
+            'email' => $to,
             'site_name' => config('app.name'),
             'dashboard_url' => url('/dashboard'),
             'login_url' => url('/login'),
@@ -68,8 +70,27 @@ class EmailTemplateController extends Controller
             'solution_product_type' => 'subscription',
             'order_summary_html' => '<p>Sample order summary</p>',
             'balance' => '100.00',
+            'clinic_title' => 'BD Website Review Zoom Clinic',
+            'clinic_agenda' => 'Open Q&A — widgets, CSS, search',
+            'clinic_format' => '60-min live Zoom session',
+            'clinic_schedule' => 'Tue, Jul 15 · 9:00 AM – 10:00 AM EDT - New York',
+            'join_url' => 'https://zoom.us/j/example',
+            'page_url' => url('/zoom-clinics'),
+            'google_calendar_url' => 'https://calendar.google.com/calendar/render?action=TEMPLATE',
+            'help_topic' => 'Homepage widget layout',
         ], false);
 
-        return back()->with('status', 'Test email sent.');
+        if ($ok) {
+            return back()->with('status', "Test email sent to {$to}.");
+        }
+
+        $error = \App\Models\BdgsEmailLog::query()
+            ->where('to_email', $to)
+            ->where('template_slug', $template->slug)
+            ->where('status', 'failed')
+            ->latest('id')
+            ->value('error_message');
+
+        return back()->with('error', 'Test email failed: '.($error ?: 'Unknown SMTP error. Check storage/logs/laravel.log.'));
     }
 }

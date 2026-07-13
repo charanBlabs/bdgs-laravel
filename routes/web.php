@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\RedirectController;
 use App\Http\Controllers\Admin\SettingsController as AdminSettingsController;
 use App\Http\Controllers\Admin\ZoomClinicController as AdminZoomClinicController;
+use App\Http\Controllers\Admin\ZoomClinicRegistrationController as AdminZoomClinicRegistrationController;
 use App\Http\Controllers\Auth\PasswordController;
 use App\Http\Controllers\BlabsReviewController;
 use App\Http\Controllers\CustomizationController;
@@ -17,9 +18,11 @@ use App\Http\Controllers\Dashboard\AdminDashboardController as DashboardAdminCon
 use App\Http\Controllers\Dashboard\ContactController;
 use App\Http\Controllers\Dashboard\ContentManageController;
 use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\Dashboard\MyZoomClinicController;
 use App\Http\Controllers\Dashboard\NotificationController;
 use App\Http\Controllers\Dashboard\SettingsController;
 use App\Http\Controllers\Dashboard\ZoomClinicController as DashboardZoomClinicController;
+use App\Http\Controllers\Dashboard\ZoomClinicRegistrationController as DashboardZoomClinicRegistrationController;
 use App\Http\Controllers\FeedController;
 use App\Http\Controllers\Frontend\ContentController;
 use App\Http\Controllers\HomeController;
@@ -60,10 +63,14 @@ Route::middleware(ProvideMarkdownResponse::class)->group(function () {
     Route::get('/customization.md', [CustomizationController::class, 'index']);
     Route::get('/customization/index.md', [CustomizationController::class, 'index']);
 
-    Route::get('/blabs-review', [BlabsReviewController::class, 'index'])->name('blabs-review');
-    Route::get('/blabs-review/', [BlabsReviewController::class, 'index']);
-    Route::get('/blabs-review.md', [BlabsReviewController::class, 'index']);
-    Route::get('/blabs-review/index.md', [BlabsReviewController::class, 'index']);
+    Route::get('/reviews', [BlabsReviewController::class, 'index'])->name('reviews');
+    Route::get('/reviews/', [BlabsReviewController::class, 'index']);
+    Route::get('/reviews.md', [BlabsReviewController::class, 'index']);
+    Route::get('/reviews/index.md', [BlabsReviewController::class, 'index']);
+    Route::redirect('/blabs-review', '/reviews', 301);
+    Route::redirect('/blabs-review/', '/reviews', 301);
+    Route::redirect('/blabs-review.md', '/reviews.md', 301);
+    Route::redirect('/blabs-review/index.md', '/reviews.md', 301);
 
     Route::get('/webinars', [WebinarsController::class, 'index'])->name('webinars');
     Route::get('/webinars/', [WebinarsController::class, 'index']);
@@ -101,6 +108,8 @@ Route::middleware(ProvideMarkdownResponse::class)->group(function () {
 
     Route::get('/solutions', [ContentController::class, 'listing'])->defaults('type', 'solution');
     Route::get('/solutions/', [ContentController::class, 'listing'])->defaults('type', 'solution')->name('solutions.index');
+    Route::get('/solutions.md', [ContentController::class, 'listing'])->defaults('type', 'solution');
+    Route::get('/solutions/index.md', [ContentController::class, 'listing'])->defaults('type', 'solution');
     Route::get('/solutions/{slug}', [ContentController::class, 'show'])->defaults('type', 'solution')->name('solutions.show');
 
     Route::redirect('/solution', '/solutions', 301);
@@ -112,7 +121,7 @@ Route::middleware(ProvideMarkdownResponse::class)->group(function () {
     Route::get('/tools/{slug}', [ContentController::class, 'show'])->defaults('type', 'tool')->name('tools.show');
 });
 
-Route::middleware(['auth', 'verified'])->group(function () {
+Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index']);
     Route::get('/dashboard/', [DashboardController::class, 'index'])->name('dashboard');
 
@@ -126,6 +135,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::view('/services', 'dashboard.coming-soon', ['featureLabel' => 'My Services', 'featureIcon' => 'services'])->name('services')->middleware('role:user');
         Route::view('/orders', 'dashboard.coming-soon', ['featureLabel' => 'My Orders', 'featureIcon' => 'orders'])->name('orders')->middleware('role:user');
         Route::view('/tickets', 'dashboard.coming-soon', ['featureLabel' => 'My Tickets', 'featureIcon' => 'tickets'])->name('tickets')->middleware('role:user');
+
+        Route::get('/my-zoom-clinics', [MyZoomClinicController::class, 'index'])->name('my-zoom-clinics.index');
+        Route::post('/my-zoom-clinics/{registration}/calendar-added', [MyZoomClinicController::class, 'markCalendarAdded'])
+            ->name('my-zoom-clinics.calendar-added');
 
         Route::get('/contact', [ContactController::class, 'create'])->name('contact')->middleware('role:user');
         Route::post('/contact', [ContactController::class, 'store'])->middleware(['throttle:5,1', 'role:user'])->name('contact.store');
@@ -150,6 +163,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
             Route::get('/', [DashboardZoomClinicController::class, 'index'])->name('index');
             Route::get('/create', [DashboardZoomClinicController::class, 'create'])->name('create');
             Route::post('/', [DashboardZoomClinicController::class, 'store'])->name('store');
+            Route::get('/registrations', [DashboardZoomClinicRegistrationController::class, 'index'])->name('registrations.index');
+            Route::get('/registrations/{registration}', [DashboardZoomClinicRegistrationController::class, 'show'])->name('registrations.show');
             Route::get('/{clinic}/edit', [DashboardZoomClinicController::class, 'edit'])->name('edit');
             Route::put('/{clinic}', [DashboardZoomClinicController::class, 'update'])->name('update');
             Route::delete('/{clinic}', [DashboardZoomClinicController::class, 'destroy'])->name('destroy');
@@ -164,7 +179,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     });
 });
 
-Route::middleware(['auth', 'verified', 'role:admin'])->prefix('admin')->name('admin.')->group(function () {
+Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/', [AdminDashboardController::class, 'index'])->name('dashboard');
     Route::get('/media', [MediaController::class, 'index'])->name('media.index');
     Route::post('/media', [MediaController::class, 'store'])->name('media.store');
@@ -200,6 +215,8 @@ Route::middleware(['auth', 'verified', 'role:admin'])->prefix('admin')->name('ad
     Route::get('/zoom-clinics/{clinic}/edit', [AdminZoomClinicController::class, 'edit'])->name('zoom-clinics.edit');
     Route::put('/zoom-clinics/{clinic}', [AdminZoomClinicController::class, 'update'])->name('zoom-clinics.update');
     Route::delete('/zoom-clinics/{clinic}', [AdminZoomClinicController::class, 'destroy'])->name('zoom-clinics.destroy');
+    Route::get('/zoom-clinic-registrations', [AdminZoomClinicRegistrationController::class, 'index'])->name('zoom-clinic-registrations.index');
+    Route::get('/zoom-clinic-registrations/{registration}', [AdminZoomClinicRegistrationController::class, 'show'])->name('zoom-clinic-registrations.show');
 });
 
 require __DIR__.'/auth.php';

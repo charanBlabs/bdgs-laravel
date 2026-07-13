@@ -74,7 +74,7 @@ def abs_url(base: str, path: str) -> str:
     return url
 
 
-def build_sitemap(data: dict) -> str:
+def build_sitemap_pages(data: dict) -> str:
     base = data["site"]["production_url"]
     rows = []
     for p in live_pages(data):
@@ -96,11 +96,38 @@ def build_sitemap(data: dict) -> str:
     )
 
 
+def build_sitemap_index(data: dict) -> str:
+    """Root sitemap index: static/marketing pages + dynamic CMS posts."""
+    base = data["site"]["production_url"].rstrip("/")
+    return (
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+        "  <sitemap>\n"
+        f"    <loc>{base}/sitemap-pages.xml</loc>\n"
+        f"    <lastmod>{TODAY}</lastmod>\n"
+        "  </sitemap>\n"
+        "  <sitemap>\n"
+        f"    <loc>{base}/sitemap-posts.xml</loc>\n"
+        f"    <lastmod>{TODAY}</lastmod>\n"
+        "  </sitemap>\n"
+        "</sitemapindex>\n"
+    )
+
+
+def build_sitemap(data: dict) -> str:
+    """Backward-compatible alias — prefer sitemap index + pages file."""
+    return build_sitemap_index(data)
+
+
 def md_url_for_page(base: str, page: dict) -> str:
+    mirror = page.get("md_mirror")
+    if mirror:
+        return base.rstrip("/") + mirror
     if page["url"] == "/":
         path = "/index.md"
     else:
-        path = page["url"].rstrip("/") + ".md"
+        # Prefer HTML when no markdown mirror exists (e.g. solution categories).
+        return abs_url(base, page["url"]).rstrip("/") + "/"
     return base.rstrip("/") + path
 
 
@@ -231,12 +258,13 @@ def main() -> None:
     data = load()
     n = len(live_pages(data))
     md_count = len(list(MD_DIR.rglob("*.md"))) if MD_DIR.is_dir() else 0
-    (OUT_DIR / "sitemap.xml").write_text(build_sitemap(data), encoding="utf-8")
+    (OUT_DIR / "sitemap-pages.xml").write_text(build_sitemap_pages(data), encoding="utf-8")
+    (OUT_DIR / "sitemap.xml").write_text(build_sitemap_index(data), encoding="utf-8")
     (OUT_DIR / "llms.txt").write_text(build_llms(data), encoding="utf-8")
     (OUT_DIR / "llms-full.txt").write_text(build_llms_full(data), encoding="utf-8")
     print(
-        f"Wrote sitemap.xml + llms.txt + llms-full.txt "
-        f"({n} live page(s), {md_count} md mirror(s)) -> {OUT_DIR}"
+        f"Wrote sitemap.xml (index) + sitemap-pages.xml + llms.txt + llms-full.txt "
+        f"({n} live page(s), {md_count} md mirror(s); posts via /sitemap-posts.xml) -> {OUT_DIR}"
     )
 
 

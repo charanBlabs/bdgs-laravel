@@ -43,4 +43,23 @@ return [
         'token' => env('INQUIRY_AGENT_TOKEN'),
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Cal.com — Discovery Call booking (30-min)
+    |--------------------------------------------------------------------------
+    |
+    | Element-click embed. Confirmation + reminder emails are sent by Cal.com
+    | (configure in the Cal.com event type settings).
+    |
+    */
+    'cal' => [
+        'origin' => env('CAL_ORIGIN', 'https://app.cal.com'),
+        'link' => env('CAL_LINK', 'charan-tej-vattikuti-unbo7v/30min'),
+        'namespace' => env('CAL_NAMESPACE', '30min'),
+        'config' => [
+            'layout' => 'month_view',
+            'useSlotsViewOnSmallScreen' => 'true',
+        ],
+    ],
+
 ];

@@ -7,6 +7,7 @@ use App\Models\BdgsEmailOutbox;
 use App\Models\BdgsEmailTemplate;
 use App\Models\BdgsNotification;
 use App\Models\User;
+use App\Support\EmailTheme;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 
@@ -30,6 +31,7 @@ class EmailService
 
         $subject = $this->replaceTags($template->subject, $variables);
         $bodyHtml = $this->replaceTags($template->body_html, $variables);
+        $bodyHtml = EmailTheme::wrap($bodyHtml, $variables);
         $bodyText = $template->body_text
             ? $this->replaceTags($template->body_text, $variables)
             : strip_tags($bodyHtml);
@@ -41,7 +43,10 @@ class EmailService
         ];
     }
 
-    public function send(string $slug, string $to, array $variables = [], bool $requireActive = true): bool
+    /**
+     * @param  array<int, array{data: string, name: string, options?: array<string, mixed>}>  $attachments
+     */
+    public function send(string $slug, string $to, array $variables = [], bool $requireActive = true, array $attachments = []): bool
     {
         $rendered = $this->render($slug, $variables, $requireActive);
 
@@ -67,8 +72,16 @@ class EmailService
         ]);
 
         try {
-            Mail::html($rendered['body_html'], function ($message) use ($to, $rendered) {
+            Mail::html($rendered['body_html'], function ($message) use ($to, $rendered, $attachments) {
                 $message->to($to)->subject($rendered['subject']);
+
+                foreach ($attachments as $attachment) {
+                    $message->attachData(
+                        $attachment['data'],
+                        $attachment['name'],
+                        $attachment['options'] ?? []
+                    );
+                }
             });
 
             $log->update([
@@ -212,6 +225,8 @@ class EmailService
             'site_name' => config('app.name'),
             'dashboard_url' => url('/dashboard'),
             'login_url' => url('/login'),
+            'logo_url' => \App\Support\EmailTheme::logoUrl(),
+            'site_url' => \App\Support\EmailTheme::siteUrl(),
         ], $variables);
 
         if (isset($variables['name']) && ! isset($variables['first_name'])) {

@@ -2,7 +2,7 @@
   <section class="bdgsownv2-section bdgsownv2-proof-section">
     <div class="container">
       <div class="bdgsownv2-proof-head">
-      <h1 id="reviews-page-title">We Made These Directories <span class="title-strikethrough">Happy</span> <em>VERY HAPPY</em></h1>
+      <h1 id="reviews-page-title">We Made These Brilliant Directories Sites <span class="title-strikethrough">Happy</span> <em>VERY HAPPY</em></h1>
       <p class="proof-sub">Clients say we feel like in-house Brilliant Directories experts—not a ticket queue. We delivered beyond expectations — and we'll do the same for you.</p>
       </div>
 
@@ -62,7 +62,17 @@
 
     <div class="rev-page-reviews">
       <span id="bdgs-reviews-total-count" hidden aria-hidden="true">{{ $reviewCount }}</span>
-      <h2 id="verified-reviews" class="bdgs-sr-only">Verified Brilliant Directories client reviews</h2>
+
+      <div class="rev-verified-head">
+        <div class="rev-verified-rule" aria-hidden="true">
+          <span class="rev-verified-rule__line"></span>
+          <span class="rev-verified-rule__medal">🏅</span>
+          <span class="rev-verified-rule__line"></span>
+        </div>
+        <h2 id="verified-reviews">Are these Brilliant Directories client reviews verified?</h2>
+        <p class="rev-verified-lead">Yes — every review below is imported from the official Brilliant Directories Marketplace and linked to a verified site owner. Business Labs by BD Growth Suite is a Gold Certified Brilliant Directories Partner with {{ $reviewCount }} five-star reviews you can cross-check on the marketplace.</p>
+      </div>
+
       <div class="bdgsownv2-reviews-grid" id="reviewsGrid" data-total="{{ $reviews->count() < $reviewsPerPage ? $reviews->count() : $reviewCount }}" data-per-page="{{ $reviewsPerPage }}">
         @forelse ($reviews as $review)
           @include('partials.bdgs.review-card', ['review' => $review])

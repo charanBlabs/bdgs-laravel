@@ -23,12 +23,21 @@ class BdgsZoomClinicRegistration extends Model
         'registrant_timezone',
         'status',
         'registered_at',
+        'confirmation_sent_at',
+        'reminder_24h_sent_at',
+        'reminder_1h_sent_at',
+        'calendar_uid',
+        'calendar_added_at',
     ];
 
     protected function casts(): array
     {
         return [
             'registered_at' => 'datetime',
+            'confirmation_sent_at' => 'datetime',
+            'reminder_24h_sent_at' => 'datetime',
+            'reminder_1h_sent_at' => 'datetime',
+            'calendar_added_at' => 'datetime',
         ];
     }
 

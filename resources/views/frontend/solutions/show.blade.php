@@ -9,8 +9,18 @@
 
 @section('meta')
 <meta name="description" content="{{ $post->seo?->meta_description ?? \Illuminate\Support\Str::limit(strip_tags($post->excerpt ?? ''), 160) }}">
-@if ($post->seo?->robots)<meta name="robots" content="{{ $post->seo->robots }}">@endif
+<meta property="og:title" content="{{ $post->seo?->meta_title ?? $post->title }}">
+<meta property="og:description" content="{{ $post->seo?->meta_description ?? \Illuminate\Support\Str::limit(strip_tags($post->excerpt ?? ''), 160) }}">
+<meta property="og:type" content="website">
+@if ($post->featuredMedia)
+<meta property="og:image" content="{{ url($post->featuredMedia->url('large')) }}">
+@endif
+<link rel="canonical" href="{{ url('/solutions/'.$post->slug) }}">
 @endsection
+
+@if ($post->seo?->robots)
+@section('robots-content'){{ $post->seo->robots }}@endsection
+@endif
 
 @push('page-styles')
 <link rel="stylesheet" href="/css/bdgs-solutions.css?v={{ time() }}">
@@ -56,7 +66,21 @@
 
         {{-- Featured image --}}
         @if ($post->featuredMedia)
-          <img class="bdgs-sol-detail__hero-img" src="{{ $post->featuredMedia->url('large') }}" alt="{{ $post->featuredMedia->alt_text ?? $post->title }}" loading="eager" @if($post->featuredMedia->width) width="{{ $post->featuredMedia->width }}" height="{{ $post->featuredMedia->height }}" @endif>
+          @php($hero = $post->featuredMedia)
+          @php($heroDims = $hero->dimensions('large'))
+          @php($heroSrcset = $hero->srcset(['medium', 'large']))
+          <img
+            class="bdgs-sol-detail__hero-img"
+            src="{{ $hero->url('large') }}"
+            srcset="{{ $heroSrcset }}"
+            sizes="(max-width: 900px) 100vw, 720px"
+            alt="{{ $hero->alt_text ?? $post->title }}"
+            loading="eager"
+            decoding="async"
+            fetchpriority="high"
+            width="{{ $heroDims[0] ?? '' }}"
+            height="{{ $heroDims[1] ?? '' }}"
+          >
         @endif
 
         {{-- Order / Demo buttons --}}
@@ -188,7 +212,19 @@
                 <a href="{{ url('/solutions/'.$related->slug) }}" class="bdgs-sol-sidebar__related-item">
                   <div class="bdgs-sol-sidebar__related-thumb">
                     @if ($related->featuredMedia)
-                      <img src="{{ $related->featuredMedia->url('medium') }}" alt="{{ $related->short_title ?: $related->title }}" loading="lazy" @if($related->featuredMedia->width) width="{{ $related->featuredMedia->width }}" height="{{ $related->featuredMedia->height }}" @endif>
+                      @php($relMedia = $related->featuredMedia)
+                      @php($relDims = $relMedia->dimensions('medium'))
+                      @php($relSrcset = $relMedia->srcset(['thumb', 'medium']))
+                      <img
+                        src="{{ $relMedia->url('medium') }}"
+                        srcset="{{ $relSrcset }}"
+                        sizes="280px"
+                        alt="{{ $related->short_title ?: $related->title }}"
+                        loading="lazy"
+                        decoding="async"
+                        width="{{ $relDims[0] ?? '' }}"
+                        height="{{ $relDims[1] ?? '' }}"
+                      >
                     @else
                       <span class="bdgs-sol-sidebar__related-placeholder"></span>
                     @endif

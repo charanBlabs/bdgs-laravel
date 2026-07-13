@@ -35,6 +35,11 @@
         <svg viewBox="0 0 20 20" fill="none"><path d="M3 5.5A1.5 1.5 0 014.5 4h11A1.5 1.5 0 0117 5.5v7a1.5 1.5 0 01-1.5 1.5H7l-4 3v-10.5z" stroke="currentColor" stroke-width="1.5"/><path d="M7 8h6M7 11h3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
         My Tickets
       </a>
+
+      <a href="{{ route('dashboard.my-zoom-clinics.index') }}" @class(['is-active' => request()->routeIs('dashboard.my-zoom-clinics.*')])>
+        <svg viewBox="0 0 20 20" fill="none"><path d="M3 5a2 2 0 012-2h10a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V5z" stroke="currentColor" stroke-width="1.5"/><path d="M7 8h6M7 12h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        Zoom Clinics
+      </a>
     @endcannot
 
     @can('manage-content')

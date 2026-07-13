@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
             SolutionCategorySeeder::class,
             SolutionDataSeeder::class,
             EmailTemplateSeeder::class,
+            ZoomClinicEmailTemplateSeeder::class,
             WebsiteSettingsSeeder::class,
             ZoomClinicSeeder::class,
         ]);

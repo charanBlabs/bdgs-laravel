@@ -270,7 +270,8 @@ select:focus-visible {
 
 .bdgsownv2-btn-primary {
   display: inline-flex; align-items: center; gap: 8px;
-  padding: 14px 28px; font-size: 15px; font-weight: 600;
+  padding: 14px 28px; font-size: 15px; font-weight: 600; cursor: pointer;
+  font-family: inherit;
   color: #fff; background: var(--bdgs-gradient);
   border: none; border-radius: 10px; text-decoration: none; transition: all 0.25s;
 }
@@ -876,6 +877,10 @@ body.bdgs-mob-noscroll { overflow: hidden; position: fixed; width: 100%; }
   .bdgs-mob-hamburger { display: flex; }
   .bdgsownv2-cta-btn { display: none; }
 }
+
+/* Ajax list (filters / search / pagination without full refresh) */
+[data-ajax-list] { transition: opacity 0.15s ease; }
+[data-ajax-list].is-loading { opacity: 0.55; pointer-events: none; }
 
 /* ============================================
    EXPLORE SERVICES PAGE

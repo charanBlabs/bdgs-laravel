@@ -401,6 +401,12 @@ php artisan bdgs:clear-caches
 
 ---
 
+## Hosting & server selection
+
+For measured project sizes, server tier comparison, and a pre-purchase checklist (including future payment gateways and APIs), see **[docs/hosting-server-selection.md](docs/hosting-server-selection.md)**.
+
+---
+
 ## License
 
 MIT — see [LICENSE](LICENSE) if present. Proprietary content and branding © BD Growth Suite / Business Labs.

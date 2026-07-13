@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Schedule;
 
 Artisan::command('bdgs:optimize-production', function () {
     $this->call('config:cache');
@@ -23,3 +24,6 @@ Artisan::command('bdgs:clear-caches', function () {
     $this->call('event:clear');
     $this->info('Application caches cleared.');
 })->purpose('Clear all Laravel optimization caches');
+
+Schedule::command('zoom-clinics:send-reminders')->everyFifteenMinutes();
+Schedule::command('email:process-outbox')->everyFiveMinutes();

@@ -31,6 +31,17 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->throttleApi('60,1');
     })
     ->withExceptions(function (Exceptions $exceptions): void {
+        $exceptions->render(function (\Illuminate\Http\Exceptions\ThrottleRequestsException $e, $request) {
+            if ($request->expectsJson() || $request->is('api/*')) {
+                return response()->json([
+                    'message' => 'Too many registration attempts. Please wait a minute and try again.',
+                    'errors' => [
+                        'email' => ['Too many registration attempts. Please wait a minute and try again.'],
+                    ],
+                ], 429);
+            }
+        });
+
         $exceptions->render(function (\Symfony\Component\HttpKernel\Exception\HttpException $e, $request) {
             $status = $e->getStatusCode();
             if (in_array($status, [403, 404, 500, 503], true) && ! $request->expectsJson()) {

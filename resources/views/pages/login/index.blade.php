@@ -6,8 +6,9 @@
 <title>Login to Your Brilliant Directories Dashboard — BD Growth Suite</title>
 @endsection
 
+@section('robots-content', 'noindex, nofollow')
+
 @section('meta')
-<meta name="robots" content="noindex, nofollow">
 <meta name="description" content="Customer login for BD Growth Suite clients. Access your Brilliant Directories dashboard, orders, and account settings.">
 <link rel="canonical" href="https://bdgrowthsuite.com/login/">
 @endsection

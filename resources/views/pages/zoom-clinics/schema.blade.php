@@ -1,28 +1,34 @@
 @php
+  use App\Support\ZoomClinicTimes;
   $pageUrl = 'https://bdgrowthsuite.com/zoom-clinics/';
   $pageName = 'Free Brilliant Directories Zoom Clinics — BD Growth Suite';
   $pageDescription = 'Free Brilliant Directories Zoom Clinics every Tuesday and Thursday. BD Growth Suite developers answer live — widgets, CSS, search, email. Drop in, $0.';
+  $heroScheduleLine = ZoomClinicTimes::canonicalScheduleLine($featuredClinic ?? $clinics->first());
 
   $faqItems = [
       [
-          'question' => 'How do I get help with my Brilliant Directories website?',
-          'answer' => 'Join a free BD Growth Suite Zoom Clinic. Drop in live on Tuesday or Thursday, share your screen, and our Brilliant Directories developers walk you through widgets, CSS, search, and email templates — no support ticket required.',
+          'question' => 'What is a Zoom Clinic?',
+          'answer' => 'A Zoom Clinic is a free, live drop-in run by BD Growth Suite for directory site owners. Unlike a support ticket, you join by Zoom, share your screen, and get tactical fixes — widgets, CSS, search filters, email templates — solved live by a developer.',
+      ],
+      [
+          'question' => 'How do I get help with my directory website?',
+          'answer' => 'Join a free BD Growth Suite Zoom Clinic. Drop in live on Tuesday or Thursday, share your screen, and our developers walk you through widgets, CSS, search, and email templates — no support ticket required.',
       ],
       [
           'question' => 'Are BD Growth Suite Zoom Clinics free?',
-          'answer' => 'Yes — every Brilliant Directories Zoom Clinic is $0. Register once, get a calendar invite with the Zoom link, and join any session. Strategy and full builds belong on Express Setup or a custom project.',
+          'answer' => 'Yes — every clinic is $0. Register once, get a calendar invite with the Zoom link, and join any session. Strategy and full builds belong on Express Setup or Founder Concierge.',
       ],
       [
-          'question' => 'When are Brilliant Directories Zoom Clinics?',
-          'answer' => 'BD Growth Suite runs Zoom Clinics every Tuesday and Thursday at 6:30–7:30 PM IST, with a +30 minute buffer when queues are active. Times convert automatically to your local timezone.',
+          'question' => 'When are Zoom Clinics?',
+          'answer' => 'BD Growth Suite runs clinics every Tuesday and Thursday at '.$heroScheduleLine.', with a +30 minute buffer when queues are active. Register in the modal to pick a different timezone for your calendar invite.',
       ],
       [
-          'question' => 'What can I ask at a Brilliant Directories Zoom Clinic?',
+          'question' => 'What can I ask at a Zoom Clinic?',
           'answer' => 'Tactical fixes: widget CSS, search filters, member dashboard quirks, email templates, and small config blockers. Not full site builds or launch strategy — those go to Express Setup or Founder Concierge.',
       ],
       [
           'question' => 'How do I register for a Zoom Clinic?',
-          'answer' => 'Pick any upcoming session on this page, click Register, enter your name and email, and we send a calendar invite with the Zoom link. One registration per session — drop in live when it starts.',
+          'answer' => 'Pick any upcoming clinic on this page, click Register, enter your name and email, and we send a calendar invite with the Zoom link. One registration per clinic — drop in live when it starts.',
       ],
   ];
 
@@ -41,6 +47,10 @@
           'name' => $pageName,
           'description' => $pageDescription,
           'isPartOf' => ['@id' => 'https://bdgrowthsuite.com/#website'],
+          'speakable' => [
+              '@type' => 'SpeakableSpecification',
+              'cssSelector' => ['.bdgsownv2-faq-item h3', '.bdgsownv2-faq-item p'],
+          ],
       ],
       [
           '@type' => 'BreadcrumbList',

@@ -48,22 +48,26 @@ class AuthEventSubscriber
             $event->user->roles()->syncWithoutDetaching([$userRole->id]);
         }
 
-        $this->emailService->sendToUser($event->user, 'welcome', [
-            'site_name' => config('app.name'),
-            'dashboard_url' => url('/dashboard'),
-        ]);
-
-        $adminEmail = config('mail.from.address');
-        if ($adminEmail) {
-            $this->emailService->send('registration-admin', $adminEmail, [
-                'first_name' => $event->user->first_name,
-                'full_name' => $event->user->fullName(),
-                'email' => $event->user->email,
+        try {
+            $this->emailService->sendToUser($event->user, 'welcome', [
                 'site_name' => config('app.name'),
+                'dashboard_url' => url('/dashboard'),
             ]);
-        }
 
-        $this->activityLog->log('created', $event->user, ['type' => 'registration'], $event->user->id);
+            $adminEmail = config('mail.from.address');
+            if ($adminEmail) {
+                $this->emailService->send('registration-admin', $adminEmail, [
+                    'first_name' => $event->user->first_name,
+                    'full_name' => $event->user->fullName(),
+                    'email' => $event->user->email,
+                    'site_name' => config('app.name'),
+                ]);
+            }
+
+            $this->activityLog->log('created', $event->user, ['type' => 'registration'], $event->user->id);
+        } catch (\Throwable $e) {
+            report($e);
+        }
     }
 
     /** @return array<string, string> */

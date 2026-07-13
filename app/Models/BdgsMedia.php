@@ -58,12 +58,67 @@ class BdgsMedia extends Model
         $disk = Storage::disk($this->disk);
 
         if ($variant) {
-            $record = $this->variants()->where('variant_name', $variant)->first();
+            $record = $this->variantRecord($variant);
             if ($record) {
                 return $disk->url($record->path);
             }
         }
 
         return $disk->url($this->path);
+    }
+
+    public function variantRecord(?string $variant): ?BdgsMediaVariant
+    {
+        if (! $variant) {
+            return null;
+        }
+
+        if ($this->relationLoaded('variants')) {
+            return $this->variants->firstWhere('variant_name', $variant);
+        }
+
+        return $this->variants()->where('variant_name', $variant)->first();
+    }
+
+    /**
+     * Intrinsic width/height for a variant (falls back to original).
+     *
+     * @return array{0: int|null, 1: int|null}
+     */
+    public function dimensions(?string $variant = null): array
+    {
+        if ($variant) {
+            $record = $this->variantRecord($variant);
+            if ($record) {
+                return [$record->width, $record->height];
+            }
+        }
+
+        return [$this->width, $this->height];
+    }
+
+    /**
+     * Responsive srcset using available variants.
+     *
+     * @param  array<int, string>  $variants
+     */
+    public function srcset(array $variants = ['thumb', 'medium', 'large']): string
+    {
+        $parts = [];
+
+        foreach ($variants as $name) {
+            $record = $this->variantRecord($name);
+            if (! $record || ! $record->width) {
+                continue;
+            }
+
+            $parts[] = $this->url($name).' '.$record->width.'w';
+        }
+
+        if ($parts === [] && $this->width) {
+            $parts[] = $this->url().' '.$this->width.'w';
+        }
+
+        return implode(', ', $parts);
     }
 }
