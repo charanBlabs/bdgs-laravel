@@ -14,23 +14,29 @@ class AdminUserSeeder extends Seeder
         $adminRole = BdgsRole::query()->where('name', 'admin')->first();
         $userRole = BdgsRole::query()->where('name', 'user')->first();
 
-        $adminPassword = env('ADMIN_PASSWORD');
-        if (! $adminPassword) {
+        $adminEmail = (string) env('ADMIN_EMAIL', 'admin@bdgrowthsuite.com');
+        $adminPassword = (string) env('ADMIN_PASSWORD', '');
+
+        // Testing always has a known password (phpunit.xml); local/prod require .env.
+        if ($adminPassword === '' && app()->environment('testing')) {
+            $adminPassword = 'ChangeMe123!';
+        }
+
+        if ($adminPassword === '') {
             $this->command?->error('ADMIN_PASSWORD not set in .env — skipping admin user creation.');
 
             return;
         }
 
-        $admin = User::query()->updateOrCreate(
-            ['email' => env('ADMIN_EMAIL', 'admin@bdgrowthsuite.com')],
-            [
-                'first_name' => 'BDGS',
-                'last_name' => 'Admin',
-                'password' => $adminPassword,
-                'email_verified_at' => now(),
-                'is_active' => true,
-            ]
-        );
+        $admin = User::query()->firstOrNew(['email' => $adminEmail]);
+        $admin->fill([
+            'first_name' => 'BDGS',
+            'last_name' => 'Admin',
+            'email_verified_at' => now(),
+            'is_active' => true,
+        ]);
+        $admin->password = $adminPassword;
+        $admin->save();
 
         if ($adminRole) {
             $admin->roles()->syncWithoutDetaching([$adminRole->id]);
@@ -41,17 +47,16 @@ class AdminUserSeeder extends Seeder
             ['company' => 'BD Growth Suite', 'position' => 'Administrator']
         );
 
-        if (app()->environment('local', 'testing')) {
-            $demo = User::query()->updateOrCreate(
-                ['email' => 'demo@bdgrowthsuite.com'],
-                [
-                    'first_name' => 'Demo',
-                    'last_name' => 'Customer',
-                    'password' => 'DemoUser123!',
-                    'email_verified_at' => now(),
-                    'is_active' => true,
-                ]
-            );
+        if (app()->environment('local', 'testing') || app()->runningUnitTests()) {
+            $demo = User::query()->firstOrNew(['email' => 'demo@bdgrowthsuite.com']);
+            $demo->fill([
+                'first_name' => 'Demo',
+                'last_name' => 'Customer',
+                'email_verified_at' => now(),
+                'is_active' => true,
+            ]);
+            $demo->password = 'DemoUser123!';
+            $demo->save();
 
             if ($userRole) {
                 $demo->roles()->syncWithoutDetaching([$userRole->id]);
