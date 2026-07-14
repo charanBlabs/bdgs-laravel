@@ -2,7 +2,7 @@
   $pageUrl = 'https://bdgrowthsuite.com/solutions/';
   $pageName = $totalSolutions.'+ Brilliant Directories Solutions (Done-For-You) — BD Growth Suite';
   $pageDescription = 'Browse '.$totalSolutions.'+ done-for-you Brilliant Directories solutions — SEO, lead gen, profiles, search, design, content, integrations, and member management.';
-  $ogImage = 'https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/logo.png';
+  $ogImage = 'https://bdgrowthsuite.com/images/brand/logo.png';
 
   $listItems = $categories->values()->map(fn ($category, $index) => [
       '@type' => 'ListItem',

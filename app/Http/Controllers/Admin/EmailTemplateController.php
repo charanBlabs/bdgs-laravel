@@ -77,6 +77,7 @@ class EmailTemplateController extends Controller
             'join_url' => 'https://zoom.us/j/example',
             'page_url' => url('/zoom-clinics'),
             'google_calendar_url' => 'https://calendar.google.com/calendar/render?action=TEMPLATE',
+            'directory_url' => 'https://example-directory.com',
             'help_topic' => 'Homepage widget layout',
         ], false);
 

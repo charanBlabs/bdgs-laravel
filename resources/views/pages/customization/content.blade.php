@@ -5,8 +5,8 @@
     <div class="bdgsownv2-cust-hero-grid">
       <div class="bdgsownv2-cust-hero-copy">
         <div class="bdgsownv2-cust-hero-eyebrow">Custom Projects &amp; Customizations</div>
-        <h1>Brilliant Directories customization<br>— you describe it.<br><span>We scope, quote, and ship it.</span></h1>
-        <p class="bdgsownv2-cust-hero-sub">Brilliant Directories customization is scoped, fixed-price project work — from a small tweak to a full custom feature. Our developers have shipped 1000+ builds across 500+ directory sites. Send your brief; get a fixed quote within 24 hours.</p>
+        <h1>Brilliant Directories customization — scoped, quoted, shipped</h1>
+        <p class="bdgsownv2-cust-hero-sub">You describe it. We scope, quote, and ship fixed-price project work — from a small tweak to a full custom feature. Our developers have shipped 1000+ builds across 500+ directory sites. Send your brief; get a fixed quote within 24 hours.</p>
         <ul class="bdgsownv2-cust-trust">
           <li>Fixed scope and price before any build starts</li>
           <li>1-year code warranty on every line we write</li>
@@ -139,7 +139,7 @@
 <!-- SECTION 3: MID CTA STRIP -->
 <section class="bdgsownv2-section bdgsownv2-mid-cta">
   <div class="container">
-    <h3>Not sure which category? Or have something one-of-a-kind?</h3>
+    <h2>Not sure which category? Or have something one-of-a-kind?</h2>
     <p>Tell us what you're trying to build. We'll route it to the right team and quote you within 24 hours.</p>
     <div class="bdgsownv2-hero-ctas">
       <button type="button" class="bdgsownv2-btn-primary" @include('partials.bdgs.cal-discovery-attrs')>Book a 30-min Discovery Call</button>
@@ -270,7 +270,7 @@
         </div>
       </div>
       <div class="bdgsownv2-hero-ctas" style="justify-content: center;">
-        <a href="/services/" class="bdgsownv2-btn-primary">Compare Hire a Developer vs One-Off Projects</a>
+        <a href="/hire-developer/" class="bdgsownv2-btn-primary">Compare Hire a Developer vs One-Off Projects</a>
       </div>
     </div>
   </div>

@@ -595,7 +595,11 @@
 
 /* STICKY FLOATING CTA (desktop) */
 .bdgsownv2-floating-cta {
-  position: fixed; bottom: 20px; right: 20px; z-index: 900;
+  position: fixed;
+  /* Stack above shell .cpb-fab (bottom:24px) so the two do not overlap */
+  bottom: calc(24px + 48px + 12px);
+  right: 24px;
+  z-index: 901;
   background: var(--bdgs-gradient); color: var(--bdgs-white);
   padding: 12px 24px; border-radius: 20px; text-decoration: none;
   font-size: 14px; font-weight: 600;
@@ -606,8 +610,13 @@
 }
 .bdgsownv2-floating-cta:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(231,77,86,0.5); color: var(--bdgs-white); text-decoration: none; }
 .bdgsownv2-floating-cta.visible { display: inline-flex; }
-@media (max-width: 600px) {
-  .bdgsownv2-floating-cta { bottom: 12px; right: 12px; padding: 12px 16px; font-size: 13px; }
+@media (max-width: 768px) {
+  .bdgsownv2-floating-cta {
+    bottom: calc(16px + 44px + 10px);
+    right: 16px;
+    padding: 12px 16px;
+    font-size: 13px;
+  }
 }
 
 @media (max-width: 1029px) {

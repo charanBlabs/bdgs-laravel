@@ -7,7 +7,7 @@
 @endsection
 
 @section('title')
-<title>Brilliant Directories Customization — Custom Projects — BD Growth Suite</title>
+<title>Brilliant Directories Customization — BD Growth Suite</title>
 @endsection
 
 @section('meta')
@@ -15,14 +15,14 @@
 <meta name="keywords" content="brilliant directories customization, brilliant directories custom development, custom projects brilliant directories, brilliant directories developers custom builds">
 <link rel="canonical" href="https://bdgrowthsuite.com/customization/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Brilliant Directories Customization — Custom Projects — BD Growth Suite">
+<meta property="og:title" content="Brilliant Directories Customization — BD Growth Suite">
 <meta property="og:description" content="Brilliant Directories customization: fixed-scope custom projects, quote in 24 hours, 1-year warranty. 1000+ builds across 500+ directories.">
 <meta property="og:url" content="https://bdgrowthsuite.com/customization/">
-<meta property="og:image" content="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/logo.png">
+<meta property="og:image" content="https://bdgrowthsuite.com/images/brand/logo.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Brilliant Directories Customization — Custom Projects — BD Growth Suite">
+<meta name="twitter:title" content="Brilliant Directories Customization — BD Growth Suite">
 <meta name="twitter:description" content="Brilliant Directories customization: fixed-scope custom projects, quote in 24 hours, 1-year warranty. 1000+ builds across 500+ directories.">
-<meta name="twitter:image" content="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/logo.png">
+<meta name="twitter:image" content="https://bdgrowthsuite.com/images/brand/logo.png">
 @endsection
 
 @push('page-styles')

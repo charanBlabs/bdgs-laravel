@@ -129,12 +129,22 @@ When `APP_ENV=staging`, `/robots.txt` automatically returns `Disallow: /` so sea
 | `REVIEWS_SYNC_TOKEN` | Strong random string | Different token |
 | `INQUIRY_AGENT_TOKEN` | Strong random string | Different token |
 | `MAIL_*` | Production SMTP | Staging mailbox or Mailtrap |
+| `GOOGLE_ANALYTICS_ID` | GA4 `G-…` measurement ID | Leave empty (or test IDs + `TRACKING_ENABLED=true`) |
+| `FACEBOOK_PIXEL_ID` | Meta Pixel ID | Leave empty |
+| `LINKEDIN_PARTNER_ID` | LinkedIn Insight Tag partner ID | Leave empty |
+| `LINKEDIN_ZOOM_CLINIC_CONVERSION_ID` | LinkedIn conversion ID for Zoom signup | Leave empty |
 
 Generate `APP_KEY` once per environment:
 
 ```bash
 php artisan key:generate
 ```
+
+### Marketing pixels (POST-PRODUCTION)
+
+Zoom Clinic registration fires **GA4** `zoom_clinic_signup`, **Meta** `Lead`, and **LinkedIn** conversion **on successful form submit** (in-modal — no thank-you page).
+
+Code is ready; **IDs must be set in production `.env`** or nothing loads. Full steps and verification: **[docs/post-production-checklist.md](docs/post-production-checklist.md)**.
 
 ---
 
@@ -217,6 +227,12 @@ MAIL_FROM_NAME="BD Growth Suite"
 
 REVIEWS_SYNC_TOKEN=generate-a-long-random-string
 INQUIRY_AGENT_TOKEN=generate-a-long-random-string
+
+# POST-PRODUCTION — marketing pixels (see docs/post-production-checklist.md)
+GOOGLE_ANALYTICS_ID=G-XXXXXXXXXX
+FACEBOOK_PIXEL_ID=
+LINKEDIN_PARTNER_ID=
+LINKEDIN_ZOOM_CLINIC_CONVERSION_ID=
 ```
 
 ### 5. First deploy
@@ -404,6 +420,10 @@ php artisan bdgs:clear-caches
 ## Hosting & server selection
 
 For measured project sizes, server tier comparison, and a pre-purchase checklist (including future payment gateways and APIs), see **[docs/hosting-server-selection.md](docs/hosting-server-selection.md)**.
+
+### Must-do after go-live
+
+See **[docs/post-production-checklist.md](docs/post-production-checklist.md)** — especially **marketing pixel IDs** (`GOOGLE_ANALYTICS_ID`, `FACEBOOK_PIXEL_ID`, `LINKEDIN_PARTNER_ID`, `LINKEDIN_ZOOM_CLINIC_CONVERSION_ID`) so Zoom Clinic signup conversions report correctly.
 
 ---
 

@@ -1,5 +1,9 @@
 @php
-  $reviewsMetaDescription = "Read {$reviewCount} verified reviews from Brilliant Directories site owners. Gold Certified partner with 5-star ratings for setup, customization, and growth.";
+  $reviewsMetaDescription = \Illuminate\Support\Str::limit(
+    "Read {$reviewCount} verified reviews from Brilliant Directories site owners. Gold Certified partner with 5-star ratings for setup, customization, and growth.",
+    155,
+    ''
+  );
   $reviewsPageTitle = "{$reviewCount} Verified Client Reviews — BD Growth Suite";
 @endphp
 @extends('layouts.bdgs')
@@ -20,11 +24,11 @@
 <meta property="og:title" content="{{ $reviewsPageTitle }}">
 <meta property="og:description" content="{{ $reviewsMetaDescription }}">
 <meta property="og:url" content="https://bdgrowthsuite.com/reviews/">
-<meta property="og:image" content="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/logo.png">
+<meta property="og:image" content="https://bdgrowthsuite.com/images/brand/logo.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{ $reviewsPageTitle }}">
 <meta name="twitter:description" content="{{ $reviewsMetaDescription }}">
-<meta name="twitter:image" content="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/logo.png">
+<meta name="twitter:image" content="https://bdgrowthsuite.com/images/brand/logo.png">
 @endsection
 
 @push('page-styles')

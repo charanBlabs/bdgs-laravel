@@ -412,9 +412,13 @@ function bdgsProcessZoomBooking() {
 
   const nameEl = document.getElementById('bdgsZoomName');
   const emailEl = document.getElementById('bdgsZoomEmail');
+  const directoryEl = document.getElementById('bdgsZoomDirectoryUrl');
+  const helpEl = document.getElementById('bdgsZoomHelpTopic');
   const payload = {
     name: nameEl ? nameEl.value.trim() : '',
     email: emailEl ? emailEl.value.trim() : '',
+    directory_url: directoryEl ? directoryEl.value.trim() : '',
+    help_topic: helpEl ? helpEl.value.trim() : '',
     registrant_timezone: bdgsGetSelectedZoomTimezone(),
   };
 
@@ -486,6 +490,11 @@ function bdgsProcessZoomBooking() {
 }
 
 function bdgsShowZoomBookingSuccess(btn, originalText, registrationData) {
+  // GA4 + Meta Lead + LinkedIn — fire on successful submit (in-modal; no thank-you URL).
+  if (typeof window.bdgsTrackZoomClinicSignup === 'function') {
+    window.bdgsTrackZoomClinicSignup(registrationData || {});
+  }
+
   const content = document.getElementById('bdgsZoomModalContent');
   const success = document.getElementById('bdgsZoomModalSuccess');
   if (!content || !success) {

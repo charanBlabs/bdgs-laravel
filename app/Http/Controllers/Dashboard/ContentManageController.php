@@ -25,40 +25,12 @@ class ContentManageController extends Controller
         Gate::authorize('manage-content');
     }
 
-    public function index(Request $request, string $type): View
+    public function index(string $type): View
     {
         $dataType = BdgsDataType::query()->where('slug', $type)->where('is_active', true)->firstOrFail();
+        $totalCount = BdgsDataPost::query()->where('post_type_id', $dataType->id)->count();
 
-        $query = BdgsDataPost::query()
-            ->with('author', 'featuredMedia', 'categories')
-            ->where('post_type_id', $dataType->id);
-
-        if ($status = $request->input('status')) {
-            $query->where('status', $status);
-        }
-
-        if ($keyword = $request->string('q')->trim()->toString()) {
-            $query->where(function ($q) use ($keyword) {
-                $q->where('title', 'like', "%{$keyword}%")
-                    ->orWhere('excerpt', 'like', "%{$keyword}%");
-            });
-        }
-
-        $sort = $request->input('sort', 'newest');
-        $query = match ($sort) {
-            'oldest' => $query->oldest('created_at'),
-            'updated_first' => $query->latest('updated_at'),
-            'updated_last' => $query->oldest('updated_at'),
-            'published_first' => $query->latest('published_at'),
-            'published_last' => $query->oldest('published_at'),
-            default => $query->latest('created_at'),
-        };
-
-        $perPage = in_array((int) $request->input('per_page'), [5, 10, 25, 50]) ? (int) $request->input('per_page') : 5;
-        $totalCount = $query->count();
-        $posts = $query->paginate($perPage)->withQueryString();
-
-        return view('dashboard.content.index', compact('dataType', 'posts', 'type', 'totalCount', 'perPage'));
+        return view('dashboard.content.index', compact('dataType', 'type', 'totalCount'));
     }
 
     public function create(string $type): View
@@ -174,7 +146,7 @@ class ContentManageController extends Controller
     {
         $dataType = BdgsDataType::query()->where('slug', $type)->where('is_active', true)->firstOrFail();
         abort_unless($post->post_type_id === $dataType->id, 404);
-        $post->load('featuredMedia');
+        $post->load('featuredMedia.variants');
 
         return view('dashboard.content.thumbnail', compact('dataType', 'type', 'post'));
     }
@@ -252,7 +224,12 @@ class ContentManageController extends Controller
 
     private function syncSeo(BdgsDataPost $post, Request $request): void
     {
-        if (! $request->filled('meta_title') && ! $request->filled('meta_description') && ! $request->filled('robots')) {
+        if (
+            ! $request->filled('meta_title')
+            && ! $request->filled('meta_description')
+            && ! $request->filled('robots')
+            && ! $request->filled('canonical_url')
+        ) {
             return;
         }
 
@@ -263,6 +240,7 @@ class ContentManageController extends Controller
                 'meta_description' => $request->input('meta_description'),
                 'og_title' => $request->input('og_title'),
                 'og_description' => $request->input('og_description'),
+                'canonical_url' => $request->input('canonical_url'),
                 'robots' => $request->input('robots'),
             ]
         );

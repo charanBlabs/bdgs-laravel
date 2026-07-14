@@ -43,26 +43,57 @@
 .bdgs-btn--secondary { background: #fff; color: #1a1a2e; border: 1px solid var(--panel-border); }
 .bdgs-grid-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
 .bdgs-card { background: #fff; border: 1px solid var(--panel-border); border-radius: 12px; padding: 20px; }
+.bdgs-panel-thumb {
+  width: 120px;
+  aspect-ratio: 3 / 2;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid var(--panel-border);
+}
+.bdgs-panel-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center center;
+  display: block;
+}
+.bdgs-panel-thumb--card {
+  width: 100%;
+  margin: -4px 0 12px;
+}
+.bdgs-panel-thumb__empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  font-size: 11px;
+  font-weight: 600;
+  color: #94a3b8;
+  background: #f8fafc;
+}
 @media (max-width: 900px) {
   .bdgs-panel__shell { grid-template-columns: 1fr; }
   .bdgs-panel__sidebar { position: sticky; top: 0; z-index: 10; }
 }
 
-/* Pagination (admin panel) */
-.bdgs-panel__content nav[role="navigation"] { display: flex; flex-direction: column; align-items: center; gap: 8px; margin-top: 16px; }
-.bdgs-panel__content nav[role="navigation"] > div:first-child { display: none; }
-.bdgs-panel__content nav[role="navigation"] p { font-size: 13px; color: #64748b; margin: 0; }
-.bdgs-panel__content nav[role="navigation"] a,
-.bdgs-panel__content nav[role="navigation"] span[aria-current="page"] span,
-.bdgs-panel__content nav[role="navigation"] span[aria-disabled="true"] span {
-  display: inline-flex; align-items: center; justify-content: center; min-width: 34px; height: 34px; padding: 0 8px; border-radius: 6px; font-size: 13px; font-weight: 600; text-decoration: none;
+/* Pagination (admin panel — BDGS Livewire pager) */
+[data-bdgs-scroll-on-page] { scroll-margin-top: 16px; }
+.bdgs-panel__content .bdgs-pager { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; margin-top: 16px; }
+.bdgs-panel__content .bdgs-pager__summary { margin: 0; font-size: 13px; color: #64748b; }
+.bdgs-panel__content .bdgs-pager__summary span { font-weight: 600; color: #1a1a2e; }
+.bdgs-panel__content .bdgs-pager__links { display: flex; align-items: center; flex-wrap: wrap; gap: 4px; }
+.bdgs-panel__content .bdgs-pager__btn {
+  display: inline-flex; align-items: center; justify-content: center; box-sizing: border-box;
+  min-width: 34px; height: 34px; padding: 0 8px; border: 1px solid var(--panel-border); border-radius: 6px;
+  background: #fff; color: #1a1a2e; font-family: inherit; font-size: 13px; font-weight: 600; line-height: 1; cursor: pointer;
+  transition: background .15s, color .15s, border-color .15s;
 }
-.bdgs-panel__content nav[role="navigation"] a { color: #1a1a2e; background: #fff; border: 1px solid var(--panel-border); }
-.bdgs-panel__content nav[role="navigation"] a:hover { background: #f8f8fc; border-color: var(--panel-accent); color: var(--panel-accent); }
-.bdgs-panel__content nav[role="navigation"] span[aria-current="page"] span { background: var(--panel-accent); color: #fff; border: 1px solid var(--panel-accent); }
-.bdgs-panel__content nav[role="navigation"] span[aria-disabled="true"] span { color: #ccc; background: #f8f8fc; border: 1px solid var(--panel-border); }
-.bdgs-panel__content nav[role="navigation"] svg { width: 14px; height: 14px; }
-.bdgs-panel__content nav[role="navigation"] .relative { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; justify-content: center; }
+.bdgs-panel__content .bdgs-pager__btn:hover:not(.is-disabled):not(.is-current) { background: #f8f8fc; border-color: var(--panel-accent); color: var(--panel-accent); }
+.bdgs-panel__content .bdgs-pager__btn.is-current { background: var(--panel-accent); border-color: var(--panel-accent); color: #fff; cursor: default; }
+.bdgs-panel__content .bdgs-pager__btn.is-disabled { color: #ccc; background: #f8f8fc; cursor: default; }
+.bdgs-panel__content .bdgs-pager__btn svg { width: 14px; height: 14px; display: block; }
 
 /* Ajax list (no full-page refresh) */
 [data-ajax-list] { transition: opacity 0.15s ease; }

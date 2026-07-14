@@ -13,9 +13,9 @@ class MediaService
 {
     /** @var array<string, array{width: int, height: int}> */
     private array $variants = [
-        'thumb' => ['width' => 150, 'height' => 150],
-        'medium' => ['width' => 600, 'height' => 600],
-        'large' => ['width' => 1200, 'height' => 1200],
+        'thumb' => ['width' => 300, 'height' => 300],
+        'medium' => ['width' => 900, 'height' => 900],
+        'large' => ['width' => 1600, 'height' => 1600],
     ];
 
     public function uploadAsWebp(UploadedFile $file, ?string $altText = null): BdgsMedia

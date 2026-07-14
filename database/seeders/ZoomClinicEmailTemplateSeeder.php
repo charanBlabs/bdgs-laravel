@@ -44,7 +44,7 @@ class ZoomClinicEmailTemplateSeeder extends Seeder
                 'variables' => [
                     'first_name', 'name', 'clinic_title', 'clinic_agenda', 'clinic_format',
                     'clinic_schedule', 'join_url', 'page_url', 'google_calendar_url',
-                    'help_topic', 'site_name',
+                    'directory_url', 'help_topic', 'site_name',
                 ],
                 'is_active' => true,
             ],

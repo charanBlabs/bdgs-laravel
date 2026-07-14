@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\BdgsZoomClinic;
+use App\Services\ZoomClinicService;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
@@ -13,19 +14,14 @@ use Illuminate\View\View;
 
 class ZoomClinicController extends Controller
 {
-    public function __construct()
+    public function __construct(private readonly ZoomClinicService $clinics)
     {
         Gate::authorize('manage-content');
     }
 
     public function index(): View
     {
-        $clinics = BdgsZoomClinic::query()
-            ->withCount('confirmedRegistrations')
-            ->latest('session_starts_at')
-            ->paginate(20);
-
-        return view('admin.zoom-clinics.index', compact('clinics'));
+        return view('admin.zoom-clinics.index');
     }
 
     public function create(): View
@@ -56,6 +52,8 @@ class ZoomClinicController extends Controller
 
     public function edit(int $clinicId): View
     {
+        $this->clinics->syncLifecycleStatuses();
+
         $clinic = BdgsZoomClinic::query()
             ->withCount('confirmedRegistrations')
             ->findOrFail($clinicId);

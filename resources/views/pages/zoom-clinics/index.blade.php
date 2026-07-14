@@ -16,11 +16,11 @@
 <meta property="og:title" content="Free Brilliant Directories Zoom Clinics — BD Growth Suite">
 <meta property="og:description" content="Free Brilliant Directories Zoom Clinics every Tue &amp; Thu. Live Q&amp;A with BD Growth Suite developers — widgets, CSS, search, email. $0.">
 <meta property="og:url" content="https://bdgrowthsuite.com/zoom-clinics/">
-<meta property="og:image" content="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/logo.png">
+<meta property="og:image" content="https://bdgrowthsuite.com/images/brand/logo.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Free Brilliant Directories Zoom Clinics — BD Growth Suite">
 <meta name="twitter:description" content="Free Brilliant Directories Zoom Clinics every Tue &amp; Thu. Live Q&amp;A with BD Growth Suite developers — widgets, CSS, search, email. $0.">
-<meta name="twitter:image" content="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/logo.png">
+<meta name="twitter:image" content="https://bdgrowthsuite.com/images/brand/logo.png">
 @endsection
 
 @push('page-styles')

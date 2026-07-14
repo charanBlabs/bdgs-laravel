@@ -1,7 +1,7 @@
 <header class="bdgsownv2-header" id="bdgsHeader">
   <nav class="bdgsownv2-nav">
     <a href="/" class="bdgsownv2-logo">
-      <img referrerpolicy="no-referrer" loading="lazy" width="140" height="32" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/logo.png" alt="BD Growth Suite">
+      <img referrerpolicy="no-referrer" loading="lazy" width="140" height="32" src="/images/brand/logo.png" alt="BD Growth Suite">
     </a>
     <ul class="bdgsownv2-nav-links">
       <li class="bdgsownv2-nav-item bdgsownv2-nav-item-mega">

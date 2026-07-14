@@ -209,6 +209,7 @@ class ZoomClinicMailService
             'join_url' => $joinUrl,
             'page_url' => url('/zoom-clinics'),
             'google_calendar_url' => ZoomClinicCalendar::googleCalendarUrl($clinic, $registration),
+            'directory_url' => $registration->directory_url ?: '',
             'help_topic' => $registration->help_topic ?: 'Anything on your Brilliant Directories site',
             'site_name' => config('app.name'),
         ];

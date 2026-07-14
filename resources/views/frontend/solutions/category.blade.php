@@ -1,18 +1,25 @@
-@php($activeNav = 'solutions')
-
 @extends('layouts.bdgs')
+
+@php
+  $activeNav = 'solutions';
+@endphp
 
 @section('title')
 <title>{{ $category->name }} Solutions | BD Growth Suite</title>
 @endsection
 
 @section('meta')
-<meta name="description" content="{{ $category->description ?? 'Browse '.$category->name.' solutions from BD Growth Suite.' }}">
+<meta name="description" content="{{ $catDesc }}">
 <meta property="og:title" content="{{ $category->name }} Solutions | BD Growth Suite">
-<meta property="og:description" content="{{ $category->description ?? 'Browse '.$category->name.' solutions from BD Growth Suite.' }}">
+<meta property="og:description" content="{{ $catDesc }}">
 <meta property="og:type" content="website">
+<meta property="og:image" content="https://bdgrowthsuite.com/images/brand/logo.png">
 <link rel="canonical" href="{{ url('/solutions/'.$category->slug) }}">
 @endsection
+
+@if ($isEmpty)
+@section('robots-content', 'noindex, follow')
+@endif
 
 @push('page-styles')
 <link rel="stylesheet" href="/css/bdgs-solutions.css">
@@ -44,7 +51,7 @@
         @forelse ($posts as $post)
           @include('frontend.solutions.partials.card', ['post' => $post])
         @empty
-          <p>No published solutions in this category yet.</p>
+          <p>No published solutions in this category yet. Browse <a href="{{ url('/solutions') }}">all Brilliant Directories solutions</a> or check back soon.</p>
         @endforelse
       </div>
       {{ $posts->links() }}

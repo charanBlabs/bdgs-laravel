@@ -121,10 +121,7 @@ return [
     |--------------------------------------------------------------------------
     */
     'brand' => [
-        'logo_url' => env(
-            'MAIL_LOGO_URL',
-            'https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/logo.png'
-        ),
+        'logo_url' => env('MAIL_LOGO_URL', ''),
         'font_family' => env(
             'MAIL_FONT_FAMILY',
             "'DM Sans', -apple-system, BlinkMacSystemFont, Arial, Helvetica, sans-serif"

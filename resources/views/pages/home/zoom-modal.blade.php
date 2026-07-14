@@ -20,7 +20,7 @@
 .bdgs-tz-option:hover, .bdgs-tz-option.selected { background:rgba(231,77,86,0.08); color:var(--bdgs-coral); }
 </style>
 
-          <div style="margin-bottom:8px;">
+          <div style="margin-bottom:2px;">
             <strong style="color:var(--bdgs-dark)">Next clinic:</strong> <span id="bdgsZoomSessionDisplay">Loading...</span>
             <div style="margin-top: 2px;">
               <strong style="color:var(--bdgs-dark)">Timezone:</strong>
@@ -130,11 +130,17 @@
         </div>
 
         <h4 style="margin:0 0 6px; font-size:16px; font-weight:700; color:var(--bdgs-dark); letter-spacing:-0.2px;">Your details please:</h4>
-        <p style="font-size:13px; color:var(--bdgs-text-muted); margin-bottom:16px;">Please enter your name and email to receive the calendar invite.</p>
+        <p style="font-size:13px; color:var(--bdgs-text-muted); margin-bottom:16px;">Name and email get you the calendar invite. Directory URL and help topic are optional — they help us prepare.</p>
         
         <div class="bdgsownv2-modal-form" style="margin-top:0; margin-bottom:24px;">
-          <input type="text" id="bdgsZoomName" name="name" placeholder="Your Name" required style="border-radius:8px; border:1px solid rgba(0,0,0,0.08); padding:12px 16px; width:100%; margin-bottom:12px; font-size:15px; outline:none; transition:border-color 0.2s, box-shadow 0.2s;">
-          <input type="email" id="bdgsZoomEmail" name="email" placeholder="Your Email" required style="border-radius:8px; border:1px solid rgba(0,0,0,0.08); padding:12px 16px; width:100%; font-size:15px; outline:none; transition:border-color 0.2s, box-shadow 0.2s;">
+          <label class="bdgs-sr-only" for="bdgsZoomName">Your name</label>
+          <input type="text" id="bdgsZoomName" name="name" placeholder="Your Name" required autocomplete="name" style="border-radius:8px; border:1px solid rgba(0,0,0,0.08); padding:12px 16px; width:100%; font-size:15px; outline:none; transition:border-color 0.2s, box-shadow 0.2s;">
+          <label class="bdgs-sr-only" for="bdgsZoomEmail">Your email</label>
+          <input type="email" id="bdgsZoomEmail" name="email" placeholder="Your Email" required autocomplete="email" style="border-radius:8px; border:1px solid rgba(0,0,0,0.08); padding:12px 16px; width:100%; font-size:15px; outline:none; transition:border-color 0.2s, box-shadow 0.2s;">
+          <label class="bdgs-sr-only" for="bdgsZoomDirectoryUrl">Directory website URL (optional)</label>
+          <input type="text" id="bdgsZoomDirectoryUrl" name="directory_url" placeholder="Directory website URL (optional)" autocomplete="url" style="border-radius:8px; border:1px solid rgba(0,0,0,0.08); padding:12px 16px; width:100%; font-size:15px; outline:none; transition:border-color 0.2s, box-shadow 0.2s;">
+          <label class="bdgs-sr-only" for="bdgsZoomHelpTopic">What do you need help with? (optional)</label>
+          <textarea id="bdgsZoomHelpTopic" name="help_topic" placeholder="What do you need help with? (optional)" rows="3" style="border-radius:8px; border:1px solid rgba(0,0,0,0.08); padding:12px 16px; width:100%; font-size:15px; outline:none; transition:border-color 0.2s, box-shadow 0.2s; min-height:84px; resize:vertical;"></textarea>
         </div>
         
         <button type="submit" id="bdgsZoomScheduleBtn" class="bdgsownv2-btn-primary bdgs-zoom-register-submit">Complete Registration</button>

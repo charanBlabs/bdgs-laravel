@@ -12,21 +12,9 @@ use Illuminate\View\View;
 
 class MediaController extends Controller
 {
-    public function index(Request $request): View
+    public function index(): View
     {
-        $query = BdgsMedia::query()->with('uploader')->latest();
-
-        if ($search = $request->string('q')->trim()) {
-            $query->where(function ($q) use ($search) {
-                $q->where('filename', 'like', "%{$search}%")
-                    ->orWhere('title', 'like', "%{$search}%");
-            });
-        }
-
-        return view('admin.media.index', [
-            'media' => $query->paginate(24)->withQueryString(),
-            'search' => $search ?? '',
-        ]);
+        return view('admin.media.index');
     }
 
     public function store(Request $request, MediaService $mediaService): RedirectResponse|JsonResponse

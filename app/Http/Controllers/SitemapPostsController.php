@@ -28,10 +28,15 @@ class SitemapPostsController extends Controller
 
             $categories = BdgsCategory::query()
                 ->where('post_type_id', $type->id)
+                ->withCount(['posts' => fn ($q) => $q->published()->where('visibility', 'public')])
                 ->orderBy('sort_order')
-                ->get(['slug', 'updated_at']);
+                ->get(['id', 'slug', 'updated_at']);
 
             foreach ($categories as $category) {
+                if ((int) $category->posts_count === 0) {
+                    continue;
+                }
+
                 $loc = e(url($type->publicBasePath().'/'.$category->slug));
                 $lastmod = $category->updated_at?->toAtomString();
                 $lastmodTag = $lastmod ? '<lastmod>'.e($lastmod).'</lastmod>' : '';

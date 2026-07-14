@@ -17,11 +17,11 @@
 <meta property="og:title" content="Brilliant Directories Developers — BD Growth Suite">
 <meta property="og:description" content="Brilliant Directories developers who think like co-founders. Dedicated BD developer team for setup, customization, AI automation, and growth.">
 <meta property="og:url" content="https://bdgrowthsuite.com/">
-<meta property="og:image" content="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/logo.png">
+<meta property="og:image" content="https://bdgrowthsuite.com/images/brand/logo.png">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Brilliant Directories Developers — BD Growth Suite">
 <meta name="twitter:description" content="Brilliant Directories developers who think like co-founders. Dedicated BD developer team for setup, customization, AI automation, and growth.">
-<meta name="twitter:image" content="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/logo.png">
+<meta name="twitter:image" content="https://bdgrowthsuite.com/images/brand/logo.png">
 @endsection
 
 @push('page-styles')

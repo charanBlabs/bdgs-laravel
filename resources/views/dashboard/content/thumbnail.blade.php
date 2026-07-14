@@ -13,7 +13,14 @@
     <div class="bdgs-thumb__current">
       <h3 class="bdgs-thumb__heading">Current Thumbnail</h3>
       <div class="bdgs-thumb__preview">
-        <img src="{{ $post->featuredMedia->url('medium') }}" alt="{{ $post->featuredMedia->alt_text ?? $post->title }}">
+        <img
+          src="{{ $post->featuredMedia->url('large') }}"
+          srcset="{{ $post->featuredMedia->srcset(['medium', 'large']) }}"
+          sizes="(max-width: 640px) 100vw, 400px"
+          alt="{{ $post->featuredMedia->alt_text ?? $post->title }}"
+          width="{{ $post->featuredMedia->dimensions('large')[0] ?? $post->featuredMedia->width }}"
+          height="{{ $post->featuredMedia->dimensions('large')[1] ?? $post->featuredMedia->height }}"
+        >
       </div>
       <div class="bdgs-thumb__meta">
         <span>{{ $post->featuredMedia->filename }}</span>
@@ -48,7 +55,7 @@
           <li><strong>UPLOAD</strong> — images auto-convert to WebP.</li>
           <li><strong>SAVE</strong> your changes below.</li>
           <li><strong>NOTE</strong> max. of 10 MB at a time per upload.</li>
-          <li><strong>SIZE</strong> 1200 by 640 pixels recommended.</li>
+          <li><strong>SIZE</strong> 1200×800 pixels (3:2) recommended for sharp cards. Avoid BD display thumbs (300×200).</li>
         </ol>
       </div>
 

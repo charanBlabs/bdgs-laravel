@@ -3,13 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+@yield('title')
+@yield('meta')
 <meta name="robots" content="@yield('robots-content', 'index, follow')">
 @auth
 <meta name="csrf-token" content="{{ csrf_token() }}">
 @endauth
-@yield('title')
-@yield('meta')
 @include('partials.bdgs.head-assets')
+@include('partials.bdgs.tracking')
 <link rel="stylesheet" href="/css/bdgs-shell.css">
 @stack('page-styles')
 @if ($showFab ?? true)
@@ -44,5 +45,6 @@
 @endif
 <script src="/js/bdgs-ajax-list.js" defer></script>
 @stack('page-scripts')
+<script src="/js/bdgs-livewire-pager.js"></script>
 </body>
 </html>

@@ -6,7 +6,7 @@
     "@type": "Organization",
     "name": "BD Growth Suite",
     "url": "https://bdgrowthsuite.com",
-    "logo": "https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/logo.png",
+    "logo": "https://bdgrowthsuite.com/images/brand/logo.png",
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "5.0",
@@ -20,7 +20,7 @@
     "@type": "Service",
     "name": "Brilliant Directories Customization — Custom Projects",
     "description": "Brilliant Directories customization: one-off scoped custom builds. Fixed quotes, 1-year code warranty, 1000+ projects shipped across 500+ directories.",
-    "provider": { "@type": "Organization", "name": "BD Growth Suite", "url": "https://bdgrowthsuite.com", "logo": "https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/logo.png" },
+    "provider": { "@type": "Organization", "name": "BD Growth Suite", "url": "https://bdgrowthsuite.com", "logo": "https://bdgrowthsuite.com/images/brand/logo.png" },
     "serviceType": "Web Development",
     "areaServed": "Worldwide",
     "url": "https://bdgrowthsuite.com/customization/",
@@ -43,7 +43,7 @@
       "@type": "Organization",
       "name": "BD Growth Suite by BusinessLabs",
       "url": "https://bdgrowthsuite.com",
-      "logo": "https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/logo.png"
+      "logo": "https://bdgrowthsuite.com/images/brand/logo.png"
     },
     "speakable": {
       "@type": "SpeakableSpecification",

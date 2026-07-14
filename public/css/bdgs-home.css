@@ -820,7 +820,7 @@ select:focus-visible {
   border-radius: 22px;
   background:
     linear-gradient(135deg, rgba(26,26,46,0.78), rgba(149,37,110,0.48)),
-    url('https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/logo.png') center/240px auto no-repeat,
+    url('/images/brand/logo.png') center/240px auto no-repeat,
     var(--bdgs-dark);
   box-shadow: 0 24px 70px rgba(26,26,46,0.22);
   position: relative;
@@ -898,6 +898,12 @@ select:focus-visible {
     overflow: hidden;
     position: relative;
     margin-bottom: 12px; /* Reduced space between rows */
+  }
+  .bdgsownv1-marquee-container--spaced {
+    margin-bottom: 56px;
+  }
+  .bdgsownv1-marquee-container--flush {
+    margin-bottom: 0;
   }
 
   .bdgsownv1-marquee-container::before,

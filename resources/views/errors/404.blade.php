@@ -39,7 +39,7 @@
     <div class="bdgs-404__logo-wrap">
       <img
         class="bdgs-404__logo"
-        src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/logo.png"
+        src="/images/brand/logo.png"
         alt="BD Growth Suite"
         width="160"
         height="37"

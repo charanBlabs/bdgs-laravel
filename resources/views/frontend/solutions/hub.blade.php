@@ -7,21 +7,21 @@
 @endsection
 
 @section('title')
-<title>{{ $totalSolutions }}+ Brilliant Directories Solutions (Done-For-You) — BD Growth Suite</title>
+<title>Brilliant Directories Solutions — BD Growth Suite</title>
 @endsection
 
 @section('meta')
-<meta name="description" content="Browse {{ $totalSolutions }}+ done-for-you Brilliant Directories solutions — SEO, lead gen, profiles, search, design, content, integrations, and member management.">
+<meta name="description" content="Browse {{ $totalSolutions }}+ done-for-you Brilliant Directories solutions — SEO, lead gen, profiles, search, design, and integrations.">
 <link rel="canonical" href="https://bdgrowthsuite.com/solutions/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="{{ $totalSolutions }}+ Brilliant Directories Solutions (Done-For-You) — BD Growth Suite">
-<meta property="og:description" content="Browse {{ $totalSolutions }}+ done-for-you Brilliant Directories solutions — SEO, lead gen, profiles, search, design, content, integrations, and member management.">
+<meta property="og:title" content="Brilliant Directories Solutions — BD Growth Suite">
+<meta property="og:description" content="Browse {{ $totalSolutions }}+ done-for-you Brilliant Directories solutions — SEO, lead gen, profiles, search, design, and integrations.">
 <meta property="og:url" content="https://bdgrowthsuite.com/solutions/">
-<meta property="og:image" content="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/logo.png">
+<meta property="og:image" content="https://bdgrowthsuite.com/images/brand/logo.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="{{ $totalSolutions }}+ Brilliant Directories Solutions (Done-For-You) — BD Growth Suite">
-<meta name="twitter:description" content="Browse {{ $totalSolutions }}+ done-for-you Brilliant Directories solutions — SEO, lead gen, profiles, search, design, content, integrations, and member management.">
-<meta name="twitter:image" content="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/logo.png">
+<meta name="twitter:title" content="Brilliant Directories Solutions — BD Growth Suite">
+<meta name="twitter:description" content="Browse {{ $totalSolutions }}+ done-for-you Brilliant Directories solutions — SEO, lead gen, profiles, search, design, and integrations.">
+<meta name="twitter:image" content="https://bdgrowthsuite.com/images/brand/logo.png">
 @endsection
 
 @push('page-styles')
