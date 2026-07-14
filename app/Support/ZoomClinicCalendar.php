@@ -114,6 +114,14 @@ class ZoomClinicCalendar
             $parts[] = 'Join Zoom: '.$clinic->zoom_meeting_url;
         }
 
+        if ($registration->directory_url) {
+            $parts[] = 'Directory: '.$registration->directory_url;
+        }
+
+        if ($registration->help_topic) {
+            $parts[] = 'Help needed: '.$registration->help_topic;
+        }
+
         $parts[] = 'Page: '.url('/zoom-clinics');
         $parts[] = 'Registered as: '.$registration->name.' ('.$registration->email.')';
 

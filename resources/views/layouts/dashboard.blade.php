@@ -45,5 +45,7 @@
 <script src="/js/bdgs-ajax-list.js" defer></script>
 <script src="/js/bdgs-dashboard.js" defer></script>
 @stack('panel-scripts')
+{{-- Livewire auto-injects before </body>; pager binds on livewire:init --}}
+<script src="/js/bdgs-livewire-pager.js"></script>
 </body>
 </html>

@@ -8,7 +8,7 @@ namespace App\Support;
  */
 class EmailTheme
 {
-    public const LOGO_URL = 'https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/logo.png';
+    public const LOGO_URL = '/images/brand/logo.png';
 
     public const MARKER = '<!-- bdgs-email-theme -->';
 
@@ -28,7 +28,14 @@ class EmailTheme
 
     public static function logoUrl(): string
     {
-        return (string) config('mail.brand.logo_url', self::LOGO_URL);
+        $configured = (string) config('mail.brand.logo_url', self::LOGO_URL);
+        if ($configured !== '' && preg_match('#^https?://#i', $configured)) {
+            return $configured;
+        }
+
+        $path = $configured !== '' ? $configured : self::LOGO_URL;
+
+        return rtrim(self::siteUrl(), '/').'/'.ltrim($path, '/');
     }
 
     public static function siteUrl(): string

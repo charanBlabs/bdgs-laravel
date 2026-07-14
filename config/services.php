@@ -62,4 +62,25 @@ return [
         ],
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Marketing pixels (GA4 / Meta / LinkedIn)
+    |--------------------------------------------------------------------------
+    |
+    | Loaded on public layouts when enabled and at least one ID is set.
+    | Zoom Clinic registration fires conversion events in-browser on success
+    | (no thank-you page). See docs/post-production-checklist.md.
+    |
+    */
+    'tracking' => [
+        // Default: on in production only. Set TRACKING_ENABLED=true to test on staging.
+        'enabled' => env('TRACKING_ENABLED') !== null
+            ? filter_var(env('TRACKING_ENABLED'), FILTER_VALIDATE_BOOLEAN)
+            : env('APP_ENV') === 'production',
+        'ga4_id' => env('GOOGLE_ANALYTICS_ID', env('GA4_MEASUREMENT_ID')),
+        'meta_pixel_id' => env('FACEBOOK_PIXEL_ID', env('META_PIXEL_ID')),
+        'linkedin_partner_id' => env('LINKEDIN_PARTNER_ID'),
+        'linkedin_zoom_clinic_conversion_id' => env('LINKEDIN_ZOOM_CLINIC_CONVERSION_ID'),
+    ],
+
 ];

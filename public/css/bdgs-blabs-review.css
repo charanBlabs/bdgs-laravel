@@ -85,6 +85,12 @@
   position: relative;
   margin-bottom: 12px;
 }
+.bdgsownv1-marquee-container--spaced {
+  margin-bottom: 56px;
+}
+.bdgsownv1-marquee-container--flush {
+  margin-bottom: 0;
+}
 .bdgsownv1-marquee-container::before,
 .bdgsownv1-marquee-container::after {
   content: "";

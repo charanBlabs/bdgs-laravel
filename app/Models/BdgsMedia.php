@@ -105,6 +105,7 @@ class BdgsMedia extends Model
     public function srcset(array $variants = ['thumb', 'medium', 'large']): string
     {
         $parts = [];
+        $maxW = 0;
 
         foreach ($variants as $name) {
             $record = $this->variantRecord($name);
@@ -113,9 +114,10 @@ class BdgsMedia extends Model
             }
 
             $parts[] = $this->url($name).' '.$record->width.'w';
+            $maxW = max($maxW, (int) $record->width);
         }
 
-        if ($parts === [] && $this->width) {
+        if ($this->width && ($parts === [] || (int) $this->width > $maxW)) {
             $parts[] = $this->url().' '.$this->width.'w';
         }
 

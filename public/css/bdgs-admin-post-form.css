@@ -307,13 +307,17 @@
   border-radius: 10px;
   overflow: hidden;
   margin-bottom: 12px;
-  max-width: 400px;
+  max-width: 480px;
+  aspect-ratio: 3 / 2;
+  background: #fff;
 }
 
 .bdgs-thumb__preview img {
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: contain;
+  object-position: center center;
 }
 
 .bdgs-thumb__meta {

@@ -25,6 +25,7 @@ use App\Http\Controllers\Dashboard\ZoomClinicController as DashboardZoomClinicCo
 use App\Http\Controllers\Dashboard\ZoomClinicRegistrationController as DashboardZoomClinicRegistrationController;
 use App\Http\Controllers\FeedController;
 use App\Http\Controllers\Frontend\ContentController;
+use App\Http\Controllers\HireDeveloperController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InquiryWebController;
 use App\Http\Controllers\LicenseSdclController;
@@ -62,6 +63,15 @@ Route::middleware(ProvideMarkdownResponse::class)->group(function () {
     Route::get('/customization/', [CustomizationController::class, 'index']);
     Route::get('/customization.md', [CustomizationController::class, 'index']);
     Route::get('/customization/index.md', [CustomizationController::class, 'index']);
+
+    Route::get('/hire-developer', [HireDeveloperController::class, 'index'])->name('hire-developer');
+    Route::get('/hire-developer/', [HireDeveloperController::class, 'index']);
+    Route::get('/hire-developer.md', [HireDeveloperController::class, 'index']);
+    Route::get('/hire-developer/index.md', [HireDeveloperController::class, 'index']);
+    Route::redirect('/hire-developers', '/hire-developer', 301);
+    Route::redirect('/hire-developers/', '/hire-developer', 301);
+    Route::redirect('/hire-dedicated-brilliant-directories-developer', '/hire-developer', 301);
+    Route::redirect('/hire-dedicated-brilliant-directories-developer/', '/hire-developer', 301);
 
     Route::get('/reviews', [BlabsReviewController::class, 'index'])->name('reviews');
     Route::get('/reviews/', [BlabsReviewController::class, 'index']);

@@ -1,21 +1,32 @@
-@php($activeNav = 'solutions')
-@php($category = $post->categories->first())
-
 @extends('layouts.bdgs')
 
+@php
+  $activeNav = 'solutions';
+  $category = $post->categories->first();
+  $pageTitle = $post->seo?->meta_title ?: ($post->title.' | Brilliant Directories Solution');
+  $metaDescription = $post->seo?->meta_description
+    ?: \Illuminate\Support\Str::limit(strip_tags((string) ($post->excerpt ?: $post->content)), 155, '');
+  if ($metaDescription === '') {
+    $metaDescription = 'Get '.$post->title.' — a done-for-you Brilliant Directories solution from BD Growth Suite.';
+  }
+  $canonicalUrl = $post->seo?->canonical_url ?: url('/solutions/'.$post->slug);
+@endphp
+
 @section('title')
-<title>{{ $post->seo?->meta_title ?? $post->title }} — BD Growth Suite</title>
+<title>{{ $pageTitle }} — BD Growth Suite</title>
 @endsection
 
 @section('meta')
-<meta name="description" content="{{ $post->seo?->meta_description ?? \Illuminate\Support\Str::limit(strip_tags($post->excerpt ?? ''), 160) }}">
-<meta property="og:title" content="{{ $post->seo?->meta_title ?? $post->title }}">
-<meta property="og:description" content="{{ $post->seo?->meta_description ?? \Illuminate\Support\Str::limit(strip_tags($post->excerpt ?? ''), 160) }}">
+<meta name="description" content="{{ $metaDescription }}">
+<meta property="og:title" content="{{ $pageTitle }} — BD Growth Suite">
+<meta property="og:description" content="{{ $metaDescription }}">
 <meta property="og:type" content="website">
 @if ($post->featuredMedia)
 <meta property="og:image" content="{{ url($post->featuredMedia->url('large')) }}">
+@else
+<meta property="og:image" content="https://bdgrowthsuite.com/images/brand/logo.png">
 @endif
-<link rel="canonical" href="{{ url('/solutions/'.$post->slug) }}">
+<link rel="canonical" href="{{ $canonicalUrl }}">
 @endsection
 
 @if ($post->seo?->robots)
@@ -67,7 +78,7 @@
         {{-- Featured image --}}
         @if ($post->featuredMedia)
           @php($hero = $post->featuredMedia)
-          @php($heroDims = $hero->dimensions('large'))
+          @php($heroDims = $hero->dimensions('large') ?: $hero->dimensions())
           @php($heroSrcset = $hero->srcset(['medium', 'large']))
           <img
             class="bdgs-sol-detail__hero-img"
@@ -124,7 +135,7 @@
       <aside class="bdgs-sol-sidebar" aria-label="Solution details">
         {{-- Pricing card --}}
         <div class="bdgs-sol-sidebar__card">
-          <h2 class="bdgs-sol-sidebar__title">{{ $post->short_title ?: $post->title }}</h2>
+          <p class="bdgs-sol-sidebar__title">{{ $post->short_title ?: $post->title }}</p>
           <hr class="bdgs-sol-sidebar__divider">
 
           {{-- Pricing row --}}
@@ -213,10 +224,10 @@
                   <div class="bdgs-sol-sidebar__related-thumb">
                     @if ($related->featuredMedia)
                       @php($relMedia = $related->featuredMedia)
-                      @php($relDims = $relMedia->dimensions('medium'))
-                      @php($relSrcset = $relMedia->srcset(['thumb', 'medium']))
+                      @php($relDims = $relMedia->dimensions('large') ?: $relMedia->dimensions('medium'))
+                      @php($relSrcset = $relMedia->srcset(['medium', 'large']))
                       <img
-                        src="{{ $relMedia->url('medium') }}"
+                        src="{{ $relMedia->url('large') }}"
                         srcset="{{ $relSrcset }}"
                         sizes="280px"
                         alt="{{ $related->short_title ?: $related->title }}"

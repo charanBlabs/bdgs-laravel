@@ -144,62 +144,8 @@ Chatbots. Agents. Smart search.<br>
     <h2 id="client-reviews">We Made These Directories <span style="text-decoration:line-through;color:var(--bdgs-text-muted);font-weight:600;text-decoration-thickness:3px">Happy</span> <em>VERY HAPPY</em></h2>
     <p class="proof-sub">Clients say we feel like in-house Brilliant Directories experts—not a ticket queue. We delivered beyond expectations — and we'll do the same for you.</p>
 
-    <!-- Client Logos Grid (16 logos in 2 rows of 8) -->
-    <!-- Variant 1: Smooth Infinite Marquee (Two Rows) -->
-    <!-- First Row (Scroll Left) -->
-    <div class="bdgsownv1-marquee-container">
-      <div class="bdgsownv1-marquee-track">
-        <!-- Content Set 1 -->
-        <div class="bdgsownv1-marquee-content">
-          <div class="bdgsownv1-logo-item"><img width="160" height="64" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/1.png" alt="Logo"></div>
-          <div class="bdgsownv1-logo-item"><img width="160" height="64" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/9.png" alt="Logo"></div>
-          <div class="bdgsownv1-logo-item"><img width="160" height="64" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/8.png" alt="Logo"></div>
-          <div class="bdgsownv1-logo-item"><img width="160" height="64" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/3.png" alt="Logo"></div>
-          <div class="bdgsownv1-logo-item"><img width="160" height="64" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/CCRG-LOGO-edit1.png" alt="Logo"></div>
-          <div class="bdgsownv1-logo-item"><img width="160" height="64" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP2/supplyseys.png" alt="Logo"></div>
-          <div class="bdgsownv1-logo-item"><img width="160" height="64" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/4.png" alt="Logo"></div>
-          <div class="bdgsownv1-logo-item"><img width="160" height="64" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP2/hotelsjuction.png" alt="Logo"></div>
-        </div>
-        <!-- Content Set 2 (Exact Duplicate) -->
-        <div class="bdgsownv1-marquee-content">
-          <div class="bdgsownv1-logo-item"><img width="160" height="64" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/1.png" alt="Logo"></div>
-          <div class="bdgsownv1-logo-item"><img width="160" height="64" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/9.png" alt="Logo"></div>
-          <div class="bdgsownv1-logo-item"><img width="160" height="64" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/8.png" alt="Logo"></div>
-          <div class="bdgsownv1-logo-item"><img width="160" height="64" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/3.png" alt="Logo"></div>
-          <div class="bdgsownv1-logo-item"><img width="160" height="64" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/CCRG-LOGO-edit1.png" alt="Logo"></div>
-          <div class="bdgsownv1-logo-item"><img width="160" height="64" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP2/supplyseys.png" alt="Logo"></div>
-          <div class="bdgsownv1-logo-item"><img width="160" height="64" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/4.png" alt="Logo"></div>
-          <div class="bdgsownv1-logo-item"><img width="160" height="64" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP2/hotelsjuction.png" alt="Logo"></div>
-        </div>
-      </div>
-    </div>
-    
-    <!-- Second Row (Scroll Right) -->
-    <div class="bdgsownv1-marquee-container" style="margin-bottom: 56px;">
-      <div class="bdgsownv1-marquee-track reverse">
-        <div class="bdgsownv1-marquee-content">
-          <div class="bdgsownv1-logo-item"><img width="160" height="64" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP2/yep.png" alt="Logo"></div>
-          <div class="bdgsownv1-logo-item"><img width="160" height="64" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/7.png" alt="Logo"></div>
-          <div class="bdgsownv1-logo-item"><img width="160" height="64" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP2/isostylist.png" alt="Logo"></div>
-          <div class="bdgsownv1-logo-item"><img width="160" height="64" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/9_1.png" alt="Logo"></div>
-          <div class="bdgsownv1-logo-item"><img width="160" height="64" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/5.png" alt="Logo"></div>
-          <div class="bdgsownv1-logo-item"><img width="160" height="64" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP2/localbulls.png" alt="Logo"></div>
-          <div class="bdgsownv1-logo-item"><img width="160" height="64" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP2/insureblack.png" alt="Logo"></div>
-          <div class="bdgsownv1-logo-item"><img width="160" height="64" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/2.png" alt="Logo"></div>
-        </div>
-        <div class="bdgsownv1-marquee-content">
-          <div class="bdgsownv1-logo-item"><img width="160" height="64" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP2/yep.png" alt="Logo"></div>
-          <div class="bdgsownv1-logo-item"><img width="160" height="64" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/7.png" alt="Logo"></div>
-          <div class="bdgsownv1-logo-item"><img width="160" height="64" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP2/isostylist.png" alt="Logo"></div>
-          <div class="bdgsownv1-logo-item"><img width="160" height="64" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/9_1.png" alt="Logo"></div>
-          <div class="bdgsownv1-logo-item"><img width="160" height="64" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/5.png" alt="Logo"></div>
-          <div class="bdgsownv1-logo-item"><img width="160" height="64" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP2/localbulls.png" alt="Logo"></div>
-          <div class="bdgsownv1-logo-item"><img width="160" height="64" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP2/insureblack.png" alt="Logo"></div>
-          <div class="bdgsownv1-logo-item"><img width="160" height="64" loading="lazy" src="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/LogoP1/2.png" alt="Logo"></div>
-        </div>
-      </div>
-    </div>
-    
+    @include('partials.bdgs.client-logo-marquee')
+
     <!-- Dynamic Reviews Horizontal Peek Carousel (Variant 2) -->
     <div class="bdgsownv2-carousel-wrapper">
       <div class="bdgsownv2-carousel-track" id="bdgsownv2-track">
@@ -436,19 +382,19 @@ Chatbots. Agents. Smart search.<br>
             <div class="bdgsownv2-tier-cta"><button type="button" class="free-cta" onclick="bdgsOpenZoomModal()">Join Next Session →</button></div>
           </div>
 
-          <!-- Tier 2: Dedicated BD Developer (POPULAR) -->
+          <!-- Tier 2: Dedicated Brilliant Directories Developer (POPULAR) -->
           <div class="bdgsownv2-tier-card">
             <span class="bdgsownv2-tier-tag popular">POPULAR</span>
-            <div class="bdgsownv2-tier-title">Dedicated BD Developer</div>
+            <div class="bdgsownv2-tier-title">Dedicated Brilliant Directories Developer</div>
             <div class="bdgsownv2-tier-price">$X,XXX<small> · /month</small></div>
             <div class="bdgsownv2-tier-desc">Your own AI-savvy Brilliant Directories developer. Knows your codebase. Ships ideas as you have them.</div>
             <ul class="bdgsownv2-tier-features">
               <li>Long-term commitment</li>
-              <li>AI-savvy &amp; BD-native</li>
+              <li>AI-savvy &amp; Brilliant Directories-native</li>
               <li>2× faster with AI</li>
               <li>Friday idea → Monday prototype</li>
             </ul>
-            <div class="bdgsownv2-tier-cta"><a href="/hire-developer#bd-dev" class="secondary">Get a BD Developer →</a></div>
+            <div class="bdgsownv2-tier-cta"><a href="/hire-developer#bd-dev" class="secondary">Get a Developer →</a></div>
           </div>
 
           <!-- Tier 3: AI Dev Fleet (APPLY ONLY) -->

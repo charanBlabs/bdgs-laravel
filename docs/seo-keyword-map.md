@@ -32,8 +32,23 @@ Run the `seo-keyword-research` skill in a dedicated chat to fill this with real 
 
 ## Target map — Hire a developer (conversion)
 
+Source: `docs/sources/BDGS_Keyword_Mapping_Meta_Tags.xlsx` (Merge & Combine Plan + Keyword Mapping). Winner URL in sheet was `/hire-developers`; site canonical is `/hire-developer` (brainstorming + nav). Sheet legacy URLs 301 to `/hire-developer`.
+
 ### Primary keywords
-- "hire brilliant directories developer" — TO CONFIRM — maps to /hire-developer
+- "hire dedicated developers" — sheet, vol ~1600 — maps to /hire-developer
+- "dedicated brilliant directories developer" — sheet secondary / merge angle — maps to /hire-developer
+- "hire brilliant directories developer" — supporting — maps to /hire-developer
+
+### SEO title / meta (from sheet, adapted to site title pattern)
+- Title: Hire Dedicated Brilliant Directories Developers — BD Growth Suite
+- Meta: Hire a dedicated Brilliant Directories developer on demand. From custom builds to full-time support — expert developers ready when you are.
+
+### Question targets (on-page FAQ)
+- What is a dedicated Brilliant Directories developer?
+- Why hire dedicated developers instead of freelancers?
+- Should I hire a developer or do a custom project?
+- What is the AI Dev Fleet?
+- Can I start with Zoom Clinics before hiring?
 
 ---
 

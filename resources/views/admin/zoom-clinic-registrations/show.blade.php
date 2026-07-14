@@ -23,7 +23,7 @@
       —
     @endif
   </p>
-  <p><strong>Help topic:</strong> {{ $registration->help_topic ?: '—' }}</p>
+  <p><strong>What do you need help with?</strong> {{ $registration->help_topic ?: '—' }}</p>
 </div>
 
 <div class="bdgs-card" style="margin-top:16px;">

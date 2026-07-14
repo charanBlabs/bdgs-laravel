@@ -7,6 +7,7 @@ use App\Models\BdgsCategory;
 use App\Models\BdgsDataPost;
 use App\Models\BdgsDataType;
 use Database\Seeders\SolutionCategorySeeder;
+use Illuminate\Support\Str;
 use Illuminate\View\View;
 
 class ContentController extends Controller
@@ -22,7 +23,7 @@ class ContentController extends Controller
         $dataType = BdgsDataType::query()->where('slug', $type)->where('is_active', true)->firstOrFail();
 
         $posts = BdgsDataPost::query()
-            ->with('featuredMedia', 'seo')
+            ->with('featuredMedia.variants', 'seo')
             ->where('post_type_id', $dataType->id)
             ->published()
             ->where('visibility', 'public')
@@ -30,7 +31,20 @@ class ContentController extends Controller
             ->orderByDesc('published_at')
             ->paginate(12);
 
-        return view('frontend.content.listing', compact('dataType', 'posts', 'type'));
+        $listingDescription = $dataType->description
+            ?: ('Browse '.$dataType->name.' from BD Growth Suite — practical Brilliant Directories guidance from expert developers.');
+        $listingDescription = Str::limit(strip_tags($listingDescription), 155, '');
+        $canonicalUrl = url('/'.$type);
+        $isEmpty = $posts->total() === 0;
+
+        return view('frontend.content.listing', compact(
+            'dataType',
+            'posts',
+            'type',
+            'listingDescription',
+            'canonicalUrl',
+            'isEmpty',
+        ));
     }
 
     public function solutionsHub(): View
@@ -64,7 +78,7 @@ class ContentController extends Controller
             ->firstOrFail();
 
         $posts = BdgsDataPost::query()
-            ->with('featuredMedia', 'seo', 'categories')
+            ->with('featuredMedia.variants', 'seo', 'categories')
             ->where('post_type_id', $dataType->id)
             ->whereHas('categories', fn ($q) => $q->where('bdgs_categories.id', $category->id))
             ->published()
@@ -73,7 +87,19 @@ class ContentController extends Controller
             ->orderByDesc('published_at')
             ->paginate(20);
 
-        return view('frontend.solutions.category', compact('dataType', 'category', 'posts', 'type'));
+        $catDesc = $category->description
+            ?: ('Browse '.$category->name.' Brilliant Directories solutions from BD Growth Suite.');
+        $catDesc = Str::limit(strip_tags($catDesc), 155, '');
+        $isEmpty = $posts->total() === 0;
+
+        return view('frontend.solutions.category', compact(
+            'dataType',
+            'category',
+            'posts',
+            'type',
+            'catDesc',
+            'isEmpty',
+        ));
     }
 
     public function show(string $type, string $slug): View
@@ -88,7 +114,7 @@ class ContentController extends Controller
         $dataType = BdgsDataType::query()->where('slug', $routeType)->firstOrFail();
 
         $post = BdgsDataPost::query()
-            ->with('featuredMedia', 'categories', 'tags', 'seo', 'author', 'meta')
+            ->with('featuredMedia.variants', 'categories', 'tags', 'seo', 'author', 'meta')
             ->where('post_type_id', $dataType->id)
             ->where('slug', $routeSlug)
             ->published()
@@ -101,7 +127,7 @@ class ContentController extends Controller
             $categoryId = $post->categories->first()?->id;
             if ($categoryId) {
                 $relatedPosts = BdgsDataPost::query()
-                    ->with('featuredMedia')
+                    ->with('featuredMedia.variants')
                     ->where('post_type_id', $dataType->id)
                     ->where('id', '!=', $post->id)
                     ->whereHas('categories', fn ($q) => $q->where('bdgs_categories.id', $categoryId))

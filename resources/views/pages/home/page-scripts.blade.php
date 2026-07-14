@@ -1,4 +1,4 @@
-﻿@include('partials.bdgs.zoom-clinic-scripts')
+@include('partials.bdgs.zoom-clinic-scripts')
 <script>
 // Stack cards now handled purely by CSS sticky positioning
 

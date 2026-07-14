@@ -162,7 +162,7 @@ class ReviewPresenter
             '@id' => 'https://bdgrowthsuite.com/#organization',
             'name' => 'BD Growth Suite by Business Labs',
             'url' => 'https://bdgrowthsuite.com',
-            'logo' => 'https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/logo.png',
+            'logo' => 'https://bdgrowthsuite.com/images/brand/logo.png',
             'description' => 'Expert Brilliant Directories developers and partners. BD Growth Suite by Business Labs.',
             'aggregateRating' => [
                 '@type' => 'AggregateRating',

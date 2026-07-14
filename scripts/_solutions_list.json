@@ -1,0 +1,345 @@
+[
+    {
+        "slug": "advanced-directory-review",
+        "title": "Advanced Directory Review",
+        "status": "published",
+        "category": "",
+        "source": "db"
+    },
+    {
+        "slug": "latest-reviews-on-search-results",
+        "title": "Latest Reviews on Search Results",
+        "status": "published",
+        "category": "",
+        "source": "db"
+    },
+    {
+        "slug": "quick-directory-review",
+        "title": "Quick Directory Review",
+        "status": "published",
+        "category": "",
+        "source": "db"
+    },
+    {
+        "slug": "faq-management-plugin",
+        "title": "FAQ Management Plugin",
+        "status": "published",
+        "category": "content",
+        "source": "db"
+    },
+    {
+        "slug": "table-of-contents-or-index-for-articles",
+        "title": "Table of contents or index for articles",
+        "status": "published",
+        "category": "content",
+        "source": "db"
+    },
+    {
+        "slug": "calendly-integration-for-members-profile-page",
+        "title": "Calendly Integration for Members Profile Page",
+        "status": "published",
+        "category": "integrations",
+        "source": "db"
+    },
+    {
+        "slug": "constant-contact-integration-for-member-signup",
+        "title": "Constant Contact Integration for Member Signup",
+        "status": "published",
+        "category": "integrations",
+        "source": "db"
+    },
+    {
+        "slug": "custom-crm-for-brilliant-directories",
+        "title": "Custom CRM for Brilliant Directories",
+        "status": "published",
+        "category": "integrations",
+        "source": "db"
+    },
+    {
+        "slug": "intercom-live-chat-for-brilliant-directories",
+        "title": "Intercom Live Chat for Brilliant Directories",
+        "status": "published",
+        "category": "integrations",
+        "source": "db"
+    },
+    {
+        "slug": "mailchimp-integration-for-newsletter-subscribers",
+        "title": "Mailchimp Integration for Newsletter Subscribers",
+        "status": "published",
+        "category": "integrations",
+        "source": "db"
+    },
+    {
+        "slug": "tawk-to-implementation-for-live-chat",
+        "title": "Tawk.to Implementation for Live Chat",
+        "status": "published",
+        "category": "integrations",
+        "source": "db"
+    },
+    {
+        "slug": "zoho-crm-integration-for-members-signup",
+        "title": "Zoho CRM Integration for Members Signup",
+        "status": "published",
+        "category": "integrations",
+        "source": "db"
+    },
+    {
+        "slug": "elevator-pitch-manager-for-blog-articles",
+        "title": "Elevator Pitch Manager for Blog Articles",
+        "status": "published",
+        "category": "lead-gen",
+        "source": "db"
+    },
+    {
+        "slug": "lead-gen-on-no-search-results-page",
+        "title": "Lead Gen on No Search Results Page",
+        "status": "published",
+        "category": "lead-gen",
+        "source": "db"
+    },
+    {
+        "slug": "lead-gen-on-search-results-page",
+        "title": "Lead Gen on Search Results Page",
+        "status": "published",
+        "category": "lead-gen",
+        "source": "db"
+    },
+    {
+        "slug": "search-results-sidebar-call-to-actions",
+        "title": "Search Results Sidebar Call-To-Actions",
+        "status": "published",
+        "category": "lead-gen",
+        "source": "db"
+    },
+    {
+        "slug": "members-approval-plugin-for-directory-websites",
+        "title": "Members Approval Plugin for Directory Websites",
+        "status": "published",
+        "category": "member-management",
+        "source": "db"
+    },
+    {
+        "slug": "additional-fields-on-contact-detail-page",
+        "title": "Additional Fields on Contact Detail Page",
+        "status": "published",
+        "category": "member-profiles",
+        "source": "db"
+    },
+    {
+        "slug": "business-highlights-for-member-profiles",
+        "title": "Business Highlights for Member Profiles",
+        "status": "published",
+        "category": "member-profiles",
+        "source": "db"
+    },
+    {
+        "slug": "complete-business-hours-for-brilliant-directories",
+        "title": "Complete Business Hours for Brilliant Directories",
+        "status": "published",
+        "category": "member-profiles",
+        "source": "db"
+    },
+    {
+        "slug": "custom-member-profile-detail-page-design-for-brilliant-directories",
+        "title": "Custom Member Profile Detail Page Design for Brilliant Directories",
+        "status": "published",
+        "category": "member-profiles",
+        "source": "db"
+    },
+    {
+        "slug": "custom-tabs-on-member-profile-pages",
+        "title": "Custom Tabs on Member Profile Pages",
+        "status": "published",
+        "category": "member-profiles",
+        "source": "db"
+    },
+    {
+        "slug": "how-to-edit-existing-tabs-on-member-profile-pages",
+        "title": "How to Edit Existing Tabs on Member Profile Pages",
+        "status": "published",
+        "category": "member-profiles",
+        "source": "db"
+    },
+    {
+        "slug": "introduction-video-for-member-profiles",
+        "title": "Introduction Video for Member Profiles",
+        "status": "published",
+        "category": "member-profiles",
+        "source": "db"
+    },
+    {
+        "slug": "member-profile-tabs-edits",
+        "title": "Member Profile Tabs Edits",
+        "status": "published",
+        "category": "member-profiles",
+        "source": "db"
+    },
+    {
+        "slug": "photo-gallery-for-members",
+        "title": "Photo Gallery for Members",
+        "status": "published",
+        "category": "member-profiles",
+        "source": "db"
+    },
+    {
+        "slug": "add-images-to-footer",
+        "title": "Add Images to Footer",
+        "status": "published",
+        "category": "page-design",
+        "source": "db"
+    },
+    {
+        "slug": "add-mobile-app-download-icons-to-footer",
+        "title": "Add Mobile App Download Icons to Footer",
+        "status": "published",
+        "category": "page-design",
+        "source": "db"
+    },
+    {
+        "slug": "add-social-icons-to-footer-–-brilliant-directories",
+        "title": "Add Social Icons to Footer – Brilliant Directories",
+        "status": "published",
+        "category": "page-design",
+        "source": "db"
+    },
+    {
+        "slug": "banner-ads-on-header-and-footer",
+        "title": "Banner Ads on Header and Footer",
+        "status": "published",
+        "category": "page-design",
+        "source": "db"
+    },
+    {
+        "slug": "custom-how-it-works-page-development",
+        "title": "Custom How it Works Page Development",
+        "status": "published",
+        "category": "page-design",
+        "source": "db"
+    },
+    {
+        "slug": "custom-join-page-development",
+        "title": "Custom Join Page Development",
+        "status": "published",
+        "category": "page-design",
+        "source": "db"
+    },
+    {
+        "slug": "custom-landing-page-design-for-brilliant-directories-websites",
+        "title": "Custom Landing Page Design for Brilliant Directories Websites",
+        "status": "published",
+        "category": "page-design",
+        "source": "db"
+    },
+    {
+        "slug": "custom-member-dashboard-checklist",
+        "title": "Custom Member Dashboard Checklist",
+        "status": "published",
+        "category": "page-design",
+        "source": "db"
+    },
+    {
+        "slug": "custom-page-development-as-per-your-idea",
+        "title": "Custom Page Development as per your Idea",
+        "status": "published",
+        "category": "page-design",
+        "source": "db"
+    },
+    {
+        "slug": "custom-signup-or-checkout-page",
+        "title": "Custom Signup or Checkout Page",
+        "status": "published",
+        "category": "page-design",
+        "source": "db"
+    },
+    {
+        "slug": "social-media-icons-in-header",
+        "title": "Social Media Icons in Header",
+        "status": "published",
+        "category": "page-design",
+        "source": "db"
+    },
+    {
+        "slug": "custom-search-filters-for-directory-websites",
+        "title": "Custom Search Filters for Directory Websites",
+        "status": "published",
+        "category": "search",
+        "source": "db"
+    },
+    {
+        "slug": "enhanced-member-card-elements-in-search-results",
+        "title": "Enhanced Member Card Elements in Search Results",
+        "status": "published",
+        "category": "search",
+        "source": "db"
+    },
+    {
+        "slug": "search-results-buttons",
+        "title": "Search Results Buttons",
+        "status": "published",
+        "category": "search",
+        "source": "db"
+    },
+    {
+        "slug": "blog-schema-for-blogs-results-page",
+        "title": "Blog Schema for Blogs Results Page",
+        "status": "published",
+        "category": "seo",
+        "source": "db"
+    },
+    {
+        "slug": "edit-post-urls-for-brilliant-directories",
+        "title": "Edit Post URLs for Brilliant Directories",
+        "status": "published",
+        "category": "seo",
+        "source": "db"
+    },
+    {
+        "slug": "essential-seo-audit",
+        "title": "Essential SEO Audit",
+        "status": "published",
+        "category": "seo",
+        "source": "db"
+    },
+    {
+        "slug": "event-schema-for-event-detail-pages",
+        "title": "Event Schema for Event Detail Pages",
+        "status": "published",
+        "category": "seo",
+        "source": "db"
+    },
+    {
+        "slug": "job-schema-for-job-detail-page",
+        "title": "Job Schema for Job Detail Page",
+        "status": "published",
+        "category": "seo",
+        "source": "db"
+    },
+    {
+        "slug": "job-schema-for-jobs-results-page",
+        "title": "Job Schema for Jobs Results Page",
+        "status": "published",
+        "category": "seo",
+        "source": "db"
+    },
+    {
+        "slug": "schema-for-home-page",
+        "title": "Schema for Home Page",
+        "status": "published",
+        "category": "seo",
+        "source": "db"
+    },
+    {
+        "slug": "schema-for-members-profile-detail-page",
+        "title": "Schema for Members Profile Detail Page",
+        "status": "published",
+        "category": "seo",
+        "source": "db"
+    },
+    {
+        "slug": "strategic-seo-audit-advanced",
+        "title": "Strategic SEO Audit (Advanced)",
+        "status": "published",
+        "category": "seo",
+        "source": "db"
+    }
+]

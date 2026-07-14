@@ -14,6 +14,28 @@ class ZoomClinicService
     public function __construct(private ZoomClinicMailService $mail) {}
 
     /**
+     * Flip DB status from wall-clock: past sessions → completed, in-window → live.
+     * Keeps admin lists and edit forms honest without manual status changes.
+     */
+    public function syncLifecycleStatuses(): int
+    {
+        $now = now();
+
+        $completed = BdgsZoomClinic::query()
+            ->whereIn('status', ['scheduled', 'live'])
+            ->whereRaw('COALESCE(buffer_ends_at, session_ends_at) < ?', [$now])
+            ->update(['status' => 'completed']);
+
+        $live = BdgsZoomClinic::query()
+            ->where('status', 'scheduled')
+            ->where('session_starts_at', '<=', $now)
+            ->whereRaw('COALESCE(buffer_ends_at, session_ends_at) >= ?', [$now])
+            ->update(['status' => 'live']);
+
+        return $completed + $live;
+    }
+
+    /**
      * @return Collection<int, BdgsZoomClinic>
      */
     public function upcomingPublished(): Collection

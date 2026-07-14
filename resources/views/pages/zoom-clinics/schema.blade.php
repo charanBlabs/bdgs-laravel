@@ -38,7 +38,7 @@
           '@id' => 'https://bdgrowthsuite.com/#organization',
           'name' => 'BD Growth Suite',
           'url' => 'https://bdgrowthsuite.com/',
-          'logo' => 'https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/logo.png',
+          'logo' => 'https://bdgrowthsuite.com/images/brand/logo.png',
       ],
       [
           '@type' => 'WebPage',

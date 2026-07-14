@@ -13,7 +13,7 @@
 <meta property="og:site_name" content="BD Growth Suite">
 <meta property="og:title" content="License Terms for Single Domain Use | BD Growth Suite">
 <meta property="og:description" content="Read BD Growth Suite license terms for single domain use, including usage rights, restrictions, transfers, and domain change policies.">
-<meta property="og:image" content="https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/business-growth.jpg">
+<meta property="og:image" content="https://bdgrowthsuite.com/images/brand/business-growth.jpg">
 @endsection
 
 @push('page-styles')

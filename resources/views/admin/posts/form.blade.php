@@ -43,6 +43,11 @@
       </div>
 
       <div class="bdgs-sf__field">
+        <label class="bdgs-sf__label" for="sf-canonical">Canonical URL</label>
+        <input type="url" id="sf-canonical" name="canonical_url" class="bdgs-sf__input" value="{{ old('canonical_url', $post->seo?->canonical_url) }}" placeholder="https://bdgrowthsuite.com/...">
+      </div>
+
+      <div class="bdgs-sf__field">
         <label class="bdgs-sf__label" for="sf-robots">Robots</label>
         <input type="text" id="sf-robots" name="robots" class="bdgs-sf__input" value="{{ old('robots', $post->seo?->robots) }}" placeholder="index,follow">
       </div>

@@ -111,6 +111,8 @@ class BdgsZoomClinic extends Model
 
     /**
      * Lifecycle for UI lists — uses wall-clock when DB status hasn't been flipped yet.
+     *
+     * @return 'cancelled'|'completed'|'live'|'upcoming'
      */
     public function displayLifecycleStatus(): string
     {
@@ -132,5 +134,16 @@ class BdgsZoomClinic extends Model
         }
 
         return 'upcoming';
+    }
+
+    /** Human label for admin/dashboard badges. */
+    public function displayLifecycleLabel(): string
+    {
+        return match ($this->displayLifecycleStatus()) {
+            'upcoming' => 'Scheduled',
+            'live' => 'Live',
+            'completed' => 'Completed',
+            'cancelled' => 'Cancelled',
+        };
     }
 }

@@ -26,6 +26,10 @@ class ZoomClinicRegisterController extends Controller
             'registrant_timezone' => ['nullable', 'string', 'max:64'],
         ]);
 
+        $validated['directory_url'] = trim((string) ($validated['directory_url'] ?? ''));
+        $helpTopic = trim((string) ($validated['help_topic'] ?? ''));
+        $validated['help_topic'] = $helpTopic !== '' ? $helpTopic : null;
+
         $clinic = $this->clinics->findUpcomingClinic(
             isset($validated['clinic_id']) ? (int) $validated['clinic_id'] : null
         );

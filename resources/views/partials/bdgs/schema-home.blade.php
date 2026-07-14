@@ -5,7 +5,7 @@
       'name' => 'BD Growth Suite',
       'alternateName' => 'BDGS',
       'url' => 'https://bdgrowthsuite.com',
-      'logo' => 'https://ik.imagekit.io/h1pfsvzlsf/bdgrowthsuite/images/logo.png',
+      'logo' => 'https://bdgrowthsuite.com/images/brand/logo.png',
       'description' => 'Brilliant Directories developers — dedicated BD developer team for setup, customization, AI automation, and growth.',
       'foundingDate' => '2014',
       'founder' => ['@type' => 'Person', 'name' => 'Yakin Shah'],

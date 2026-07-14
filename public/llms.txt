@@ -2,7 +2,7 @@
 
 **Website:** https://bdgrowthsuite.com/
 **Authority:** Gold Certified Brilliant Directories Partner | World's Largest BD Development Team
-**Last Updated:** 2026-07-13
+**Last Updated:** 2026-07-14
 
 > Brilliant Directories developers. A dedicated developer team for setup, customization, AI automation, and growth.
 
@@ -17,6 +17,7 @@ quote the site accurately.
 ## Pages (markdown mirrors)
 - [Brilliant Directories Developers — BD Growth Suite](https://bdgrowthsuite.com/index.md): brilliant directories developers
 - [Brilliant Directories Services — BD Growth Suite](https://bdgrowthsuite.com/services.md): brilliant directories services
+- [Hire Dedicated Brilliant Directories Developers — BD Growth Suite](https://bdgrowthsuite.com/hire-developer.md): hire dedicated developers
 - [Brilliant Directories Customization — Custom Projects](https://bdgrowthsuite.com/customization.md): brilliant directories customization
 - [Free Brilliant Directories Zoom Clinics](https://bdgrowthsuite.com/zoom-clinics.md): brilliant directories zoom clinics
 - [49+ Brilliant Directories Solutions (Done-For-You)](https://bdgrowthsuite.com/solutions.md): brilliant directories solutions

@@ -29,7 +29,7 @@ class PostController extends Controller
         $dataType = BdgsDataType::query()->where('slug', $type)->firstOrFail();
 
         $posts = BdgsDataPost::query()
-            ->with('author', 'featuredMedia', 'categories')
+            ->with(['author', 'featuredMedia.variants', 'categories'])
             ->where('post_type_id', $dataType->id)
             ->latest('updated_at')
             ->paginate(20);
@@ -110,7 +110,7 @@ class PostController extends Controller
     {
         $dataType = BdgsDataType::query()->where('slug', $type)->firstOrFail();
         abort_unless($post->post_type_id === $dataType->id, 404);
-        $post->load('featuredMedia');
+        $post->load('featuredMedia.variants');
 
         return view('admin.posts.thumbnail', compact('dataType', 'type', 'post'));
     }
@@ -185,7 +185,12 @@ class PostController extends Controller
 
     private function syncSeo(BdgsDataPost $post, Request $request): void
     {
-        if (! $request->filled('meta_title') && ! $request->filled('meta_description') && ! $request->filled('robots')) {
+        if (
+            ! $request->filled('meta_title')
+            && ! $request->filled('meta_description')
+            && ! $request->filled('robots')
+            && ! $request->filled('canonical_url')
+        ) {
             return;
         }
 
@@ -196,6 +201,7 @@ class PostController extends Controller
                 'meta_description' => $request->input('meta_description'),
                 'og_title' => $request->input('og_title'),
                 'og_description' => $request->input('og_description'),
+                'canonical_url' => $request->input('canonical_url'),
                 'robots' => $request->input('robots'),
             ]
         );

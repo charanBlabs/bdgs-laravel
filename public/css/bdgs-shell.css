@@ -101,7 +101,12 @@
   .row > .col-md-7 { flex: 0 0 58.333333%; max-width: 58.333333%; }
 }
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 68px; }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 68px;
+  /* Match footer so overscroll / stray whitespace never flashes white */
+  background: var(--bdgs-dark);
+}
 body {
   font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: var(--fs-body);

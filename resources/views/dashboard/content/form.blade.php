@@ -107,6 +107,12 @@
       </div>
     </div>
     <div class="bdgs-profile-form__row">
+      <label class="bdgs-profile-form__label" for="pf_canonical">Canonical URL</label>
+      <div class="bdgs-profile-form__field">
+        <input type="url" id="pf_canonical" name="canonical_url" value="{{ old('canonical_url', $post->seo?->canonical_url) }}" placeholder="https://bdgrowthsuite.com/...">
+      </div>
+    </div>
+    <div class="bdgs-profile-form__row">
       <label class="bdgs-profile-form__label" for="pf_robots">Robots</label>
       <div class="bdgs-profile-form__field">
         <input type="text" id="pf_robots" name="robots" value="{{ old('robots', $post->seo?->robots) }}" placeholder="index,follow">
